@@ -28,4 +28,4 @@ jobs:
 
     - name: Lint Notebooks
       run: |
-        black . --exclude "(^\..*|/\..*|build|dist|docs)/" --include "*.py,*.ipynb"
+        black . --include '*ipynb'
