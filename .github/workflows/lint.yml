@@ -26,6 +26,3 @@ jobs:
       run: |
         black --check .
 
-    - name: Lint Notebooks
-      run: |
-        black . --include '*ipynb'
