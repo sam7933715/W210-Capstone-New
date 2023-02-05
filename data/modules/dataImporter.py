@@ -4,6 +4,7 @@ from modules.constants import YELP_DATASETS
 import pandas as pd
 import numpy as np
 
+
 def yelp_import(size="large"):
     """This returns a dictionary of DFs with the Yelp Data.
 
@@ -18,5 +19,5 @@ def yelp_import(size="large"):
 
     end_dict = {}
     for name, file_name in YELP_DATASETS.items():
-        end_dict[name] = pd.read_json(path_start + file_name, lines = True)
+        end_dict[name] = pd.read_json(path_start + file_name, lines=True)
     return end_dict
