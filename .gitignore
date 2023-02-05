@@ -1,1 +1,3 @@
 data/yelp_dataset/**
+data/GoogleBooks*
+data/tripAdvisor_API_attempt/api_key.py

@@ -1,0 +1,2 @@
+The Trip Advisor API can cost money for each query over the first 5,000 per month. To prevent being billed for calls that a user didn't make, which can get large with for loops and such, the API_KEY is hidden in an api_key.py module. This module just has a constant string called API_KEY that can be imported and added to API calls without exposing the API key to any open source repository or other teammates. This ensures that people will manage their API usage well. 
+
