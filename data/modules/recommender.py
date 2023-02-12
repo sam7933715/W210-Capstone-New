@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 
 # Content-based Recommender
-def recommend_restaurants(input_restaurant_name, my_city, dest_city, businesses,
+def recommend_restaurants_content_based(input_restaurant_name, my_city, dest_city, businesses,
                           reviews, vectorizer = TfidfVectorizer(stop_words = 'english'), top_n = 10):
     """
         This function recommends similar restaurants in a destination city based on a restaurant name in the user's current city.
