@@ -64,7 +64,7 @@ def recommend_restaurants_content_based(input_restaurant_name, my_city, dest_cit
     # Calculate cosine similarity
     cosine_similarities = cosine_similarity(X, X).flatten()
     
-    # Find the indices of the most similar reviews
+    # Find the indices of the most similar reviews (top 10 by default, minus the input review)
     related_review_indices = cosine_similarities.argsort()[:-11:-1]
     
     # Get the business_ids of the most similar reviews
@@ -95,6 +95,7 @@ def recommend_restaurants_content_based(input_restaurant_name, my_city, dest_cit
     # Create a table with business name, categories, and similarity score
     result = pd.DataFrame({'name': similar_businesses['name'], 
                            'business_id': similar_business['business_id'],
+                           'city': similar_business['city'],
                            'categories': similar_businesses['categories'], 
                            'similarity_score': similarity_scores,
                            'avg_rating': avg_ratings})
@@ -194,6 +195,7 @@ def recommend_restaurants_item_based(input_restaurant_name, my_city, dest_city,
         business = similar_businesses[similar_businesses['business_id'] == business_id].iloc[0]
         recommendations.append({'name': business['name'],
                                 'business_id': business['business_id'],
+                                'city': business['city'],
                                 'categories': [x for x in business['categories'].split(", ") if x != 'Restaurants'],
                                 'similarity_score': similarity_scores_dict[business_id],
                                 'avg_rating': avg_rating})
