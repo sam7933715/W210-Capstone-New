@@ -4,6 +4,7 @@ data/yelp_dataset/yelp_academic_dataset_checkin.json
 data/yelp_dataset/yelp_academic_dataset_review.json
 data/yelp_dataset/yelp_academic_dataset_tip.json
 data/yelp_dataset/yelp_academic_dataset_user.json
+data/yelp_dataset/processed_data/*
 
 
 data/GoogleBooks*
@@ -11,3 +12,6 @@ data/tripAdvisor_API_attempt/api_key.py
 
 ./.DS_Store
 data/.DS_Store
+*/.ipynb_checkpoints/*
+
+.idea/*
