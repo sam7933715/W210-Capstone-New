@@ -3,6 +3,10 @@
 from modules.constants import YELP_DATASETS
 import pandas as pd
 import numpy as np
+import os
+
+dataset_dir, _ = os.path.split(os.getcwd())
+print(dataset_dir)
 
 
 def yelp_import(size="large"):
