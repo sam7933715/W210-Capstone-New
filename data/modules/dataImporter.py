@@ -1,6 +1,6 @@
 """This module defines functions to import the data."""
 
-from constants import YELP_DATASETS
+from modules.constants import YELP_DATASETS
 import pandas as pd
 import numpy as np
 import os
