@@ -12,7 +12,7 @@ while tail != "/data":
     path = splits[0]
     tail = splits[1]
     if tail in ["/c", "/Users"]:
-        raise ""
+        raise ValueError("Cannot find /data directory")
 
 
 def yelp_import(size="large"):

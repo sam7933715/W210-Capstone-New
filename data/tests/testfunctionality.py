@@ -22,10 +22,32 @@ text_one = pd.DataFrame.from_dict(
     {"record": [1, 2, 3], "text": ["hi Bill! a the", "hi 90324 PINK", "NEVER * a to"]}
 )
 
+text_two = pd.DataFrame.from_dict(
+    {
+        "record": [1, 2, 3],
+        "text": [
+            "devil Bill! a the (*^&*&*())",
+            "devil 90324 PINK (*^&&%)",
+            "NEVER * a to",
+        ],
+    }
+)
+
 
 @pytest.mark.parametrize(
     "df_input,expected_map,expected_vectorizer",
-    [(text_one, pd.Series(["hi bill a the", "hi pink", "never a to"]), ["hi", "pink"])],
+    [
+        (
+            text_one,
+            pd.Series(["hi bill a the", "hi pink", "never a to"]),
+            ["hi", "pink"],
+        ),
+        (
+            text_two,
+            pd.Series(["devil bill a the", "devil pink", "never a to"]),
+            ["devil", "pink"],
+        ),
+    ],
 )
 def test_textPreProcess(df_input, expected_map, expected_vectorizer):
     """Tests that the text preprocess manages the basic steps."""
