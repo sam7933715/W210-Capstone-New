@@ -4,9 +4,15 @@ from modules.constants import YELP_DATASETS
 import pandas as pd
 import os
 
-dataset_dir, _ = os.path.split(os.getcwd())
-print(dataset_dir)
+path = os.getcwd()
+tail = ''
 
+while tail != '/data':
+    splits = os.path.split(path)
+    path = splits[0]
+    tail = splits[1]
+    if tail in ["/c","/Users"]:
+        raise ""
 
 def yelp_import(size="large"):
     """This returns a dictionary of DFs with the Yelp Data.
@@ -16,9 +22,9 @@ def yelp_import(size="large"):
     """
 
     if size == "small":
-        path_start = "yelp_dataset/smaller/"
+        path_start = "/yelp_dataset/smaller/"
     else:
-        path_start = "yelp_dataset/"
+        path_start = "/yelp_dataset/"
 
     end_dict = {}
     for name, file_name in YELP_DATASETS.items():

@@ -21,8 +21,13 @@ jobs:
     - name: Install dependencies
       run: |
         pip install black
+        pip install pytest
 
     - name: Lint with Black
       run: |
         black --check .
-
+    
+    - name: testfunctionality.py
+      run: |
+        cd data/tests
+        pytest testfunctionality.py
