@@ -5,14 +5,15 @@ import pandas as pd
 import os
 
 path = os.getcwd()
-tail = ''
+tail = ""
 
-while tail != '/data':
+while tail != "/data":
     splits = os.path.split(path)
     path = splits[0]
     tail = splits[1]
-    if tail in ["/c","/Users"]:
+    if tail in ["/c", "/Users"]:
         raise ""
+
 
 def yelp_import(size="large"):
     """This returns a dictionary of DFs with the Yelp Data.
