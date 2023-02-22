@@ -24,7 +24,7 @@ jobs:
         pip install pytest
         pip install numpy
         pip install pandas
-        pip install sklearn
+        pip install -U scikit-learn
         pip install pyspark
 
     - name: Lint with Black
