@@ -10,6 +10,7 @@ import numpy as np
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+
 def map_func(text):
     """Is designed to be mapped over a DF column with text for the ML algorithm.
 
@@ -30,6 +31,7 @@ def map_func(text):
     text = text.strip()
 
     return text
+
 
 def get_tokenizer(df, train_col):
     """Add a Pandas Dataframe that

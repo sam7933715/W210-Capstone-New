@@ -17,6 +17,7 @@ def test_import_working(dataset_size):
     data, spark = yelp_import(dataset_size)
     assert len(data) > 0
 
+
 text_one = pd.DataFrame.from_dict(
     {"record": [1, 2, 3], "text": ["hi Bill! a the", "hi 90324 PINK", "NEVER * a to"]}
 )

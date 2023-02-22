@@ -16,7 +16,8 @@ while tail != "data":
     if tail in ["/c", "/Users"]:
         raise ValueError("Cannot find /data directory")
 
-def yelp_import(size="large", application = "pandas", path = path):
+
+def yelp_import(size="large", application="pandas", path=path):
     """This returns a dictionary of DFs with the Yelp Data.
 
     Args:
@@ -28,10 +29,13 @@ def yelp_import(size="large", application = "pandas", path = path):
     else:
         path_start = os.path.join(path, "yelp_dataset")
 
-    spark = None if application == "pandas" else SparkSession.builder \
-    .master("local[1]") \
-    .appName("tripPlanning") \
-    .getOrCreate()
+    spark = (
+        None
+        if application == "pandas"
+        else SparkSession.builder.master("local[1]")
+        .appName("tripPlanning")
+        .getOrCreate()
+    )
 
     end_dict = {}
     for name, file_name in YELP_DATASETS.items():
