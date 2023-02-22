@@ -11,12 +11,11 @@ from modules.dataImporter import yelp_import
 from modules import textPreProcess as tpp
 
 
-@pytest.mark.parametrize("dataset_size", ["small", "large"])
+@pytest.mark.parametrize("dataset_size, ", [("small", "pandas"), ("large", "spark")])
 def test_import_working(dataset_size):
     """Tests that the importer isn't broken."""
-    data = yelp_import(dataset_size)
+    data, spark = yelp_import(dataset_size)
     assert len(data) > 0
-
 
 text_one = pd.DataFrame.from_dict(
     {"record": [1, 2, 3], "text": ["hi Bill! a the", "hi 90324 PINK", "NEVER * a to"]}
