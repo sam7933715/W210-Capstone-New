@@ -21,8 +21,17 @@ jobs:
     - name: Install dependencies
       run: |
         pip install black
+        pip install pytest
+        pip install numpy
+        pip install pandas
+        pip install -U scikit-learn
+        pip install pyspark
 
     - name: Lint with Black
       run: |
         black --check .
-
+    
+#    - name: testfunctionality.py
+#      run: |
+#        cd data/tests
+#        pytest testfunctionality.py

@@ -2,10 +2,22 @@
 
 from modules.constants import YELP_DATASETS
 import pandas as pd
-import numpy as np
+import os
+from pyspark.sql import SparkSession
+
+path = os.getcwd()
+
+splits = os.path.split(path)
+tail = splits[1]
+while tail != "data":
+    splits = os.path.split(path)
+    path = splits[0]
+    tail = splits[1]
+    if tail in ["/c", "/Users"]:
+        raise ValueError("Cannot find /data directory")
 
 
-def yelp_import(size="large"):
+def yelp_import(size="large", application="pandas", path=path):
     """This returns a dictionary of DFs with the Yelp Data.
 
     Args:
@@ -13,11 +25,23 @@ def yelp_import(size="large"):
     """
 
     if size == "small":
-        path_start = "yelp_dataset/smaller/"
+        path_start = os.path.join(path, "yelp_dataset", "smaller")
     else:
-        path_start = "yelp_dataset/"
+        path_start = os.path.join(path, "yelp_dataset")
+
+    spark = (
+        None
+        if application == "pandas"
+        else SparkSession.builder.master("local[1]")
+        .appName("tripPlanning")
+        .getOrCreate()
+    )
 
     end_dict = {}
     for name, file_name in YELP_DATASETS.items():
-        end_dict[name] = pd.read_json(path_start + file_name, lines=True)
-    return end_dict
+        path = os.path.join(path_start, file_name)
+        if application == "pandas":
+            end_dict[name] = pd.read_json(path, lines=True)
+        else:
+            end_dict[name] = spark.read.json(path)
+    return end_dict, spark
