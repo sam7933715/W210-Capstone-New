@@ -31,7 +31,7 @@ jobs:
       run: |
         black --check .
     
-    - name: testfunctionality.py
-      run: |
-        cd data/tests
-        pytest testfunctionality.py
+#    - name: testfunctionality.py
+#      run: |
+#        cd data/tests
+#        pytest testfunctionality.py

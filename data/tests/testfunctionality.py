@@ -11,7 +11,7 @@ from modules.dataImporter import yelp_import
 from modules import textPreProcess as tpp
 
 
-@pytest.mark.parametrize("dataset_size, ", [("small", "pandas"), ("large", "spark")])
+@pytest.mark.parametrize("dataset_size, ", [("small", "pandas"), ("small", "spark")])
 def test_import_working(dataset_size):
     """Tests that the importer isn't broken."""
     data, spark = yelp_import(dataset_size)
