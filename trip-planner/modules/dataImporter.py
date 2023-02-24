@@ -9,7 +9,7 @@ path = os.getcwd()
 
 splits = os.path.split(path)
 tail = splits[1]
-while tail != "data":
+while tail != "trip-planner":
     splits = os.path.split(path)
     path = splits[0]
     tail = splits[1]

@@ -1,17 +1,17 @@
 # Yelp Datasets
-data/yelp_dataset/yelp_academic_dataset_business.json
-data/yelp_dataset/yelp_academic_dataset_checkin.json
-data/yelp_dataset/yelp_academic_dataset_review.json
-data/yelp_dataset/yelp_academic_dataset_tip.json
-data/yelp_dataset/yelp_academic_dataset_user.json
-data/yelp_dataset/processed_data/*
+trip-planner/yelp_dataset/yelp_academic_dataset_business.json
+trip-planner/yelp_dataset/yelp_academic_dataset_checkin.json
+trip-planner/yelp_dataset/yelp_academic_dataset_review.json
+trip-planner/yelp_dataset/yelp_academic_dataset_tip.json
+trip-planner/yelp_dataset/yelp_academic_dataset_user.json
+trip-planner/yelp_dataset/processed_data/*
 
 
-data/GoogleBooks*
-data/tripAdvisor_API_attempt/api_key.py
+trip-planner/GoogleBooks*
+trip-planner/tripAdvisor_API_attempt/api_key.py
 
 ./.DS_Store
-data/.DS_Store
+trip-planner/.DS_Store
 */.ipynb_checkpoints/*
 
 .idea/*
