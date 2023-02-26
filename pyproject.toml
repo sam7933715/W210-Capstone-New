@@ -18,6 +18,11 @@ networkx = "^3.0"
 matplotlib = "^3.7.0"
 spark-nlp = "^4.3.0"
 jupyter = "^1.0.0"
+seaborn = "^0.12.2"
+scikit-learn = "^1.2.1"
+flask = "^2.2.3"
+pyarrow = "^11.0.0"
+py4j = "0.10.9.5"
 
 [build-system]
 requires = ["poetry-core"]
