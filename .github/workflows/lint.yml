@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.11.2
 
     - name: Install dependencies
       run: |
@@ -26,6 +26,7 @@ jobs:
         pip install pandas
         pip install -U scikit-learn
         pip install pyspark
+        sudo yum install java-1.8.0-amazon-corretto
 
     - name: Lint with Black
       run: |

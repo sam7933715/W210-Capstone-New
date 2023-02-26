@@ -16,8 +16,7 @@ while tail != "trip-planner":
     if tail in ["/c", "/Users"]:
         raise ValueError("Cannot find /data directory")
 
-
-def yelp_import(size="large", application="pandas", path=path):
+def yelp_import(size="large", application="pandas", path=path, chunks = None):
     """This returns a dictionary of DFs with the Yelp Data.
 
     Args:
@@ -41,7 +40,7 @@ def yelp_import(size="large", application="pandas", path=path):
     for name, file_name in YELP_DATASETS.items():
         path = os.path.join(path_start, file_name)
         if application == "pandas":
-            end_dict[name] = pd.read_json(path, lines=True)
+            end_dict[name] = pd.read_json(path, lines=True, chunksize = chunks)
         else:
             end_dict[name] = spark.read.json(path)
     return end_dict, spark
