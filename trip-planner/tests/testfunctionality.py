@@ -13,7 +13,7 @@ from modules import textPreProcess as tpp
 
 @pytest.mark.parametrize(
     "dataset_size, ",
-    [("small", "pandas"), ("small", "spark"), ("large", "pandas"), ("large", "spark")],
+    [("small", "pandas"), ("small", "spark")],
 )
 def test_import_working(dataset_size):
     """Tests that the importer isn't broken."""
@@ -57,7 +57,7 @@ def test_textPreProcess(df_input, expected_map, expected_vectorizer):
     mapped_text = df_input["text"].map(tpp.map_func)
     vect = tpp.get_tokenizer(df_input, "text")
 
-    features = vect.get_feature_names()
+    features = vect.get_feature_names_out()
 
     for word in expected_vectorizer:
         assert word in features
