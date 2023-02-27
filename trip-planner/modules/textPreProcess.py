@@ -29,6 +29,7 @@ def map_func(text):
 
     # Remove Whitespace
     text = text.strip()
+    text = re.sub(" +", " ", text)
 
     return text
 

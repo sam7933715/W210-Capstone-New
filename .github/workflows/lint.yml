@@ -17,22 +17,19 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.11.2
+        java-version: '19'
+        distribution: 'oracle'
 
     - name: Install dependencies
       run: |
-        pip install black
-        pip install pytest
-        pip install numpy
-        pip install pandas
-        pip install -U scikit-learn
-        pip install pyspark
-        sudo yum install java-1.8.0-amazon-corretto
+        pip install poetry
+        poetry install
 
     - name: Lint with Black
       run: |
-        black --check .
+        poetry run black --check .
     
-#    - name: testfunctionality.py
-#      run: |
-#        cd data/tests
-#        pytest testfunctionality.py
+    - name: testfunctionality.py
+      run: |
+        cd trip-planner
+        poetry run pytest tests/testfunctionality.py
