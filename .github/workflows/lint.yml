@@ -23,14 +23,13 @@ jobs:
     - name: Install dependencies
       run: |
         pip install poetry
-        poetry shell
         poetry install
 
     - name: Lint with Black
       run: |
-        black --check .
+        poetry run black --check .
     
     - name: testfunctionality.py
       run: |
         cd trip-planner
-        pytest tests/testfunctionality.py
+        poetry run pytest tests/testfunctionality.py
