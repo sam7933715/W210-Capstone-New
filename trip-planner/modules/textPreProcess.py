@@ -47,4 +47,3 @@ def get_tokenizer(df, train_col):
 
     vectorizer.fit_transform(data)
     return vectorizer
-
