@@ -12,12 +12,12 @@ from modules import textPreProcess as tpp
 
 
 @pytest.mark.parametrize(
-    "dataset_size, ",
+    "dataset, app",
     [("small", "pandas"), ("small", "spark")],
 )
-def test_import_working(dataset_size):
+def test_import_working(dataset, app):
     """Tests that the importer isn't broken."""
-    data, spark = yelp_import(dataset_size)
+    data, spark = yelp_import(dataset, app)
     assert len(data) > 0
 
 
@@ -59,9 +59,15 @@ def test_textPreProcess(df_input, expected_map, expected_vectorizer):
 
     features = vect.get_feature_names_out()
 
+    print("FEATURES: ", features)
+    print("EXPECTED_VEC: ", expected_vectorizer)
+
     for word in expected_vectorizer:
         assert word in features
     for word in features:
         assert word in expected_vectorizer
 
-    assert mapped_text.equals(expected_map)
+    print(mapped_text)
+
+    for i in range(len(expected_map)):
+        assert mapped_text[i] == expected_map[i]
