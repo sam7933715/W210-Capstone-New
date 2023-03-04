@@ -23,6 +23,7 @@ class recommenationApp:
         Args:
             model: A machine learning model that recommends establishments to users. 
             home_city_estabs: A Pandas DF with the establishments of the home city. 
+                - assume that this is of class pretrainedModel from pretrainedModels.py
             target_city_estabs: An Pandas DF with the establishments of the home city. 
             returnCount: An int with how many establishments to suggest when called. 
         """
