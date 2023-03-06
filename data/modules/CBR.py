@@ -2,10 +2,12 @@ import gensim
 import nltk
 import pandas as pd
 
+from collections import Counter
 from gensim import corpora
 from gensim.summarization import keywords
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+from rake_nltk import Rake
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer,TfidfVectorizer
 from textblob import TextBlob
@@ -167,6 +169,7 @@ def extract_keywords(df, num_words=10, split_long=True, remove_stopwords=False):
         english_stopwords = set()
 
     def extract_keywords_from_review(review):
+        
         # Remove any unwanted characters
         review = review.replace('\n', ' ').replace('\r', '')
 
@@ -181,14 +184,24 @@ def extract_keywords(df, num_words=10, split_long=True, remove_stopwords=False):
                 if not chunk_tokens:
                     continue
                 # Extract keywords from the chunk
-                chunk_keywords = keywords(' '.join(chunk_tokens), words=num_words, split=True, lemmatize=True)
-                # Add the keywords to the list
-                keywords_list.extend(chunk_keywords)
+                r = Rake()
+                r.extract_keywords_from_text(' '.join(chunk_tokens))
+                chunk_keywords = r.get_ranked_phrases()[:num_words]
+                # Split each keyword phrase into separate words and append to the list
+                for keyword in chunk_keywords:
+                    keywords_list.extend(keyword.split())
         else:
             # Tokenize the review and remove English stopwords if specified
             review_tokens = [token for token in word_tokenize(review) if token.lower() not in english_stopwords]
             # Extract keywords from the entire review
-            keywords_list = keywords(' '.join(review_tokens), words=num_words, split=True, lemmatize=True)
+            r = Rake()
+            r.extract_keywords_from_text(' '.join(review_tokens))
+            keywords_list = r.get_ranked_phrases()[:num_words]
+            # Split each keyword phrase into separate words and append to the list
+            new_keywords_list = []
+            for keyword in keywords_list:
+                new_keywords_list.extend(keyword.split())
+            keywords_list = new_keywords_list
 
         return keywords_list
 
@@ -297,6 +310,8 @@ def calc_cosine_similarity(df, business_name, my_city, destination_city):
             cosine_similarities[col] = cosine_similarity(vectorizer_dense[0:1], vectorizer_dense[1:]).tolist()[0]
         else:
             # Compute cosine similarity using the numerical column values
+            print(target_business[col])
+            print(destination_businesses[col])
             cosine_similarities[col] = cosine_similarity(target_business[[col]], destination_businesses[[col]]).tolist()[0]
     
     # Create a dataframe with the cosine similarity scores for each column
