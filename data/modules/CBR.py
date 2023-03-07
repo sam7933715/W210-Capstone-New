@@ -366,8 +366,6 @@ def calc_cosine_similarity(df, business_name, my_city, destination_city):
             ).tolist()[0]
         else:
             # Compute cosine similarity using the numerical column values
-            print(target_business[col])
-            print(destination_businesses[col])
             cosine_similarities[col] = cosine_similarity(
                 target_business[[col]], destination_businesses[[col]]
             ).tolist()[0]
