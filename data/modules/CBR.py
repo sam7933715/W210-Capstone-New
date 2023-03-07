@@ -157,7 +157,7 @@ def extract_topics(df, lda_model, dictionary, num_words=10, remove_stopwords=Tru
     return df
 
 
-def extract_keywords(df, num_words=10, split_long=True, remove_stopwords=False):
+def extract_keywords(df, num_words=10, split_long=True, remove_stopwords=True):
     """
     Extracts keywords from reviews in the 'text' column of a dataframe using the gensim package.
 
