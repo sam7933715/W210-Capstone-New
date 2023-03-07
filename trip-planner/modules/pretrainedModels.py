@@ -4,8 +4,14 @@ import pickle
 
 
 def save_model(filename, modelObject):
-    """ filename : string containing target filename
-        modelObject : model object """
+    """
+    Saves model output to a pickle file for later use.
+    Parameters:
+        - filename: pathname string for target filename
+        - modelObject: model object
+    Returns:
+        - N/A 
+    """
     f = filename
     ml = modelObject
 
@@ -14,8 +20,13 @@ def save_model(filename, modelObject):
 
 
 def load_model(filename):
-    """ pass in a file name. Output will be pickle file containing model
-        You can then predict as usual"""
+    """ 
+    Loads model from saved pickle file. Just need to pass filename path of pre-saved model
+    Parameters:
+        - filename: pathname string of saved pickle file containing pre-trained model
+    Returns:
+        - model object from saved pickle file
+     """
     with open(filename, 'rb') as f:
         ml = pickle.load(f)
 
