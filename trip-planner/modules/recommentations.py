@@ -14,18 +14,19 @@ user.
 import random as rand
 import pandas as pd
 
+
 class recommenationApp:
     """Application to run a recommendations model on user selected feedback."""
 
     def __init__(self, model, home_city_estabs, target_city_estabs, returnCount=20):
         """Sets up the recomenationApp
-        
+
         Args:
-            model: A machine learning model that recommends establishments to users. 
-            home_city_estabs: A Pandas DF with the establishments of the home city. 
+            model: A machine learning model that recommends establishments to users.
+            home_city_estabs: A Pandas DF with the establishments of the home city.
                 - assume that this is of class pretrainedModel from pretrainedModels.py
-            target_city_estabs: An Pandas DF with the establishments of the home city. 
-            returnCount: An int with how many establishments to suggest when called. 
+            target_city_estabs: An Pandas DF with the establishments of the home city.
+            returnCount: An int with how many establishments to suggest when called.
         """
         self.model = model
         self.home_city_estabs = home_city_estabs
@@ -35,17 +36,17 @@ class recommenationApp:
     def homeEstabs(self):
         """Returns establishements in the home city for the user's review."""
         # This currently returns random establishments. A future version should return
-        # establishments with a degree of randomness and popularity scores as well. 
+        # establishments with a degree of randomness and popularity scores as well.
 
         df = self.home_city_estabs
         df["sorter"] = pd.Series(rand.random())
         df = df.sort_values(by=["sorter"], ascending=True)
 
-        return df[:self.returnCount] # returns the top 3 results right now. 
+        return df[: self.returnCount]  # returns the top 3 results right now.
 
     def updatePreferences(self, preferences):
         """Take in the user preferences based on listed likes/dislikes.
-        
+
         Args:
             preferences: List of tuples with user preferences. (estab, like/disliked).
                 - [(str, str)]
@@ -56,7 +57,7 @@ class recommenationApp:
     def _distanceMap(row, estab_data, model):
         """A helper function to be mapped to a DF to return a pd.series with distances
         between a target and each row.
-        
+
         Uses cosine_similarity. Assumes that the features of row are accessible as a
         column called "features".
         """
@@ -70,11 +71,15 @@ class recommenationApp:
         df["preference"] = 0
 
         for estab in self.preferences:
-            if estab[1] == "like": # The user likes the establishment. 
-                df["preferences"] = df["preferences"] + df.map(lambda x: _distanceMap(X, estab, self.model))
+            if estab[1] == "like":  # The user likes the establishment.
+                df["preferences"] = df["preferences"] + df.map(
+                    lambda x: _distanceMap(X, estab, self.model)
+                )
             else:
-                df["preferences"] = df["preferences"] - df.map(lambda x: _distanceMap(X, estab, self.model))
-        
-        df = df.sort_values(by = ["preferences"], ascending=False)
+                df["preferences"] = df["preferences"] - df.map(
+                    lambda x: _distanceMap(X, estab, self.model)
+                )
 
-        return df[:self.returnCount]
+        df = df.sort_values(by=["preferences"], ascending=False)
+
+        return df[: self.returnCount]
