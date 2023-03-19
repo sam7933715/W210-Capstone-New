@@ -429,13 +429,15 @@ def calc_cosine_similarity(df, business_name, my_city, destination_city):
     return similarity_df
 
 
-def content_based_recommender(df):
+def content_based_recommender(df, top_n=10):
     """
     Generate a content-based recommendation list based on the average rank of the five features: sentiment polarity,
     sentiment subjectivity, top 20 topic words, top 20 keywords, and reviews.
 
     Parameters:
         - df (pandas.DataFrame): The dataframe containing the cosine similarity scores and ranks for each business.
+        - top_n (int): An integer number to decide how many recommendations to return.
+                       If it is set to None, it will display all recommendations. Default it set to 10.
 
     Returns:
         - pandas.DataFrame: A dataframe containing the top 10 recommended businesses based on the average rank of the
@@ -450,4 +452,8 @@ def content_based_recommender(df):
             "reviews_rank",
         ]
     ].mean(axis=1)
-    return df.sort_values(by="avg_rank", ascending=True).reset_index(drop=True)[:10]
+    
+    if top_n:
+        return df.sort_values(by="avg_rank", ascending=True).reset_index(drop=True)[:top_n]
+    else:
+        return df.sort_values(by="avg_rank", ascending=True).reset_index(drop=True)
