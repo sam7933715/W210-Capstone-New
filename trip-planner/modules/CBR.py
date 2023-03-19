@@ -452,8 +452,10 @@ def content_based_recommender(df, top_n=10):
             "reviews_rank",
         ]
     ].mean(axis=1)
-    
+
     if top_n:
-        return df.sort_values(by="avg_rank", ascending=True).reset_index(drop=True)[:top_n]
+        return df.sort_values(by="avg_rank", ascending=True).reset_index(drop=True)[
+            :top_n
+        ]
     else:
         return df.sort_values(by="avg_rank", ascending=True).reset_index(drop=True)
