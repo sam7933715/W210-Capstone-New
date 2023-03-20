@@ -5,6 +5,7 @@ trip-planner/yelp_dataset/yelp_academic_dataset_review.json
 trip-planner/yelp_dataset/yelp_academic_dataset_tip.json
 trip-planner/yelp_dataset/yelp_academic_dataset_user.json
 trip-planner/yelp_dataset/processed_data/*
+trip-planner/yelp_dataset/non_food_merged.csv
 
 
 trip-planner/GoogleBooks*
