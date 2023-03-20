@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <script type="text/javascript" src="../scripts/d3/d3.min.js"></script>
+<style>
+  .box{
+    display: block;
+    width:300px;height:300px;
+    border: 1px solid #000;
+  }
+
+    .box div{
+      width:50px;height:50px;
+      margin-bottom: 10px;
+      background-color: #f00;
+      color: #fff;
+
+    }
+
+
+</style>
+
+</head>
+<body>
+  <div></div>
+  <div></div>
+
+  <div class="div1">HELLO DIV1</div>
+  <div class="div1">HELLO DIV1</div>
+
+  <div class="div2">HELLO DIV2</div>
+
+  <div class="div3">HELLO DIV3</div>
+
+  <div class='box'>
+
+  </div>
+
+  <!--
+    練習#3: 透過 D3 的 append( ) 加入一個紅色長方形的 div，
+    且內有白色的「Hello」 字樣
+  -->
+
+  <script type="text/javascript">
+    // code here...
+    d3.select('.div1').append('div')
+                      .text('hello')
+
+
+
+
+  </script>
+
+
+
+
+</body>
+</html>

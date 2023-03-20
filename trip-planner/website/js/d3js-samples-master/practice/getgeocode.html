@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var map, geocoder;
+
+        function initMap() {
+          geocoder = new google.maps.Geocoder();
+          map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 17
+          });
+        
+          var address = '總統府';
+        
+          geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status == 'OK') {
+              map.setCenter(results[0].geometry.location);
+              var marker = new google.maps.Marker({
+                  map: map,
+                  position: results[0].geometry.location
+              });
+            } else {
+              console.log(status);
+            }
+          });
+        }    
+    </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVRn7G1vFTSRtIagHFwzTgze5CFD5EhvE&callback=initMap"
+async defer></script>
+
+</body>
+</html>
