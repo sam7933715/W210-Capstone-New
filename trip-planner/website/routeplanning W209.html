@@ -1,0 +1,700 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/RoutePlanningIcon.png">
+
+  <title>Route Scheduler</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+  <link href="css/vendor/simple-line-icons.css" rel="stylesheet">
+  <link href="css/vendor/themify-icons.css" rel="stylesheet">
+  <link href="css/vendor/owl.carousel.css" rel="stylesheet">
+  <link href="css/vendor/animate.css" rel="stylesheet">
+  <link href="css/vendor/viewbox.css" rel="stylesheet">
+  <link href="css/vendor/bootstrap-slider.min.css" rel="stylesheet">
+  <link href="css/vendor/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+  <script src="js/vendor/fontawesome-all.min.js"></script>
+
+  <link href="css/scss/main.css" rel="stylesheet">
+  
+  <!-- Count down package -->
+  <!-- <script src="js/suggester/vendor/modernizr-3.5.0.min.js"></script>
+  <script src="js/suggester/vendor/jquery-3.2.1.min.js"></script>
+  <script src="js/suggester/popper.min.js"></script>
+  <script src="js/suggester/bootstrap.min.js"></script>
+  <script src="js/suggester/plugins.js"></script>
+  <script src="js/suggester/active.js"></script>
+  <script src="js/suggester/scripts.js"></script> -->
+
+
+
+  <style>
+    #map {
+      height: "770";
+      width: "550";
+    }
+
+    #map2 {
+      height: "770";
+      width: "550";
+    }
+
+    #btn {
+      z-index: 99;
+      top: 10px;
+      left: calc(50% - 150px);
+      font-size: 15px;
+      width: 60%;
+      max-width: 80px;
+      border-radius: 5px;
+      padding: 3px;
+      outline: none;
+      border: 1px solid rgb(153, 153, 153);
+      background-color: #ffd903;
+      margin-bottom: 15px;
+      margin-right: 2px
+    }
+
+    #btn:active {
+      box-shadow: rgba(0, 0, 0, .5) 0 3px 5px;
+    }
+
+    #br {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVRn7G1vFTSRtIagHFwzTgze5CFD5EhvE"></script>
+
+  <!-- script -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+  <!-- <script src="./js/Route_Planning_Google_map.js"></script> -->
+  <script src="./js/Route_Planning_After_Upload.js"></script>
+
+
+</head>
+
+<body>
+
+
+  <!-- pageloader -->
+  <div id="loader">
+    <div class="loader">
+      <div class="sk-child sk-dot1"></div>
+      <div class="sk-child sk-dot2"></div>
+    </div>
+  </div>
+  <!-- / #pageloader -->
+
+  <!-- contact bar -->
+  <nav id="contact-menu" class="navigation navigation-hidden navigation-portrait">
+    <div class="nav-menus-wrapper">
+      <div class="header-info-item clearfix">
+        <p class="header-info-title">Contact Us</p>
+        <ul>
+          <li><span class="ti-map-alt"></span></li>
+          <li><a> member - Sam Shih:</a></li>
+          <li><a href="https://www.linkedin.com/in/sam-shih-812616117/"><span class="ti-linkedin"></span>sam-shih-812616117</a></li>
+          <li><a> member - Javed Roshan:</a></li>
+          <li><a href="https://www.linkedin.com/in/jroshan/"><span class="ti-linkedin"></span>jroshan</a></li>
+          <li><a> member - Joanna Wang:</a></li>
+          <li><a href="https://www.linkedin.com/in/jiacheng-joanna-w-96973b90/"><span class="ti-linkedin"></span>jiacheng-joanna-w-96973b90</a></li>
+          <li><a>Lecturer - Fereshteh Amini</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /contact bar -->
+
+
+  <header>
+
+    <div class="main-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5 col-4">
+            <div class="main-header-logo">
+              <a><img width="350" src="img/TravelGOlogowhite.png" alt="Site logo"></a>
+            </div>
+          </div>
+          <div class="col-md-7 col-8">
+            <div class="clearfix float-right contact-head">
+              <a style="color: white;">Login</a>
+              <button class="btn-show navbar-toggler float-right btn-contact"><span class="ti-menu"></span></button>
+            </div>
+            <nav id="navigation" class="navigation mt-10">
+              <div class="nav-toggle"></div>
+              <div class="nav-search">
+                <div class="nav-search-button">
+                  <span class="ti-search"></span>
+                </div>
+                <form>
+                  <div class="nav-search-inner">
+                    <input type="search" name="search" placeholder="Type and hit ENTER" />
+                  </div>
+                </form>
+              </div>
+
+              <div class="nav-menus-wrapper">
+
+                <ul class="nav-menu align-to-right">
+                  <li><a href="#">Home</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="index.html">Home</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="active" href="#">Route Scheduling</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="routeplanning W209.html">Route Scheduling</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Visualization</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="Supervisor View.html">Visualization</a></li>
+                    </ul>
+                  </li>
+                  <!-- <li><a href="#">地區選擇</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="regionselection.html">地區選擇</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">景點排程</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="site.html">景點排程</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">路線規劃</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="routeplanning.html">路線規劃</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">行程彙總</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="itinerary.html">行程彙總</a></li>
+                      </ul>
+                    </li> -->
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- / header -->
+
+  <!-- page-head -->
+
+  <div class="page-head white-content">
+    <div class="height80vh parallax-container" style="background-image: url(img/Berkeley1.jpg);">
+      <div class="page-head-wrap">
+        <div class="display-r">
+          <div class="display-a">
+            <div class="container">
+              <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                <div class="col-md-12">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html">  2</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Route Scheduler</li>
+                    </ol>
+                  </nav>
+                  <h1 class="big-title mt-60">Route Scheduler</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- / page-head -->
+
+  <iframe src="./SiteRecomendation.html" width="100%" height="800px">
+  </iframe>
+
+  <div class="mt-10"></div>
+
+  <!-- Uplaod files Banner-->
+  <div class="text-center">
+    <div class="row justify-content-center" style="background-color:#FFC72C;padding: 10px;;">
+      <div class="col-md-12">
+        <h4 class="mb-10">Upload Addresses For AI Scheduling</h4>
+        <!-- <a class="btn btn-3" href="itinerary.html">Upload</a> -->
+        <div class="col-md-12">
+          <input name="progressbarTW_img" type="file" id="file" style="display:none" onchange="uploadFile()" />
+          <button onclick="file.click()" type="button" class="btn btn-primary"
+            style="width:20%;background-color:black;">Upload</button>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <!-- End of Uplaod files -->
+
+
+
+  <!-- content -->
+  <div class="content mt-60 mb-40 container">
+    <div class="row">
+      <div class="col-md-3">
+        <h3>Cluster Map</h3>
+        The map provide an overview on the location of each site, colored by its allocated clusters. Users are able to
+        view site info or add a site by clicking markers.
+      </div>
+      <div class="col-md-9">
+
+        <div id="map" style="border: 1px solid #eee; height: 550px; width:900px;margin-bottom: 5px;"></div>
+      </div>
+      <!-- /main content -->
+    </div>
+
+    <div class="mt-30"></div>
+    <div class="row">
+      <!-- sider -->
+      <div class="col-md-3">
+        <div class="sidebar">
+          <h3 style="margin-bottom: 5px;padding-left: 0px;">My Schedule</h3>
+          <ul id="ulist" class="accordion-element accordion-2">
+            <li>
+              <a class="toggle" style="background:#FFC72C">Start</a>
+            </li>
+
+            <script>
+              var locations = [
+                {
+                  "siteid": "8655",
+                  "region": "California",
+                  "area": "Berkeley",
+                  "site": "Site A",
+                  "address": "EUCLID AV 2",
+                  "latitude": "37.8902332",
+                  "longtitude": "-122.2718997",
+                  "times": 2001,
+                },
+                {
+                  "siteid": "8920",
+                  "region": "California",
+                  "area": "Berkeley",
+                  "site": "Site B",
+                  "address": "LOS ANGELES AVE",
+                  "latitude": "37.8882492",
+                  "longtitude": "-122.265956",
+                  "times": 1132,
+                },
+                {
+                  "siteid": "8446",
+                  "region": "California",
+                  "area": "Berkeley",
+                  "site": "Site C",
+                  "address": "ADDISON ST 24",
+                  "latitude": "37.883912",
+                  "longtitude": "-122.2627248",
+                  "times": 1322,
+                },
+                {
+                  "siteid": "9216",
+                  "region": "California",
+                  "area": "Berkeley",
+                  "site": "Site D",
+                  "address": "DELAWARE ST",
+                  "latitude": "37.8744187",
+                  "longtitude": "-122.2694859",
+                  "times": 2030,
+                },
+                {
+                  "siteid": "8547",
+                  "region": "California",
+                  "area": "Berkeley",
+                  "site": "Site E",
+                  "address": "ARCH ST",
+                  "latitude": "37.8715856",
+                  "longtitude": "-122.2671587",
+                  "times": 2119,
+                },
+                {
+                  "siteid": "8896",
+                  "region": "California",
+                  "area": "Berkeley",
+                  "site": "Site F",
+                  "address": "ETNA ST",
+                  "latitude": "37.8633859",
+                  "longtitude": "-122.2528616",
+                  "times": 2614,
+                }
+              ];
+
+                    // for (var j = 0; j < locations.length; j++) {
+                    //   // 新增左側店家清單
+                    //   var newlist = document.createElement('li');
+                    //   newlist.style.backgroundColor = "#F5F5F5"
+
+                    //   var newappend = document.createElement('a');
+                    //   newappend.setAttribute("class", "toggle");
+                    //   newappend.setAttribute("href", "javascript:void(0);");
+                    //   newappend.setAttribute("data-item", "item-11");
+                    //   newappend.setAttribute("id", "newappendid");
+                    //   var sitename = locations[j]["site"];
+                    //   var newappendtext = document.createTextNode(sitename);
+
+                    //   var newparagraph = document.createElement("div");
+                    //   newparagraph.setAttribute("class", "inner");
+                    //   newparagraph.setAttribute("height", "180px");
+                    //   newparagraph.setAttribute("weight", "120px");
+
+                    //   var newbr1 = document.createElement("div");
+                    //   newbr1.innerHTML = "State: " + locations[j]["region"]
+                    //   var newbr2 = document.createElement("div");
+                    //   newbr2.innerHTML = "City: " + locations[j]["area"]
+                    //   var newbr3 = document.createElement("div");
+                    //   newbr3.innerHTML = "Zip Code: " + locations[j]["times"]
+                    //   var newbr4 = document.createElement("div");
+                    //   newbr4.innerHTML = "latitude: " + locations[j]["latitude"]
+                    //   var newbr5 = document.createElement("div");
+                    //   newbr5.innerHTML = "longtitude: " + locations[j]["longtitude"]
+
+                    //   newappend.appendChild(newappendtext)
+                    //   var orglist = document.getElementById('ulist');
+                    //   orglist.appendChild(newlist);
+
+                    //   newlist.appendChild(newappend);
+                    //   newlist.appendChild(newparagraph);
+                    //   newparagraph.appendChild(newbr1);
+                    //   newparagraph.appendChild(newbr2);
+                    //   newparagraph.appendChild(newbr3);
+                    //   newparagraph.appendChild(newbr4);
+                    //   newparagraph.appendChild(newbr5);
+                    // }
+            </script>
+
+
+            <!-- <li>
+                    <a class="toggle" style="background:#FFC72C">End</a>
+                  </li> -->
+
+
+          </ul>
+        </div>
+      </div>
+      <!-- /sider -->
+      <div class="col-md-9">
+        <h3 style="margin-bottom: 5px;">Route Map</h3>
+        <div id="map2" style="border: 1px solid #eee; height: 550px; width:900px;"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mt-10"></div>
+
+
+  <!-- Default Map Creation -->
+  <script>
+
+    var geocoder;
+    var map;
+    var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
+
+    function initialize() {
+      directionsDisplay = new google.maps.DirectionsRenderer();
+
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: new google.maps.LatLng(-33.92, 151.25),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+      directionsDisplay.setMap(map);
+      var infowindow = new google.maps.InfoWindow();
+
+      var marker, i;
+      var request = {
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+      for (i = 0; i < locations.length; i++) {
+        // Original Marker
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i]["latitude"],
+            locations[i]["longtitude"]),
+        });
+
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+          return function () {
+            InforObj[0] = infowindow
+            infowindow.setContent(locations[i]["site"]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+
+        if (i == 0) request.origin = marker.getPosition();
+        else if (i == locations.length - 1) request.destination = marker.getPosition();
+        else {
+          if (!request.waypoints) request.waypoints = [];
+          request.waypoints.push({
+            location: marker.getPosition(),
+            stopover: true
+          });
+        }
+
+      }
+
+      // add direction
+      directionsService.route(request, function (result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(result);
+        }
+      });
+    }
+    google.maps.event.addDomListener(window, "load", initialize);
+  </script>
+
+
+
+  <!-- <hr class="hr"> -->
+  <!-- Embeding tableau charts -->
+  <div class="text-center">
+    <div class="row justify-content-center" style="background-color:#FFC72C;padding: 15px;;">
+      <div class="col-md-12">
+        <h2 class="mb-10" style="margin-top:7px">Analyzer</h2>
+      </div>
+    </div>
+    <!-- <a class="btn btn-3" href="itinerary.html">Upload</a> -->
+  </div>
+  <!-- map by postal -->
+  <div class="content mt-60 mb-40 container">
+    <div class="row">
+      <div class="col-md-3" id="ChartDescription">
+        <p style="margin-top:45px">
+          The uploaded addresses are grouped into 21 clusters to make your trip planning more convenient. Select a day and you will see the cluster highlighted address you are recommended to visit on that day. You will also see the street name and postcode if you hover over the circle. 
+        </p>
+      </div>
+      <div class="col-md-9">
+        <div class='tableauPlaceholder' id='viz1618108786606' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt='Berkley Clusters '
+                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;W2&#47;W209_Project_ClusterCount&#47;Sheet4&#47;1_rss.png'
+                style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='W209_Project_ClusterCount&#47;Sheet4' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;W2&#47;W209_Project_ClusterCount&#47;Sheet4&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en' />
+          </object>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script type='text/javascript'>
+    var divElement = document.getElementById('viz1618108786606');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    vizElement.style.width = '100%';
+    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+
+  <hr class="hr">
+  <!-- Heatmap -->
+  <div class="content mt-60 mb-40 container">
+    <div class="row">
+      <div class="col-md-3">
+        <p style="margin-top: 45px;">
+          This graph shows the user’s travel distance over time. Hover over the squares, the user will be able to see the total travel distance within that week.
+        </p>
+      </div>
+      <div class="col-md-9" id="ChartDescription">
+        <div class='tableauPlaceholder' id='viz1617347287841' style='position: relative'><noscript><a href='#'><img
+                alt='Travel Distance Over Time '
+                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;W2&#47;W209_Project_ClusterCount&#47;Sheet3&#47;1_rss.png'
+                style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='W209_Project_ClusterCount&#47;Sheet3' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;W2&#47;W209_Project_ClusterCount&#47;Sheet3&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en' />
+          </object>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type='text/javascript'>
+    var divElement = document.getElementById('viz1617347287841');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    vizElement.style.width = '100%';
+    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script>
+
+
+
+  <!-- JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/moment.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/bootstrap-slider.min.js"></script>
+  <script src="js/vendor/bootstrap-datetimepicker.min.js"></script>
+  <script src="js/vendor/owl.carousel.min.js"></script>
+  <script src="js/vendor/navigation.js"></script>
+  <script src="js/vendor/modernizr.js"></script>
+  <script src="js/vendor/jqueryvalidation.js"></script>
+  <script src="js/vendor/jquery.viewbox.min.js"></script>
+  <script src="js/vendor/masonry.min.js"></script>
+  <script src="js/vendor/imagesloaded.js"></script>
+  <script src="js/vendor/jquery.waypoints.min.js"></script>
+  <script src="js/vendor/jquery.sticky-kit.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+
+
+  <!-- / content -->
+
+  <footer class="dark-footer" style="background-image: url(img/image-20.jpg);">
+    <div class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="footer-item">
+              <img width="250" src="img/TravelGOlogowhite.png" alt="Logo">
+              <div class="mt-20 mb-20">
+                <!-- <button type="button" class="btn btn-1 btn-sm" data-toggle="modal" data-target="#newsletterModal">
+                    Newsletter signup
+                  </button> -->
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-sm" id="newsletterModal" tabindex="-1" role="dialog"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Newsletter Signup</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="subscribe-form" class="form-block" novalidate="novalidate">
+                          <div class="form-group mt-20 subscribe-form">
+                            <small id="emailHelp" class="form-text text-muted">Subscribe now and recieve a 50%
+                              discount
+                              on your next tour booking</small>
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                          </div>
+                          <div class="mt-10 mb-10 float-right">
+                            <button type="button" class="btn btn-2 btn-sm" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-1 btn-sm">Sign Up</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="footer-item">
+              <ul class="footer-menu">
+                <li><a href="index.html">Home Page</a></li>
+                <!-- <li><a href="tripplan.html">Route Scheduling</a></li> -->
+                <!-- <li><a href="regionselection.html">地區選擇</a></li> -->
+                <!-- <li><a href="site.html">景點排程</a></li> -->
+                <li><a href="routeplanning W209.html">Route Scheduling</a></li>
+                <li><a href="Supervisor View.html">Visualization</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+              <!-- <p class="mt-40" style="font-weight:bold;color: #FFF">TravelGo
+                志在提供一個友善的旅遊規劃平台，幫助大眾在最短的時間完成行程規劃，不再為行程而煩惱，可以充份享受他們的假期時光</p> -->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="footer-item">
+              <!-- <ul class="mb-20">
+                  <li>1800-2345-5677</li>
+                  <li class="mt-10"><a href="mailto:">info@voyagetime.com</a></li>
+                  <li class="mt-10">610 Broadway New York, NY 10012</li>
+                </ul> -->
+
+            </div>
+
+            <div class="footer-item">
+              <ul class="footer-social mt-20">
+                <li><a target="_blank" href="#"><i class="fab fa-pinterest"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-tumblr"></i></a></li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="bottom-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+            </div>
+            <div class="col-md-6 text-r mobile-left">
+              <p><img width="200" src="img/visa-mastercard-paypal.png" alt="Visa Mastercard Paypal"></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+  </footer>
+
+  <!-- SCROLL UP -->
+  <a class="scrollup">
+    <i class="icon-arrow-up icons"></i>
+  </a>
+  <!-- / SCROLL UP -->
+
+
+</body>
+
+</html>

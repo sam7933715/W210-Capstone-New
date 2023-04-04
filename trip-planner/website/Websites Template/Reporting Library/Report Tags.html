@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .filter_box {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-bottom: 10px;
+        }
+
+        .single-district {
+            background: #4285F4;
+            color: #fff;
+            border: 2px solid black;
+            display: block;
+            text-align: center;
+        }
+
+        .single-district h3 {
+            font-weight: 700;
+
+        }
+
+        .single-district p {
+            font-size: 15px;
+            margin: 8px;
+
+        }
+
+        .single-district a {
+            color: white;
+            display: block;
+            padding: 15px;
+        }
+
+        .single-district a:hover {
+            color: #F4B400;
+            text-decoration: none;
+        }
+
+        #DashDescription {
+            transition: all .5s;
+        }
+
+
+        #DashCard:hover #DashDescription {
+            /*hover>#DashDescription 子層 , hover #DashDescription */
+            /* display: block !important;  */
+            /*hosting:  inline-style > id > class > selector > element */
+            max-height: 500px !important;
+            /* visibility: visible !important; */
+            opacity: 1 !important;
+        }
+        .filter-button {
+            margin-bottom: 5px !important;
+        }
+        .filter-button:hover{
+            color: white !important;
+            background-color: #34A853 !important;
+            border-color: #34A853;
+
+        }
+
+    </style>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".filter-button").click(function () {
+                var value = $(this).attr('data-filter');
+
+                if (value == "all") {
+                    //$('.filter').removeClass('hidden');
+                    $('.filter').show('1000');
+                }
+                else {
+                    //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+                    //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+
+                }
+            });
+
+            if ($(".filter-button").removeClass("active")) {
+                $(this).removeClass("active");
+            }
+            $(this).addClass("active");
+
+        });
+    </script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="container-fulid">
+        <div class="card">
+            <!-- <div class="card-header text-center display-4">
+                Gallery
+            </div> -->
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-outline-success filter-button" data-filter="all" style="border-color: #4285F4;color: #4285F4;">All</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Key" style="border-color: #4285F4;color: #4285F4;">Key Dashboard</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="OTP" style="border-color: #4285F4;color: #4285F4;">OTP</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Scorecard" style="border-color: #4285F4;color: #4285F4;">Scorecard</button>
+
+                        <button class="btn btn-outline-success filter-button" data-filter="Spend" style="border-color:#EA4335;color:#EA4335;">Spend</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="GLOCC" style="border-color:#EA4335;color:#EA4335;">GLOCC</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Planner" style="border-color:#EA4335;color:#EA4335;">Planner</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="DG" style="border-color:#EA4335;color:#EA4335;">DG</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Expeditors" style="border-color:#EA4335;color:#EA4335;">Expeditors</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Fedex" style="border-color:#EA4335;color:#EA4335;">Fedex</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Roadone" style="border-color:#EA4335;color:#EA4335;">Roadone</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Landstar" style="border-color:#EA4335;color:#EA4335;">Landstar</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Ziegler" style="border-color:#EA4335;color:#EA4335;">Ziegler</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Supplier" style="border-color:#EA4335;color:#EA4335;">Supplier</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="CM" style="border-color:#EA4335;color:#EA4335;">CM</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="APAC"  style="border-color:#EA4335;color:#EA4335;">APAC</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="EMEA"  style="border-color:#EA4335;color:#EA4335;">EMEA</button>
+
+                        <button class="btn btn-outline-success filter-button" data-filter="EDI" style="border-color:#EA8600;color:#EA8600;">EDI</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Savings" style="border-color:#EA8600;color:#EA8600;">Savings</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Exceptions" style="border-color:#EA8600;color:#EA8600;">Exceptions</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Compliance" style="border-color:#EA8600;color:#EA8600;">Compliance</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Forecast" style="border-color:#EA8600;color:#EA8600;">Forecast</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Metrics" style="border-color:#EA8600;color:#EA8600;">Metrics</button>
+
+                        <button class="btn btn-outline-success filter-button" data-filter="TMS" style="border-color:#34A853;color:#34A853;">TMS</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="iControl" style="border-color:#34A853;color:#34A853;">iControl</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Everstream" style="border-color:#34A853;color:#34A853;">Everstream</button>
+                        <!-- <button class="btn btn-outline-success filter-button" data-filter="Sidewalk" style="border-color:#34A853;color:#34A853;">Sidewalk</button> -->
+                        <button class="btn btn-outline-success filter-button" data-filter="SABABU" style="border-color:#34A853;color:#34A853;">SABABU</button>
+
+                        <!-- <button class="btn btn-outline-success filter-button" data-filter="Spot" style="border-color:#4fc3f7;color:#4fc3f7;">Spot</button> -->
+                        <button class="btn btn-outline-success filter-button" data-filter="NFO" style="border-color:#4fc3f7;color:#4fc3f7;">NFO</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="SWS" style="border-color:#4fc3f7;color:#4fc3f7;">SWS</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Ocean" style="border-color:#4fc3f7;color:#4fc3f7;">Ocean</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="D2DC" style="border-color:#4fc3f7;color:#4fc3f7;">D2DC</button>
+                    </div>
+                </div>
+                <div class="row mt-1" id="Note">
+                    <text style="color:#808080;font: size 1px;;">Note: Some dashboards are restricted to certain users. You may have to request the access to view them.</text>
+                </div>
+                <div class="row mt-4" id="CardRow">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+var items = [
+
+{ name: '611 Inbound Report', tags: 'Net_Deploy', image: '', description: 'This is a report to track incoming shipments that belong to the Net Deploy group under cost center 611. It is used for metrics tracking purposes.', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/dd1b4c4d-5864-4428-a79d-0961c66a8eef/page/XsxrC/edit' },{ name: 'AFS First Pass Invoice', tags: 'Spend', image: '', description: 'AFS monthly first pass invoice vs Exceptions', hyperlink: 'https://datastudio.google.com/s/kjBmuGRE3Ms' },{ name: 'AFS Weekly Exception - Trend Analysis', tags: 'Spend', image: '', description: 'Analysis of weekly freight invoice exceptions reported by AFS', hyperlink: 'https://datastudio.google.com/s/vN_IDvH3cLw' },{ name: 'Airport to Airport Transportation Cost', tags: 'Spend', image: '', description: 'Airport to airport charges per kg and trend by service level', hyperlink: 'https://datastudio.google.com/s/m13Qp3_6LfI' },{ name: 'All Exceptions Dashboard', tags: 'GLOCC', image: '', description: 'Dashboard that shows all shipments that had exceptions', hyperlink: 'https://datastudio.google.com/c/reporting/1e18aea1-e030-490d-a458-e4038f0d8c54/page/qlD' },{ name: 'AMS 2.0', tags: 'EMEA', image: '', description: 'Movements of AMS by pallet count and hour.', hyperlink: 'https://datastudio.google.com/c/reporting/9db8c60e-dca7-4826-9113-b80f5ad9d263/page/M2r6B' },{ name: 'AMS HUB storage capacity', tags: 'EMEA TMS', image: '', description: 'AMS Hub Storage Capacity', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/2a3d2059-eba0-41df-a21d-4f05937df67c/page/CcJOB' },{ name: 'APAC Inbound and Outbound', tags: 'APAC Expeditors', image: '', description: 'Trend of APAC inbound and outbound volume. This is for the purpose of getting shipment volume metrics.', hyperlink: 'https://datastudio.google.com/c/reporting/4d033386-7058-452b-858c-edc927bc7ab5' },{ name: 'APAC Inbound Last Mile', tags: 'APAC Expeditors', image: '', description: 'Performance for last mile delivery from port to door. Includes OTP with breakdown of actual days of Port to Door.', hyperlink: 'https://datastudio.google.com/c/reporting/8ec9fdc0-f5c5-43f7-a098-d160b969ccf4/page/Rk0uC' },{ name: 'ATL Inbound to Hub All Planned Delivery', tags: 'TMS', image: '', description: 'Provides a comprehensive view of both ATL and AMS inbound to hub based on mode. This provides information about metrics like the amount of incoming units per mode, appointment dates, days that a unit has been aging since it has arrived in port, and a deep dive with current and past metrics displayed on it. ', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/e3a708d1-3ea0-4e63-b302-9301a657787f/page/44SiB' },{ name: 'BBA Carrier Invoice Analysis', tags: 'Spend', image: '', description: 'Shows days took to process invoices', hyperlink: 'https://datastudio.google.com/c/reporting/f43ff8f2-435d-42c3-9315-7f043e88994f/page/Hk1OB' },{ name: 'BBA Life of a invoice', tags: 'Spend', image: '', description: 'shows how long it takes to get the invoice', hyperlink: 'https://datastudio.google.com/c/reporting/1F7bbPcJxSmV49fnPiiZzZSNIEksIMMzd/page/8dlGB' },{ name: 'BBA Weekly Carrier Invoice', tags: 'Spend', image: '', description: 'BBA weekly invocie by process date and invoice received date', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/157470ca-45b2-46b0-826b-afe73f70bf64/page/66PAC/edit' },{ name: 'Build-Aware DC Inbound', tags: 'TMS Planner D2DC Builds', image: 'https://screenshot.googleplex.com/frrRNPvC7qbHjgc', description: 'Datacenter inbound report showing deliveries of rack and tray commodity shipments as well as the incremental fulfillment of the associated build requirements', hyperlink: 'https://goto.google.com/build-aware-dc-dash' },{ name: 'Carrier Delay Alerts', tags: 'TMS Exceptions', image: 'https://screenshot.googleplex.com/BKzXkRPfDEwj32T', description: 'Shipment Delay Alerts captures specifc delay events from TM as well as the order create data from SAP to broadcast an alert to the appropriate parties', hyperlink: 'https://goto.google.com/carrier-delay-alerts-dash' },{ name: 'Chicago VMI gTMS OB and IB', tags: 'TMS Supplier CM', image: 'https://screenshot.googleplex.com/47bDkxro8EQ2yts', description: 'Chicago VMI TMS Outbound and Inbound report showing orders being shipped from or to Chicago VMI', hyperlink: 'https://goto.google.com/chicago-vmi-tms-dash' },{ name: 'CM TMS Performance Summary', tags: 'CM TMS', image: '', description: 'CM Performand Dashboard (Slip Coding)', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/5a2b9555-49db-44da-83b0-ae771412132f/page/W3EH' },{ name: 'CorpEng Send CorpEng - Spend DashBoard', tags: 'Spend', image: '', description: 'CorpEng Send CorpEng - Spend DashBoard', hyperlink: 'https://datastudio.google.com/c/reporting/1EF_smygTWb3XPH40rRPkv8Cl9_y83nRh/page/PUBDB' },{ name: 'Cost Fluctuation Analysis', tags: 'Spend Spot', image: '', description: 'This includes all the spot rates and main deck spend', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/6d685c6b-b9f0-4a4e-bf7e-bd6509460dce/page/9kKGB' },{ name: 'Dark Shipment Dashboard', tags: 'GLOCC', image: '', description: 'To keep track of shipment that have no status updates for 5+ days for FedEx. The reason why we are keeping track of shipments that have no status updates for 5+ days is because that is what is considered as dark shipments by FedEx.', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/5a63717f-438f-418c-ad0d-7cb998288db0/page/MmFAB' },{ name: 'DC Dock Schedules', tags: 'TMS D2DC', image: 'https://screenshot.googleplex.com/9eT8usRXbHQ8PVY', description: 'Shows the dock commitments, business hours, and capacity for direct to DC', hyperlink: 'https://goto.google.com/dc-dock-schedules' },{ name: 'Direct to DC Capacity', tags: 'TMS D2DC', image: 'https://screenshot.googleplex.com/9fxqaMn4DznjZtT', description: 'Direct-to-Datacenter report showing shipments and estimated load volume compared with capacity as determined by location throughput', hyperlink: 'https://goto.google.com/direct-to-dc-capacity-dash' },{ name: 'Direct to DC Program', tags: 'TMS D2DC', image: 'https://screenshot.googleplex.com/7rzsXqK8tqYrGQn', description: 'Direct to Datacenter report showing the current state of the program and various key metrics by program, location, build, and order', hyperlink: 'https://goto.google.com/direct-to-dc-program-dash' },{ name: 'Dock Master Data', tags: 'TMS Planner D2DC', image: 'https://screenshot.googleplex.com/BwhEXdnFXVDHYLN', description: 'Displays location dock master capacity and business hours as well as the associated change log', hyperlink: 'https://goto.google.com/dock-master-data' },{ name: 'Double Stack Savings', tags: 'TMS Savings', image: 'https://screenshot.googleplex.com/kiTuD6vYWECcUUC', description: 'Shows savings from loads using double stack equipment (e.g. 53DD) to move more than the typical 24 pallets', hyperlink: 'https://goto.google.com/double-stack-savings-dash' },{ name: 'E2E Order Life Cycle', tags: 'TMS', image: '', description: 'TMS shipments end to end', hyperlink: 'https://datastudio.google.com/c/reporting/0019a5b6-3ddf-4963-a975-d90d092975b5/page/Pm3QB' },{ name: 'EI Transit Time Report', tags: 'OTP Expeditors', image: '', description: 'EI Historical transit time with SLA, percentile and gross OTP information', hyperlink: 'https://docs.google.com/spreadsheets/d/1-_9j05Ch3uhOR8_rNWfKkMSqEFLZvyB79aU7bHJScfI/edit?usp=sharing&resourcekey=0-hntYvhvpNuWQ0HSk4_RcFQ' },{ name: 'EMEA BBA Dashboard', tags: 'Spend', image: '', description: 'Dashboard showing BBA Invoice breakdown for EMEA', hyperlink: 'https://datastudio.google.com/c/reporting/1DdRl9VHItrcpPVRkx-NPMwmEqqn0Y6-1/page/bjZl' },{ name: 'ESC Performance', tags: 'ESC GLOCC Exceptions', image: '', description: 'Spend, incidents and delays of ESC shipments', hyperlink: 'https://datastudio.google.com/c/reporting/9fbe1558-6763-468b-978d-811740d6de3b/page/OlcrB' },{ name: 'EU Spoke Dashboard', tags: 'EMEA TMS', image: '', description: 'Detail of planned shipments in EMEA', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/5a2b9555-49db-44da-83b0-ae771412132f/page/W3EH' },{ name: 'Expeditors EDI Performance', tags: 'EDI Expeditors', image: 'https://screenshot.googleplex.com/p3CtzaLhy49EZ8j.png', description: 'This measures completeness and speed of TMS EDI performance', hyperlink: 'https://datastudio.google.com/c/reporting/1de18814-849a-46cf-9b2e-43cda70de3ce/page/bCqCC' },{ name: 'Expeditors In Transit Performance', tags: 'Expeditors', image: 'https://screenshot.googleplex.com/5fU9ynGJdddU4MB', description: 'Measures SLA performance for in transit shipments within the Expeditors network based on the current tracking sheet used during the cyber attack', hyperlink: 'https://goto.google.com/expeditors-in-transit-performance-dash' },{ name: 'Expeditors NA Scheduled Loads', tags: 'Expeditors', image: 'https://screenshot.googleplex.com/6hT7GaaJrGAAkw9', description: 'A report of tender accepted or greater Expeditor loads scheduled to come out of Atlanta warehouses', hyperlink: 'https://goto.google.com/expeditors-na-scheduled-dash' },{ name: 'Expeditors Scorecard', tags: 'Expeditors Scorecard OTP Key', image: 'https://screenshot.googleplex.com/4SsrWb5cgs5rRS7.png', description: 'Expeditors scorecard provides a view for carrier performance in terms of on time performance, spend control, safety & security and EDI completenessa andtimeliness. Documents of metricsis go/carrier-scorecards', hyperlink: 'https://datastudio.google.com/c/reporting/1MLaGHlIHhFC9Q9F-CGY96zlI37eQ7_vr/page/5bD2' },{ name: 'Expeditors Spot quotes', tags: 'Spend Expeditors Spot', image: '', description: 'Expeditors spot quotes', hyperlink: 'https://datastudio.google.com/c/reporting/b89a4bde-6e79-4541-81f7-dfaf8c8d763b/page/EPkZB' },{ name: 'Explore AWACS', tags: 'TMS Landstar Expeditors Roadone Fedex Key', image: 'https://screenshot.googleplex.com/AtX56F5DpvnTeQc', description: 'Explore the AWACS data model with interactive search', hyperlink: 'https://goto.google.com/awacs-explore' },{ name: 'F&OP Forecast', tags: 'Forecast Builds Key', image: 'https://screenshot.googleplex.com/BV5QuEmfjoJxCMz.png', description: 'F&OP Forecast with forecasted number of machines, racks and pallets by month', hyperlink: 'https://datastudio.google.com/c/reporting/4706ac62-7992-4b2e-b154-6ef3c6b07ad1/page/p_lj371cwvmc' },{ name: 'FedEx EDI Performance', tags: 'EDI Fedex', image: 'https://screenshot.googleplex.com/6mFui9rXu44ZNyQ.png', description: 'This measures completeness and speed of TMS EDI performance', hyperlink: 'https://datastudio.google.com/c/reporting/48e0ac6b-1c6a-4d20-a844-409b98c6ad01/page/bCqCC' },{ name: 'FedEx Exceptions (Missing Cost Centers)', tags: 'Spend', image: '', description: 'This is showing the weekly FedEx exception invoices which are missing cost centers.', hyperlink: 'https://datastudio.google.com/s/mSJe2aS83RE' },{ name: 'FedEx LTL BOL Issues', tags: 'Spend', image: '', description: 'Weekly BOL issues related to FedEx LTL shipments updated by site', hyperlink: 'https://datastudio.google.com/s/vPIflC3KH8E' },{ name: 'FedEx NA Scheduled Loads', tags: 'Fedex', image: 'https://screenshot.googleplex.com/4LZj3muet9hQBpH', description: 'A report of tender accepted or greater Expeditor loads scheduled to come out of NA', hyperlink: 'https://goto.google.com/fedex-na-scheduled-dash' },{ name: 'FedEx Scorecard', tags: 'Fedex Scorecard OTP Key', image: 'https://screenshot.googleplex.com/7w6zn62iA6rk7AY.png', description: 'FedEx scorecard provides a view for carrier performance in terms of on time performance, spend control, safety & security and EDI completeness and timeliness.Documents of metricsis go/carrier-scorecards', hyperlink: 'https://datastudio.google.com/c/reporting/1XkB4OxibWB29TEZl_uw3sXrPPZXxkP-q/page/5bD2' },{ name: 'Fleet Booklet', tags: 'TMS', image: '', description: 'Assist the customer with full visibility to the trailer and container management at the ATL locations.', hyperlink: 'https://b.corp.google.com/issues/219927033' },{ name: 'Foxconn gTMS Outbound and Inbound', tags: 'Supplier CM', image: 'https://screenshot.googleplex.com/3ipYFCad264kMiY', description: 'Foxconn TMS Outbound and Inbound report showing orders being shipped from or to Foxconn', hyperlink: 'https://goto.google.com/foxconn-tms-dash' },{ name: 'GCD Breakdown by Mode', tags: 'Spend', image: '', description: 'GCD Yearly/Quarterly/Monthly/Weekly Spend by mode with breakdown', hyperlink: 'https://datastudio.google.com/s/mPtcGraC6BM' },{ name: 'GLO (AFS/BBA) Compliance and Tax Related Charges', tags: 'Spend', image: '', description: 'GLO compliance and tax related charges', hyperlink: 'https://datastudio.google.com/s/mHrMdR5zKao' },{ name: 'GLO Ops Dashboard', tags: 'OTP GLOCC', image: '', description: 'This is designed for bi weekly meeting for transportation OPS team with weekly OTP and incidents', hyperlink: 'https://datastudio.google.com/c/reporting/f59a7821-8b88-4a73-89b9-c1f0d6d84ca7/page/BaULC' },{ name: 'GLO Spend/Performance', tags: 'OTP Spend Expeditors Landstar Fedex Key', image: 'https://screenshot.googleplex.com/8E5rewCJkFDtW6K.png', description: 'The purpose of this dashboard is to give a comprehensive view of spend and performance. It is broken down by spend summary and deep dive, as well as a performance summary. It also breaks down summaries and deep dives by carrier.', hyperlink: 'https://datastudio.google.com/c/reporting/accc3151-9b94-40a2-879a-2a9f7807e4a9/page/9kKGB' },{ name: 'GLO ​Top Lanes Air Express and Standard', tags: 'Spend', image: '', description: 'Top lanes express and standard air total spend and weight (LBS), percentage in total', hyperlink: 'https://datastudio.google.com/s/s_3QIvh1m0o' },{ name: 'Global BBA Dashboard', tags: 'Spend', image: '', description: 'Has that specific weeks upload in BBA', hyperlink: 'https://datastudio.google.com/c/reporting/52bbc5f2-af71-46f2-b2fc-7af4e4484a31/page/P8dSB' },{ name: 'Global Claims Dashboard', tags: 'Spend', image: '', description: 'Details of Global Claims handled with carriers', hyperlink: 'https://datastudio.google.com/s/oVCxJ8RI8nA' },{ name: 'Global Incidents & RCCAs', tags: 'GLOCC Exceptions Key', image: 'https://screenshot.googleplex.com/Bh2pkAuoAJ6bcng.png', description: 'Monitors open and closed incidents and open and closed RCCAs as well as Landstar incidents, incident percentage, and carrier incidents.', hyperlink: 'https://datastudio.google.com/c/reporting/1uPcl5_92VCqub9t1ckB7DeT7bI5i4F9J/page/nU6g' },{ name: 'GLOCC Historical Volume Dashboard', tags: 'GLOCC', image: '', description: 'Provides a visual display of exception shipments in relation to NMC shipments as well as regional displays to see in which regions the exceptions are happening most. Also gives a report of the amount of exception shipments that have been touched vs not touched. ', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/76b1e6c5-ee6c-4c84-a46b-4da6cff24069/page/pP86' },{ name: 'GLOCC Scorecard', tags: 'GLOCC', image: 'https://screenshot.googleplex.com/7Xdyvqk7Ga4Lrsz.png', description: 'This measures overall health of GLOCC including numbers of touches, exceptions, and volume of shipments', hyperlink: 'https://datastudio.google.com/c/reporting/470389bd-2166-4a99-8709-fb62a3e00908/page/O5AHC' },{ name: 'GLOCC Tickets Dashboard', tags: 'GLOCC Exceptions', image: '', description: 'This dashboard reports the number of resolved and open tickets that belong to the GLOCC team and provides some visualizations based on key metrics.', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/1y5nQWJ_pST2_-9K4LyjGP0PMK8ryElXE/page/vI5d' },{ name: 'GPN Validation Dash', tags: 'GPN', image: '', description: 'Validation of dimensional fields of GPN in TMS', hyperlink: 'https://docs.google.com/spreadsheets/d/1DT8Y8ofI8yDXJ18ZJ-f20w98bDjpyKThSMLwcbDMeyI/edit?resourcekey=0-Uaf8z-a32Bt9jftSP3muyw#gid=639919332' },{ name: 'Green Mountain/ F300/ F400 Shipment Tracker', tags: 'GLOCC', image: '', description: 'Green Mountain/ F300/ F400 Shipment Tracker', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/10bc04cc-6f5a-4f54-acee-d73276e9b6c7/page/rrt0/edit' },{ name: 'Historical NMC Dashboard', tags: 'GLOCC', image: '', description: 'Shows a historical view for all carriers for performance relating to delays, the amount of times they occur, and the reasons for these delays. ', hyperlink: 'https://datastudio.google.com/c/reporting/ef2eea17-d7bf-4973-bf49-27c1124049d5/page/9kKGB/edit' },{ name: 'Hub and Spoke Inbound/Outbound Shipment Planning', tags: 'TMS Planner', image: '', description: 'Hub and spoke dashboard that shows all load details and order details for the US. Primarily used by warehouse operations.', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/1iXf1XVQq5S8UVpS0z0QGlnrBymo5fATu/page/Ld3v' },{ name: 'iControl Dashboard', tags: 'iControl', image: '', description: 'Dashboard showing open and historic iControl MOR volumes', hyperlink: 'https://datastudio.google.com/c/reporting/1TWXH6x1uoyhulWUwtYxiSJBmubuFvSKx/page/nU6g?s=p_u3lOI4i-8' },{ name: 'Key Trade Lane Freight Cost Dashboard', tags: 'Spend', image: '', description: 'Freight cost per LB of key trade lanes', hyperlink: 'https://datastudio.google.com/s/jAnlvq2AQNY' },{ name: 'Landstar EDI Performance', tags: 'EDI Landstar', image: 'https://screenshot.googleplex.com/6uK37XLfYTnAssv.png', description: 'This measures completeness and speed of TMS EDI performance', hyperlink: 'https://datastudio.google.com/c/reporting/e8057cbb-f1bb-43b3-a5f4-ead2462f8c57/page/bCqCC' },{ name: 'Landstar Scorecard', tags: 'Landstar Scorecard OTP Key', image: 'https://screenshot.googleplex.com/6tDvoMsUTsM7DGc.png', description: 'Landstar scorecard provides a view for carrier performance in terms of on time performance, spend control, safety & security and EDI completenessa andtimeliness. Documents of metricsis go/carrier-scorecards', hyperlink: 'https://datastudio.google.com/c/reporting/1wGi6vcRUISDG7oCW8O3HnVlOHh7j_uZn/page/5bD2' },{ name: 'Landstar Weekly Fuel Surcharge per Mile', tags: 'Spend', image: '', description: 'Weekly fuel surcharges trend from Landstar', hyperlink: 'https://datastudio.google.com/s/hZWIOLsNPPg' },{ name: 'Live TSP Wing Spend Dashboard Rev 2', tags: 'Spend', image: '', description: 'Monthly Wing Freight Spend', hyperlink: 'https://datastudio.google.com/s/quWh7iEqE3A' },{ name: 'Managed Load Volumes', tags: 'TMS', image: 'https://screenshot.googleplex.com/3FeBsa4dQg4EWqr', description: 'A summary of managed load volumes going back to 2020 and include weight, volume, charge amount (USD), shipment count, and load count by origin region', hyperlink: 'https://goto.google.com/managed-load-volumes-dash' },{ name: 'Missing Recovered Freight Dashboard', tags: 'GLOCC', image: '', description: 'Monitor the current missing shipments and provide trend information on historical shipments', hyperlink: 'https://datastudio.google.com/reporting/1BozIQDQgeMJkO75_v74s9vOHHiDc64Cf' },{ name: 'Missing Shipments', tags: 'GLOCC Exceptions', image: '', description: 'Monitor the current missing shipments and provide trend information on historical shipments', hyperlink: 'https://datastudio.google.com/c/reporting/1BozIQDQgeMJkO75_v74s9vOHHiDc64Cf/page/s0u0' },{ name: 'Monthly Ocean Traffic', tags: 'APAC Ocean', image: '', description: 'Volume report of pallet sized shipments in the APAC region that is updated monthly to a Google Sheet.', hyperlink: 'https://docs.google.com/spreadsheets/d/18108nn8AtobuH80lhYxCMdDFhO1-cyi5Ku8_t9ZGgCM/edit?usp=sharing&resourcekey=0-cqpnsnyKHXji3UDNuiutEA' },{ name: 'MotD GMO/GCD L1 Dashboard', tags: 'Spend', image: '', description: 'Taiwan/Atlanta/Amsterdam per pound rate and MotD total landed cost', hyperlink: 'https://datastudio.google.com/s/liZfIYBqPfg' },{ name: 'NFO Shipments', tags: 'OTP NFO', image: '', description: 'Has all the NFO shipments that are in transit or delivered', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/a0c97e93-e24b-4240-b53b-850221a4b0f5/page/HqATB' },{ name: 'NOSC APAC Scorecard', tags: 'Scorecard OTP APAC', image: 'https://screenshot.googleplex.com/9Jk83XuEUTahbKn.png', description: 'Net deployment supply chain scorecard. Measure the inbound and outbound from warehouse WHSINZ including information on shipments count, volume, OTP, and delay reason code.', hyperlink: 'https://datastudio.google.com/reporting/d584960c-72ac-4543-9d10-06f61a4044e1' },{ name: 'Operational Metrics At A Glance', tags: 'OTP', image: 'https://screenshot.googleplex.com/4MkmQANX5NEMYGC', description: 'Operational metrics at a glance from the self serve metrics data sources in a simple to digest table view', hyperlink: 'https://goto.google.com/transpo-operational-metrics' },{ name: 'Orders with CI', tags: 'Compliance', image: 'https://screenshot.googleplex.com/C7z8vKs5Dk8rrqu', description: 'Search for Orders with a Commerical Invoice Number', hyperlink: 'https://goto.google.com/orders-with-ci' },{ name: 'PDQ Dashboard', tags: 'Spend', image: '', description: 'Spend Dashboard for PDQ', hyperlink: 'https://datastudio.google.com/c/reporting/bf3ada8e-3e2a-44f9-9e12-4311043f00cd/page/HqATB' },{ name: 'Performance Dashboard', tags: 'OTP', image: '', description: 'A legacy view of gross and net delivery performance', hyperlink: 'https://datastudio.google.com/reporting/1xDXrS1B2GRNUM_gQOyRteE5LeT63uGdk' },{ name: 'Planned v Actuals - Landstar', tags: 'Landstar TMS Planner', image: '', description: 'Landstar Planned Vs Actual Charges compares planned TM load charges with actual invoice charge details', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/e81b791b-84c6-4a4c-bf79-d05ae0c33cbe/page/p_t2yfd5v4tc' },{ name: 'Planned vs Actual Managed Spend', tags: 'TMS Planner', image: 'https://screenshot.googleplex.com/4roV3BhvKzFH78m', description: 'Expeditors Air Planned Vs Actual Charges compares planned TM load charges with actual invoice charge details', hyperlink: 'https://goto.google.com/planned-vs-actual-spend-dash' },{ name: 'Planned vs Actual Ship', tags: 'TMS Planner', image: 'https://screenshot.googleplex.com/8qw3VQFgFePJYZG', description: 'Planned vs Actual loads and shipments shipping against their scheduled start date with respect to TM and SAP', hyperlink: 'https://goto.google.com/plan-vs-actual-dash' },{ name: 'Planned vs Actual Ship - Contract Manufacturers', tags: 'CM TMS', image: 'https://screenshot.googleplex.com/5BzCvgbySFQdJAw', description: 'Planned vs Actual loads and shipments shipping against their scheduled start date with respect to TM and SAP for Contract Manufacturers', hyperlink: 'https://goto.google.com/plan-vs-actual-cm-dash' },{ name: 'Planner Added or Removed Orders', tags: 'TMS Planner', image: 'https://screenshot.googleplex.com/8VGzfrYRKjfPPUP', description: 'Planner Added or Removed Orders tracks which orders have been added to or removed from a load after tender accept but before shipped in gTMS', hyperlink: 'https://goto.google.com/planner-added-or-removed-dash' },{ name: 'Planner Process Conformance', tags: 'TMS Planner', image: 'https://screenshot.googleplex.com/3PuurScJQRMcdJW', description: 'Shipment Delivery Change Unknown Reason captures changes to the shipment Delivery To Date where the shipment has no SH-% event explaining this change', hyperlink: 'https://goto.google.com/planner-process-conformance-dash' },{ name: 'Project Kodiak', tags: 'OTP Compliance TMS Key', image: 'https://screenshot.googleplex.com/3qyMKLGBjBQrhyK.png', description: 'Project Kodiak - Tracking RDD Improvements', hyperlink: 'https://datastudio.google.com/c/reporting/67c40d37-3e57-44d8-a6a3-587ce052eeb8/page/BA7TB' },{ name: 'Quanta gTMS Outbound and Inbound', tags: 'Supplier CM TMS', image: 'https://screenshot.googleplex.com/7DDRanh9PpoxEYx', description: 'Quanta TMS Outbound and Inbound report showing orders being shipped from or to Quanta', hyperlink: 'https://goto.google.com/quanta-tms-dashboard' },{ name: 'Quanta Supplier Outbound', tags: 'Supplier CM TMS', image: 'https://screenshot.googleplex.com/5VgiSGNQiEyYaF9', description: 'Quanta supplier outbound report showing orders being shipped from Quanta and their associated part level detail', hyperlink: 'https://datastudio.google.com/reporting/730ba965-9540-4348-91fd-af9e9f695b31' },{ name: 'R360 Dashboard', tags: 'GLOCC', image: '', description: 'Shows resilience 360 information', hyperlink: 'https://datastudio.google.com/reporting/24b92264-63d6-428e-a2e4-cff4860461f2' },{ name: 'Roadone Meeting Metrics', tags: 'Roadone OTP', image: '', description: 'Monitors Roadone shuttle moves and yard moves for use in a weekly meeting to figure out weak points and blockers. There are daily, weekly, and historical views in this dashboard to analyze trends.', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/d3398af7-8528-4b6b-8d84-6920d33ead8b/page/YwhLC' },{ name: 'Roadone Monthly Performance', tags: 'Roadone Scorecard OTP', image: 'https://screenshot.googleplex.com/5ZALBGjo4mNehRb.png', description: 'Analyzes the performance of Roadone from the previous month. Gives metrics on which customers are making move requests, what their percentage of success is with delivery performance, the total moves being shipped, the RCCAs reported, the spend amount, and the accuracy of invoices.', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/1fNxcZi-nkleti0VzuOFePI4Mh284S9-v/page/5bD2' },{ name: 'Roadone Scorecard', tags: 'Roadone Scorecard Key', image: 'https://screenshot.googleplex.com/9d54zLwQiu8Wcc5.png', description: 'Monitors Roadone performance in terms of on time performance, spend control, safety and, and EDI completeness/timeliness.', hyperlink: 'https://datastudio.google.com/c/reporting/1nZvuaYrdSJwHjjhodMSEx2WLRKP4vNUA/page/5bD2/edit' },{ name: 'SABABU Transpo Issue', tags: 'OTP SABABU Key', image: 'https://screenshot.googleplex.com/6zkoCgbnacXRLjR.png', description: 'List of all SABABU records with transortational delay codes', hyperlink: 'https://docs.google.com/spreadsheets/d/176S3x5l2NZ6UFi17KqsI8xNbYXXIFqFxZ0D0KQiOm1Q/edit#gid=1305077691' },{ name: 'Self-Serve Metric Visualizations', tags: 'TMS Metrics', image: 'https://screenshot.googleplex.com/54ZCBwUEoiptdUq', description: 'Self-Serve Load and Order metrics by typical dimensions', hyperlink: 'https://goto.google.com/self-serve-metrics-dash' },{ name: 'Shipment Priority Dashboard', tags: 'TMS Planner', image: '', description: 'Shipment to be planned in TMS orderred by GDRS priority', hyperlink: 'https://datastudio.google.com/c/reporting/43330f7f-cb52-4bb5-a5b4-7d9e59904dde/page/DGzXC' },{ name: 'Shipment Threats', tags: 'Everstream Exceptions', image: 'https://screenshot.googleplex.com/ANKK5tGoEBanUiF', description: 'Everstream threats combined with AWACS moves to create visibility as a proof-of-concept for Everstream integration', hyperlink: 'https://goto.google.com/shipment-threats' },{ name: 'Shipper/Supplier Dashboard', tags: 'Supplier', image: '', description: 'Shipment count and weight analysis with country, lane breakdown and deep dive', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/1i6WxR2YaraOhIyU85zRvXBZmCHa6ojhq/page/epqv' },{ name: 'Sidewalk Labs In Transit Shipments', tags: 'Sidewalk Spend', image: '', description: 'Sidewalk labs in transit shipments', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/d7e57ad5-0902-4e93-a915-b5a2d7d7bc59/page/rrt0' },{ name: 'Spoke Capacity - Planner View', tags: 'TMS Planner', image: '', description: 'Number of truckloads going to spokes. Monitors ATL warehouses only', hyperlink: 'https://datastudio.google.com/c/reporting/1C5vuQ6PMqUA66NL4Pf8RsJbtmSG-fiBS/page/9qfy' },{ name: 'Spoke Inbound Loads', tags: 'TMS Planner Key', image: 'https://screenshot.googleplex.com/5x5zvJPUvPXfukU.png', description: 'Number of truckloads going to spokes with deep dive for spokes personnell', hyperlink: 'https://datastudio.google.com/c/reporting/1iXf1XVQq5S8UVpS0z0QGlnrBymo5fATu/page/Ld3v' },{ name: 'Spot Quotes Shipment Dashboard', tags: 'Spend Spot', image: '', description: 'Spend and Shipment count of Expeditors Shipments under Spot Quotes', hyperlink: 'https://datastudio.google.com/s/tMTgaa_UwxI' },{ name: 'SWS Metrics Dashboard', tags: 'OTP SWS', image: '', description: 'SWS Program Metrics', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/96a03e2e-ac37-4b7f-a228-ce13ca26bbab/page/J1ThC' },{ name: 'TMS Form Response Time', tags: 'TMS Planner', image: 'https://screenshot.googleplex.com/6T9wwPH4MVtAd7Z', description: 'TMS Form cycle time measures the time it takes to complete a request submitted via form (e.g. Carrier Change Request or Order Adding)', hyperlink: 'https://goto.google.com/tms-form-response-dash' },{ name: 'TMS Shipment Planning', tags: 'TMS Planner', image: 'https://screenshot.googleplex.com/AbyVFZ5BYdeoTzk', description: 'TM-centric report for load and shipments; covering a wide variety of different planning metrics', hyperlink: 'https://goto.google.com/tms-shipment-planning-dash' },{ name: 'Transportation Ops Report', tags: 'GLOCC Exceptions', image: '', description: 'Analysis for Transportation Operations impacting Exceptions, Transportation Project Savings, and more...', hyperlink: '' },{ name: 'Transportation Savings and Cost Avoidance', tags: 'Savings Spend', image: 'https://screenshot.googleplex.com/BGtZLFqqq7xFKwm', description: 'Visualizes transportation savings and cost avoidance data from the safe source by month and project name', hyperlink: 'https://goto.google.com/transportation-savings-dashboard' },{ name: 'WH Dock Schedules', tags: 'TMS Planner', image: 'https://screenshot.googleplex.com/4GqNwGBULeTnWsp', description: 'Shows the dock commitments, business hours, and capacity for CMs and WHs', hyperlink: 'https://goto.google.com/wh-dock-schedules' },{ name: 'X Freight Cost Breakout Dashboard', tags: 'Spend', image: '', description: 'X monthly freight costs with breakout details', hyperlink: 'https://datastudio.google.com/s/ov4aAXlVnuY' },{ name: 'Ziegler Scorecard', tags: 'Scorecard OTP Ziegler Key', image: 'https://screenshot.googleplex.com/4vJZPTzwbKK5JBJ.png', description: 'Ziegler Quarterly Scorecard provides a view for carrier performance in terms of on time performance, spend control, safety & security and EDI completeness and timeliness.Documents of metricsis go/carrier-scorecards', hyperlink: 'https://datastudio.google.com/c/reporting/05008add-48db-4d23-8b09-8355d56e7400/page/5bD2' },{ name: 'Global DG Guts Dashboard for QBR', tags: 'DG', image: '', description: 'Number of DG related Guts tickets and resolving time', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/1xEG9lbQ7knCRJCTXEcleQcMr4NwaqDND/page/jAIn' },{ name: 'DG Warehouse Summary', tags: 'DG', image: '', description: 'DG shipments breakdown by the type/GPN & warehouse location', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/1MW57uUVx1E-1n4VG2pL1D7XyM9kNrQn5/page/Zowo' },{ name: 'Website Live Global DG Guts Dashboard', tags: 'DG', image: '', description: 'Main DG dashboard displayed on the screen in the CC', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/1JzUBK279s7fZeb2Gj7sY6H1jEHk6fH2n/page/jAIn' },
+
+
+]
+
+    var OContainer = document.getElementById('CardRow')
+    // var OContainer = document.createElement("div");
+
+    // OContainer.className = "container-fulid"
+
+    for (i = 0; i < items.length; i++) {
+        // window.onload = function () {
+        var Odiv = document.createElement("div");
+        var Idiv = document.createElement("div");
+        var IHyperlink = document.createElement("a");
+        var Ih3 = document.createElement("h5");
+        var IP1 = document.createElement("p");
+        var IStrong = document.createElement("strong");
+
+        console.log(items.length)
+        IHyperlink.href = items[i].hyperlink
+        Ih3.innerText = items[i].name
+        Ih3.style.height = '60px'
+        Idiv.id = 'DashCard'
+        IP1.id = 'DashDescription'
+        // IP1.style.display = 'none'
+        IP1.style.opacity = 0
+        // IP1.style.visibility = 'hidden'
+        IP1.style.maxHeight = '0px'   // max-height -->maxHeight
+        IStrong.innerText = items[i].description
+        Odiv.className = "col-md-3 filter_box filter " + items[i].tags
+        // Odiv.className = "col-md-3 filter_box"
+        Idiv.className = "single-district"
+
+        IP1.appendChild(IStrong);
+        IHyperlink.appendChild(Ih3);
+        IHyperlink.appendChild(IP1);
+        Idiv.appendChild(IHyperlink);
+        Odiv.appendChild(Idiv);
+        // document.body.appendChild(Odiv);
+        OContainer.appendChild(Odiv);
+        //Odiv.id=”box”;
+        // Odiv.style.cssText = "width: 200px; height: 200px; background:#636363;text - align: center; line - height: 220px";    //建立div的css樣式
+        // Idiv.style.cssText = "width: 100px; height: 100px; background:#F4B400;text - align: center; line - height: 220px";    //建立div的css樣式
+        // }
+
+
+    }
+
+
+
+
+
+</script>
+
+</html>

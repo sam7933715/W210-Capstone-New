@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .filter_box {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-bottom: 10px;
+        }
+
+        .single-district {
+            background: #4285F4;
+            color: #fff;
+            border: 2px solid black;
+            display: block;
+            text-align: center;
+        }
+
+        .single-district h3 {
+            font-weight: 700;
+
+        }
+
+        .single-district p {
+            font-size: 15px;
+            margin: 8px;
+
+        }
+
+        .single-district a {
+            color: white;
+            display: block;
+            padding: 15px;
+        }
+
+        .single-district a:hover {
+            color: #F4B400;
+            text-decoration: none;
+        }
+
+        #DashDescription {
+            transition: all .5s;
+        }
+
+
+        #DashCard:hover #DashDescription {
+            /*hover>#DashDescription 子層 , hover #DashDescription */
+            /* display: block !important;  */
+            /*hosting:  inline-style > id > class > selector > element */
+            max-height: 500px !important;
+            /* visibility: visible !important; */
+            opacity: 1 !important;
+        }
+    </style>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".filter-button").click(function () {
+                var value = $(this).attr('data-filter');
+
+                if (value == "all") {
+                    //$('.filter').removeClass('hidden');
+                    $('.filter').show('1000');
+                }
+                else {
+                    //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+                    //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+
+                }
+            });
+
+            if ($(".filter-button").removeClass("active")) {
+                $(this).removeClass("active");
+            }
+            $(this).addClass("active");
+
+        });
+    </script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="container-fulid">
+        <div class="card">
+            <!-- <div class="card-header text-center display-4">
+                Gallery
+            </div> -->
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <!-- <button class="btn btn-outline-success filter-button" data-filter="all">All</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="OTP">OTP</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Scorecard">Scorecard</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Spend">Spend</button> -->
+                        <button class="btn btn-outline-success filter-button" data-filter="GLOCC">GLOCC</button>
+                        <!-- <button class="btn btn-outline-success filter-button" data-filter="TMS">TMS</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Planner">Planner</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Expeditors">Expeditors</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Fedex">Fedex</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Roadone">Roadone</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Landstar">Landstar</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Ziegler">Ziegler</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Supplier">Supplier</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="APAC">APAC</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="EMEA">EMEA</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="CM">CM</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="EDI">EDI</button>
+                        <button class="btn btn-outline-success filter-button" data-filter="Forecast">Forecast</button> -->
+                    </div>
+                </div>
+
+                <div class="row mt-4" id="CardRow">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    var items = [
+ { name: 'All Exceptions Dashboard', tags: 'GLOCC', image: '', description: 'Dashboard that shows all shipments that had exceptions', hyperlink: 'https://datastudio.google.com/c/reporting/1e18aea1-e030-490d-a458-e4038f0d8c54/page/qlD' },{ name: 'Dark Shipment Dashboard', tags: 'GLOCC', image: '', description: 'Dark Shipment Dashboard', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/5a63717f-438f-418c-ad0d-7cb998288db0/page/MmFAB' },{ name: 'GLO Ops Dashboard', tags: 'OTP GLOCC', image: '', description: 'This is designed for bi weekly meeting for transportation OPS team with weekly OTP and incidents', hyperlink: 'https://datastudio.google.com/c/reporting/f59a7821-8b88-4a73-89b9-c1f0d6d84ca7/page/BaULC' },{ name: 'Global Incidents & RCCAs', tags: 'GLOCC', image: '', description: 'To monitor historical RCCAs & Incidents', hyperlink: 'https://datastudio.google.com/c/reporting/1uPcl5_92VCqub9t1ckB7DeT7bI5i4F9J/page/nU6g' },{ name: 'GLOCC Historical Volume Dashboard', tags: 'GLOCC', image: '', description: 'GLOCC historical volume dashboard', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/76b1e6c5-ee6c-4c84-a46b-4da6cff24069/page/pP86' },
+ { name: 'GLOCC Tickets Dashboard', tags: 'GLOCC', image: '', description: 'GLOCC ticket analysis', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/1y5nQWJ_pST2_-9K4LyjGP0PMK8ryElXE/page/vI5d' },{ name: 'Missing Shipments', tags: 'GLOCC', image: '', description: 'Monitor the current missing shipments and provide trend information on historical shipments', hyperlink: 'https://datastudio.google.com/c/reporting/1BozIQDQgeMJkO75_v74s9vOHHiDc64Cf/page/s0u0' },{ name: 'R360 Dashboard', tags: 'GLOCC', image: '', description: 'Shows Resilience 360 information', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/24b92264-63d6-428e-a2e4-cff4860461f2/page/4bK2B' }
+    ]
+
+    var OContainer = document.getElementById('CardRow')
+    // var OContainer = document.createElement("div");
+
+    // OContainer.className = "container-fulid"
+
+    for (i = 0; i < items.length; i++) {
+        // window.onload = function () {
+        var Odiv = document.createElement("div");
+        var Idiv = document.createElement("div");
+        var IHyperlink = document.createElement("a");
+        var Ih3 = document.createElement("h5");
+        var IP1 = document.createElement("p");
+        var IStrong = document.createElement("strong");
+
+        console.log(items.length)
+        IHyperlink.href = items[i].hyperlink
+        Ih3.innerText = items[i].name
+        Ih3.style.height = '40px'
+        Idiv.id = 'DashCard'
+        IP1.id = 'DashDescription'
+        // IP1.style.display = 'none'
+        IP1.style.opacity = 0
+        // IP1.style.visibility = 'hidden'
+        IP1.style.maxHeight = '0px'   // max-height -->maxHeight
+        IStrong.innerText = items[i].description
+        Odiv.className = "col-md-3 filter_box filter " + items[i].tags
+        // Odiv.className = "col-md-3 filter_box"
+        Idiv.className = "single-district"
+
+        IP1.appendChild(IStrong);
+        IHyperlink.appendChild(Ih3);
+        IHyperlink.appendChild(IP1);
+        Idiv.appendChild(IHyperlink);
+        Odiv.appendChild(Idiv);
+        // document.body.appendChild(Odiv);
+        OContainer.appendChild(Odiv);
+        //Odiv.id=”box”;
+        // Odiv.style.cssText = "width: 200px; height: 200px; background:#636363;text - align: center; line - height: 220px";    //建立div的css樣式
+        // Idiv.style.cssText = "width: 100px; height: 100px; background:#F4B400;text - align: center; line - height: 220px";    //建立div的css樣式
+        // }
+
+
+    }
+
+
+
+
+
+</script>
+
+</html>

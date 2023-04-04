@@ -1,0 +1,101 @@
+    var all_position = [
+        {
+            "siteid": "8640",
+            "region": "關西",
+            "area": "京都",
+            "site": "清水寺",
+            "latitude": "34.9948561",
+            "longtitude": "135.7850463",
+            "times":250
+        },
+        {
+            "siteid": "8642",
+            "region": "關西",
+            "area": "兵庫",
+            "site": "竹田城跡",
+            "latitude": "35.3006044",
+            "longtitude": "134.8291681",
+            "times":546
+        },
+        {
+            "siteid": "8458",
+            "region": "關西",
+            "area": "京都",
+            "site": "二條城",
+            "latitude": "35.0142299",
+            "longtitude": "135.748218",
+            "times":120
+        },
+        {
+            "siteid": "8459",
+            "region": "關西",
+            "area": "京都",
+            "site": "京都御所",
+            "latitude": "35.0254135",
+            "longtitude": "135.7621246",
+            "times":120
+        },
+        {
+            "siteid": "8460",
+            "region": "關西",
+            "area": "京都",
+            "site": "東福寺",
+            "latitude": "34.9767101",
+            "longtitude": "135.7749674",
+            "times":120
+        },
+        {
+            "siteid": "8461",
+            "region": "關西",
+            "area": "京都",
+            "site": "龍安寺",
+            "latitude": "35.0344943",
+            "longtitude": "135.7182634",
+            "times":120
+        },
+        {
+            "siteid": "8470",
+            "region": "關西",
+            "area": "滋賀",
+            "site": "琵琶湖疏水櫻",
+            "latitude": "35.0124719",
+            "longtitude": "135.8580618",
+            "times":120
+        },
+        {
+            "siteid": "8478",
+            "region": "關西",
+            "area": "京都",
+            "site": "石?小路",
+            "latitude": "34.9999354",
+            "longtitude": "135.7797946",
+            "times":120
+        },
+        {
+            "siteid": "8558",
+            "region": "關西",
+            "area": "奈良",
+            "site": "奈良公園",
+            "latitude": "34.685047",
+            "longtitude": "135.843012",
+            "times":120
+        },
+        {
+            "siteid": "8559",
+            "region": "關西",
+            "area": "奈良",
+            "site": "吉野山",
+            "latitude": "34.356433",
+            "longtitude": "135.870617",
+            "times":120
+        },
+        {
+            "siteid": "8560",
+            "region": "關西",
+            "area": "奈良",
+            "site": "若草山",
+            "latitude": "34.6911496",
+            "longtitude": "135.8544345",
+            "times":120
+        },
+        ]

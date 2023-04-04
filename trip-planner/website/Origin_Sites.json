@@ -1,0 +1,8 @@
+[
+    { name: 'St Honore Pastries', tags: 'All', image: '', description: 'Restaurant', hyperlink: 'https: //datastudio.google.com/c/reporting/1e18aea1-e030-490d-a458-e4038f0d8c54/page/qlD' },
+    { name: 'Tuna Bar', tags: 'OTP', image: '', description: 'Sushi Bars', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/5a63717f-438f-418c-ad0d-7cb998288db0/page/MmFAB' },
+    { name: 'BAP', tags: 'GLOCC', image: '', description: 'Korea Restaurant', hyperlink: 'https://datastudio.google.com/c/reporting/f59a7821-8b88-4a73-89b9-c1f0d6d84ca7/page/BaULC' }, 
+    { name: 'Craft Hall', tags: 'Scorecard', image: '', description: 'Entertainment', hyperlink: 'https://datastudio.google.com/c/reporting/1uPcl5_92VCqub9t1ckB7DeT7bI5i4F9J/page/nU6g' }, 
+    { name: 'Wawa', tags: 'OTP', image: '', description: 'Automotive', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/76b1e6c5-ee6c-4c84-a46b-4da6cff24069/page/pP86' },
+    { name: 'PrimoHoagies', tags: 'GLOCC', image: '', description: 'Restaurant', hyperlink: 'https: //datastudio.google.com/c/u/0/reporting/1y5nQWJ_pST2_-9K4LyjGP0PMK8ryElXE/page/vI5d' }
+]

@@ -1,0 +1,431 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/RoutePlanningIcon.png">
+
+  <title>Visualization</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+  <link href="css/vendor/simple-line-icons.css" rel="stylesheet">
+  <link href="css/vendor/themify-icons.css" rel="stylesheet">
+  <link href="css/vendor/owl.carousel.css" rel="stylesheet">
+  <link href="css/vendor/animate.css" rel="stylesheet">
+  <link href="css/vendor/viewbox.css" rel="stylesheet">
+  <link href="css/vendor/bootstrap-slider.min.css" rel="stylesheet">
+  <link href="css/vendor/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+  <script src="js/vendor/fontawesome-all.min.js"></script>
+
+  <link href="css/scss/main.css" rel="stylesheet">
+
+
+
+  <style>
+    #map {
+      height: "770";
+      width: "550";
+    }
+
+    #map2 {
+      height: "770";
+      width: "550";
+    }
+
+    #btn {
+      z-index: 99;
+      top: 10px;
+      left: calc(50% - 150px);
+      font-size: 15px;
+      width: 60%;
+      max-width: 80px;
+      border-radius: 5px;
+      padding: 3px;
+      outline: none;
+      border: 1px solid rgb(153, 153, 153);
+      background-color: #ffd903;
+      margin-bottom: 15px;
+      margin-right: 2px
+    }
+
+    #btn:active {
+      box-shadow: rgba(0, 0, 0, .5) 0 3px 5px;
+    }
+
+    #br {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVRn7G1vFTSRtIagHFwzTgze5CFD5EhvE"></script>
+
+  <!-- script -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+  <!-- <script src="./js/Route_Planning_Google_map.js"></script> -->
+  <script src="./js/Route_Planning_After_Upload.js"></script>
+
+
+</head>
+
+<body>
+
+
+  <!-- pageloader -->
+  <div id="loader">
+    <div class="loader">
+      <div class="sk-child sk-dot1"></div>
+      <div class="sk-child sk-dot2"></div>
+    </div>
+  </div>
+  <!-- / #pageloader -->
+
+  <!-- contact bar -->
+  <nav id="contact-menu" class="navigation navigation-hidden navigation-portrait">
+    <div class="nav-menus-wrapper">
+      <div class="header-info-item clearfix">
+        <p class="header-info-title">Contact Us</p>
+        <ul>
+          <li><span class="ti-map-alt"></span></li>
+          <li><a>Team member - Sam Shih:</a></li>
+          <li><a href="https://www.linkedin.com/in/sam-shih-812616117/"><span
+                class="ti-linkedin"></span>sam-shih-812616117</a></li>
+          <li><a>Team member - Javed Roshan:</a></li>
+          <li><a href="https://www.linkedin.com/in/jroshan/"><span class="ti-linkedin"></span>jroshan</a></li>
+          <li><a>Team member - Joanna Wang:</a></li>
+          <li><a href="https://www.linkedin.com/in/jiacheng-joanna-w-96973b90/"><span
+                class="ti-linkedin"></span>jiacheng-joanna-w-96973b90</a></li>
+          <li><a>Lecturer - Fereshteh Amini</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /contact bar -->
+
+  <header>
+
+    <div class="main-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5 col-4">
+            <div class="main-header-logo">
+              <a><img width="350" src="img/TravelGOlogowhite.png" alt="Site logo"></a>
+            </div>
+          </div>
+          <div class="col-md-7 col-8">
+            <div class="clearfix float-right contact-head">
+              <a style="color: white;">Login</a>
+              <button class="btn-show navbar-toggler float-right btn-contact"><span class="ti-menu"></span></button>
+            </div>
+            <nav id="navigation" class="navigation mt-10">
+              <div class="nav-toggle"></div>
+              <div class="nav-search">
+                <div class="nav-search-button">
+                  <span class="ti-search"></span>
+                </div>
+                <form>
+                  <div class="nav-search-inner">
+                    <input type="search" name="search" placeholder="Type and hit ENTER" />
+                  </div>
+                </form>
+              </div>
+
+              <div class="nav-menus-wrapper">
+
+                <ul class="nav-menu align-to-right">
+                  <li><a href="#">Home</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="index.html">Home</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Route Scheduling</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="routeplanning W209.html">Route Scheduling</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="active" href="#">Visualization</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="Supervisor View.html">Visualization</a></li>
+                    </ul>
+                  </li>
+                  <!--<li><a href="#">地區選擇</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="regionselection.html">地區選擇</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">景點排程</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="site.html">景點排程</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">路線規劃</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="routeplanning.html">路線規劃</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">行程彙總</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="itinerary.html">行程彙總</a></li>
+                      </ul>
+                    </li> -->
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- / header -->
+
+  <!-- page-head -->
+
+  <div class="page-head white-content">
+    <div class="height80vh parallax-container" style="background-image: url(img/California\ big1.jpg);">
+      <div class="page-head-wrap">
+        <div class="display-r">
+          <div class="display-a">
+            <div class="container">
+              <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                <div class="col-md-12">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html"></a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Visualization</li>
+                    </ol>
+                  </nav>
+                  <h1 class="big-title mt-60">Visualization</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- / page-head -->
+
+  <!-- tableau line chart -->
+  <h2 style="font-size: large;padding-left: 1%;padding-top: 1%">User Travel Analysis</h2>
+  <div class="col-md-11" id="ChartDescription" style="padding-left: 1%">
+    The interactive visual analysis covered here caters to a supervisor user persona. Given a supervisor with a team of
+    sales professionals, these analyses provide a cumulative view of how the team is performing. Following are some
+    examples:
+    the cumulative view of the team spending time on the road to get to their clients. time-traveled vs
+    distance-traveled
+    a view of the above by days of a week
+  </div>
+  <div class='tableauPlaceholder' id='viz1616419906498' style='position: relative'><noscript><a href='#'>
+        <img alt=' '
+          src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;209-Project-UserTravelAnalysis&#47;UserTravelAnalysis&#47;1_rss.png'
+          style='border: none' />
+      </a></noscript><object class='tableauViz' style='display:none;'>
+      <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+      <param name='embed_code_version' value='3' />
+      <param name='site_root' value='' />
+      <param name='name' value='209-Project-UserTravelAnalysis&#47;UserTravelAnalysis' />
+      <param name='tabs' value='no' />
+      <param name='toolbar' value='yes' />
+      <param name='static_image'
+        value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;209-Project-UserTravelAnalysis&#47;UserTravelAnalysis&#47;1.png' />
+      <param name='animate_transition' value='yes' />
+      <param name='display_static_image' value='yes' />
+      <param name='display_spinner' value='yes' />
+      <param name='display_overlay' value='yes' />
+      <param name='display_count' value='yes' />
+      <param name='language' value='en' />
+    </object></div>
+  <script type='text/javascript'>
+    var divElement = document.getElementById('viz1616419906498');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    vizElement.style.width = '100%';
+    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+
+  <hr>
+  <!-- crossfilter -->
+  <h2 style="font-size: large;padding-left: 1%;">Traveling Distance Detail</h2>
+  <div class="col-md-11" id="ChartDescription" style="padding-left: 1%">
+    The following graph provides a cross filter to help a supervisor slice and dice the historical travel route data
+    from a different perspective. The 4 histograms represent the following:
+    <li>The total number of days a salesperson traveled </li>
+    <li>The selection of specific days on which the analysis is being performed</li>
+    <li>Total number of minutes traveled by users by specific days</li>
+    <li>Total distance traveled in miles by users by specific days</li>
+    <div class="container">
+      <div style="display: flex;;justify-content: center;text-align: center">
+        <!-- <div class="col-md-1"><span>Days</span></div> -->
+        <div class="col-md-3"><span>Days</span></div>
+        <div class="col-md-3">Date</div>
+        <div class="col-md-3">Minutes</div>
+        <div class="col-md-3">Miles</div>
+      </div>
+    </div>
+
+
+  </div>
+  <iframe width="90%" height="584" frameborder="0"
+    src="https://observablehq.com/embed/@samshih/week-13-assignment-crossfilter?cells=crossfilterchart"></iframe>
+
+  <div class="mt-10"></div>
+
+
+  <hr>
+  <!-- networkmap -->
+  <h2 style="font-size: large;padding-left: 1%;">Streets With High Frequency</h2>
+  <div class="col-md-11" id="ChartDescription" style="padding-left: 1%">
+    The network graph allows a supervisor to filter data based on various criteria to eventually assess the frequency of the addresses visited. The filtering can be incrementally applied by compounding them one over the other.
+  </div>
+  <iframe width="90%" height="801" frameborder="0"
+    src="https://observablehq.com/embed/@samshih/network-visualization-of-routes?cells=viewof+selectedRoutes%2Cnetworkchart"></iframe>
+
+  <div class="mt-10"></div>
+
+
+
+
+
+
+  <!-- JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/moment.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/bootstrap-slider.min.js"></script>
+  <script src="js/vendor/bootstrap-datetimepicker.min.js"></script>
+  <script src="js/vendor/owl.carousel.min.js"></script>
+  <script src="js/vendor/navigation.js"></script>
+  <script src="js/vendor/modernizr.js"></script>
+  <script src="js/vendor/jqueryvalidation.js"></script>
+  <script src="js/vendor/jquery.viewbox.min.js"></script>
+  <script src="js/vendor/masonry.min.js"></script>
+  <script src="js/vendor/imagesloaded.js"></script>
+  <script src="js/vendor/jquery.waypoints.min.js"></script>
+  <script src="js/vendor/jquery.sticky-kit.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+
+
+  <!-- / content -->
+
+  <footer class="dark-footer" style="background-image: url(img/image-20.jpg);">
+    <div class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="footer-item">
+              <img width="250" src="img/TravelGOlogowhite.png" alt="Logo">
+              <div class="mt-20 mb-20">
+                <!-- <button type="button" class="btn btn-1 btn-sm" data-toggle="modal" data-target="#newsletterModal">
+                    Newsletter signup
+                  </button> -->
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-sm" id="newsletterModal" tabindex="-1" role="dialog"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Newsletter Signup</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="subscribe-form" class="form-block" novalidate="novalidate">
+                          <div class="form-group mt-20 subscribe-form">
+                            <small id="emailHelp" class="form-text text-muted">Subscribe now and recieve a 50% discount
+                              on your next tour booking</small>
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                          </div>
+                          <div class="mt-10 mb-10 float-right">
+                            <button type="button" class="btn btn-2 btn-sm" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-1 btn-sm">Sign Up</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="footer-item">
+              <ul class="footer-menu">
+                <li><a href="index.html">Home Page</a></li>
+                <!-- <li><a href="tripplan.html">Route Scheduling</a></li> -->
+                <!-- <li><a href="regionselection.html">地區選擇</a></li> -->
+                <!-- <li><a href="site.html">景點排程</a></li> -->
+                <li><a href="routeplanning W209.html">Route Scheduling</a></li>
+                <li><a href="Supervisor View.html">Visualization</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+              <!-- <p class="mt-40" style="font-weight:bold;color: #FFF">TravelGo
+                志在提供一個友善的旅遊規劃平台，幫助大眾在最短的時間完成行程規劃，不再為行程而煩惱，可以充份享受他們的假期時光</p> -->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="footer-item">
+              <!-- <ul class="mb-20">
+                  <li>1800-2345-5677</li>
+                  <li class="mt-10"><a href="mailto:">info@voyagetime.com</a></li>
+                  <li class="mt-10">610 Broadway New York, NY 10012</li>
+                </ul> -->
+
+            </div>
+
+            <div class="footer-item">
+              <ul class="footer-social mt-20">
+                <li><a target="_blank" href="#"><i class="fab fa-pinterest"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-tumblr"></i></a></li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="bottom-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+            </div>
+            <div class="col-md-6 text-r mobile-left">
+              <p><img width="200" src="img/visa-mastercard-paypal.png" alt="Visa Mastercard Paypal"></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+  </footer>
+
+  <!-- SCROLL UP -->
+  <a class="scrollup">
+    <i class="icon-arrow-up icons"></i>
+  </a>
+  <!-- / SCROLL UP -->
+
+
+</body>
+
+</html>

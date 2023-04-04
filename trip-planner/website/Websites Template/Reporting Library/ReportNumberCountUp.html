@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 20px 0px;
+        }
+
+        h1,
+        /* h3 {
+            text-transform: uppercase;
+        } */
+
+        .counter {
+            text-align: center;
+        }
+
+        .counter-count {
+            font-size: 50px;
+            font-weight: bold;
+            position: relative;
+            color: #000000;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+    <!-- Include following into your head tag
+*******************************-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Content
+*********************************************-->
+    <!-- <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Count up to an target number</h1>
+                </div>
+            </div>
+        </div>
+    </header> -->
+
+    <div class="counter">
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-3"> -->
+                    <div class="count-up">
+                        <h2 class="counter-count">12</h2>
+                        <h3># Of Dash</h3>
+                    </div>
+                <!-- </div> -->
+
+                <!-- <div class="col-12 col-lg-3">
+                    <div class="count-up">
+                        <p class="counter-count">200</p>
+                        <h3>Counter 2</h3>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-3">
+                    <div class="count-up">
+                        <p class="counter-count">300</p>
+                        <h3>Counter 3</h3>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-3">
+                    <div class="count-up">
+                        <p class="counter-count">400</p>
+                        <h3>Counter 4</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <script>
+        $('.counter-count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+          
+          //chnage count up speed here
+            duration: 1000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+    </script>
+
+
+</body>
+
+</html>

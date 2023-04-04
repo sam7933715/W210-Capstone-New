@@ -1,0 +1,16 @@
+﻿Flask
+k_means_constrained
+xgboost
+tensorflow
+seaborn
+fbprophet
+numpy
+pandas
+pandasql
+SQLAlchemy
+scikit-learn
+matplotlib
+scipy
+pmdarima
+statsmodels
+flask_cors

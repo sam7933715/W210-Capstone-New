@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .filter_box {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Origin-district */
+        .origin-district {
+            background: #F4B400;
+            color: #fff;
+            border: 2px solid black;
+            display: block;
+            text-align: center;
+        }
+
+        .origin-district h3 {
+            font-weight: 700;
+
+        }
+
+        .origin-district p {
+            font-size: 15px;
+            margin: 8px;
+
+        }
+
+        .origin-district a {
+            color: white;
+            display: block;
+            padding: 15px;
+        }
+
+        .origin-district a:hover {
+            color: #F4B400;
+            text-decoration: none;
+        }
+
+        .origin-district:hover img {
+            /* width: 200px; */
+            max-height: 120px !important;
+            ;
+        }
+
+        #DashDescription {
+            transition: all .5s;
+        }
+
+        #DashCard:hover #DashDescription {
+            /*hover>#DashDescription 子層 , hover #DashDescription */
+            /* display: block !important;  */
+            /*hosting:  inline-style > id > class > selector > element */
+            max-height: 800px !important;
+            /* visibility: visible !important; */
+            opacity: 1 !important;
+        }
+
+
+
+
+
+        /* Single-district */
+        .single-district {
+            background: #4285F4;
+            color: #fff;
+            border: 2px solid black;
+            display: block;
+            text-align: center;
+        }
+
+        .single-district h3 {
+            font-weight: 700;
+
+        }
+
+        .single-district p {
+            font-size: 15px;
+            margin: 8px;
+
+        }
+
+        .single-district a {
+            color: white;
+            display: block;
+            padding: 15px;
+        }
+
+        .single-district a:hover {
+            color: #F4B400;
+            text-decoration: none;
+        }
+
+        .single-district:hover img {
+            /* width: 200px; */
+            max-height: 120px !important;
+            ;
+        }
+
+        #DashDescription {
+            transition: all .5s;
+        }
+
+        #DashCard:hover #DashDescription {
+            /*hover>#DashDescription 子層 , hover #DashDescription */
+            /* display: block !important;  */
+            /*hosting:  inline-style > id > class > selector > element */
+            max-height: 800px !important;
+            /* visibility: visible !important; */
+            opacity: 1 !important;
+        }
+    </style>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".filter-button").click(function () {
+                var value = $(this).attr('DataFilter');
+
+                if (value == "all") {
+                    //$('.filter').removeClass('hidden');
+                    $('.filter').show('1000');
+                }
+                else {
+                    //            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+                    //            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                    $(".filter").not('.' + value).hide('3000');
+                    $('.filter').filter('.' + value).show('3000');
+
+                }
+            });
+
+            if ($(".filter-button").removeClass("active")) {
+                $(this).removeClass("active");
+            }
+            $(this).addClass("active");
+
+        });
+    </script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="container-fulid">
+        <div class="card">
+            <!-- <div class="card-header text-center display-4">
+                Gallery
+            </div> -->
+
+            <div class="card-body">
+                <h2 class="row" style="height: 20px;">-Origin Sites</h2>
+                    <div class="col-md-12 text-center">
+                        <!-- <div class="btn btn-outline-success filter-button" DataFilter="OTP">OTP</div>
+                        <div class="btn btn-outline-success filter-button" DataFilter="all">All</div>
+                        <div class="btn btn-outline-success filter-button" DataFilter="GLOCC">haha</div>
+                        <div class="btn btn-outline-success filter-button" DataFilter="GLOCC">haha</div> -->
+
+                        <!-- <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(img/Berkeley4.jpg);"  DataFilter="OTP"> -->
+                        <img>
+                        <!-- <button class="btn btn-outline-success filter-button" DataFilter="all">All</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="OTP">OTP</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Scorecard">Scorecard</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Spend">Spend</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="GLOCC">GLOCC</button> -->
+                        <!-- <button class="btn btn-outline-success filter-button" DataFilter="TMS">TMS</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Planner">Planner</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Expeditors">Expeditors</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Fedex">Fedex</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Roadone">Roadone</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Landstar">Landstar</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Ziegler">Ziegler</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Supplier">Supplier</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="APAC">APAC</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="EMEA">EMEA</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="CM">CM</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="EDI">EDI</button>
+                        <button class="btn btn-outline-success filter-button" DataFilter="Forecast">Forecast</button> -->
+                    </div>
+                </div>
+
+                <div class="row mt-4" id="Origin_CardRow"></div>
+                <h2 class="row" style="height: 20px;">--Destination Sites</h2>
+                <div class="row mt-4" id="CardRow"></div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+
+
+
+
+
+
+    //-----Dynamic Creating Locations on the website-------
+    var Origin_items = 
+    [
+        // { name: 'Tuna Bar', tags: 'Restaurant', image: '', description: 'Sushi Bars', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/5a63717f-438f-418c-ad0d-7cb998288db0/page/MmFAB' },
+        // { name: 'BAP', tags: 'Restaurant', image: '', description: 'Restaurant', hyperlink: 'https://datastudio.google.com/c/reporting/f59a7821-8b88-4a73-89b9-c1f0d6d84ca7/page/BaULC' }, 
+    { name: 'St Honore Pastries', tags: 'Group1', image: '', description: 'Restaurant', hyperlink: 'https: //datastudio.google.com/c/reporting/1e18aea1-e030-490d-a458-e4038f0d8c54/page/qlD' },
+    { name: 'Craft Hall', tags: 'Group2', image: '', description: 'Entertainment', hyperlink: 'https://datastudio.google.com/c/reporting/1uPcl5_92VCqub9t1ckB7DeT7bI5i4F9J/page/nU6g' }, 
+    { name: 'Waho', tags: 'Group3', image: '', description: 'Automotive', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/76b1e6c5-ee6c-4c84-a46b-4da6cff24069/page/pP86' },
+    { name: 'Yammy Sushi', tags: 'Group1', image: '', description: 'Restaurant', hyperlink: 'https: //datastudio.google.com/c/reporting/1e18aea1-e030-490d-a458-e4038f0d8c54/page/qlD' },
+    // { name: 'Goodness Massage', tags: 'Group2', image: '', description: 'Entertainment', hyperlink: 'https://datastudio.google.com/c/reporting/1uPcl5_92VCqub9t1ckB7DeT7bI5i4F9J/page/nU6g' }, 
+    // { name: 'Fords', tags: 'Group3', image: '', description: 'Automotive', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/76b1e6c5-ee6c-4c84-a46b-4da6cff24069/page/pP86' },
+    // { name: 'PrimoHoagies', tags: 'Restaurant', image: '', description: 'Restaurant', hyperlink: 'https: //datastudio.google.com/c/u/0/reporting/1y5nQWJ_pST2_-9K4LyjGP0PMK8ryElXE/page/vI5d' }
+    ];
+
+
+    var items = 
+    [
+    { name: '2601 Parkway Apartments', tags: 'Group1', image: '', description: 'Entertainment', hyperlink: 'https: //datastudio.google.com/c/reporting/1e18aea1-e030-490d-a458-e4038f0d8c54/page/qlD' },
+    { name: '2601 Parkway Apartments 2', tags: 'Group1', image: '', description: 'Entertainment', hyperlink: 'https: //datastudio.google.com/c/reporting/1e18aea1-e030-490d-a458-e4038f0d8c54/page/qlD' },
+    { name: '2601 Parkway Apartments 3', tags: 'Group1', image: '', description: 'Entertainment', hyperlink: 'https: //datastudio.google.com/c/reporting/1e18aea1-e030-490d-a458-e4038f0d8c54/page/qlD' },
+    { name: 'Hand & Stone Massage And Facial Spa', tags: 'Group2', image: '', description: 'Entertainment', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/5a63717f-438f-418c-ad0d-7cb998288db0/page/MmFAB' },
+    { name: 'Shanti Yoga and Ayurveda', tags: 'Group2', image: '', description: 'Entertainment', hyperlink: 'https://datastudio.google.com/c/reporting/f59a7821-8b88-4a73-89b9-c1f0d6d84ca7/page/BaULC' }, 
+    { name: 'Shanti Yoga and Ayurveda 2', tags: 'Entertainment', image: '', description: 'Entertainment', hyperlink: 'https://datastudio.google.com/c/reporting/f59a7821-8b88-4a73-89b9-c1f0d6d84ca7/page/BaULC' }, 
+    { name: 'Adelita Taqueria & Restaurant', tags: 'Group3', image: '', description: 'Restaurant', hyperlink: 'https://datastudio.google.com/c/reporting/1uPcl5_92VCqub9t1ckB7DeT7bI5i4F9J/page/nU6g' }, 
+    { name: 'Wawa', tags: 'Group2', image: '', description: 'Automotive', hyperlink: 'https://datastudio.google.com/c/u/0/reporting/76b1e6c5-ee6c-4c84-a46b-4da6cff24069/page/pP86' },
+    { name: 'PrimoHoagies', tags: 'Group3', image: '', description: 'Restaurant', hyperlink: 'https: //datastudio.google.com/c/u/0/reporting/1y5nQWJ_pST2_-9K4LyjGP0PMK8ryElXE/page/vI5d' },
+    { name: 'PrimoHoagies 2', tags: 'Group3', image: '', description: 'Restaurant', hyperlink: 'https: //datastudio.google.com/c/u/0/reporting/1y5nQWJ_pST2_-9K4LyjGP0PMK8ryElXE/page/vI5d' }
+    ];
+
+    var Origin_OContainer = document.getElementById('Origin_CardRow')
+    var OContainer = document.getElementById('CardRow')
+    // var OContainer = document.createElement("div");
+
+    // OContainer.className = "container-fulid"
+
+
+
+    for (i = 0; i < Origin_items.length; i++) {
+        // window.onload = function () {
+        var Origin_Odiv = document.createElement("div");
+        var Origin_Idiv = document.createElement("div");
+        var Origin_IHyperlink = document.createElement("a");
+        var Origin_Ih3 = document.createElement("h5");
+        var Origin_IP1 = document.createElement("p");
+        var Origin_IStrong = document.createElement("strong");
+        var Origin_Imgurl = document.createElement("img");
+
+
+        src = "img/Travelers.jpg"
+
+        console.log(Origin_items.length)
+        // Origin_IHyperlink.href = items[i].hyperlink
+
+        Origin_Ih3.innerText = Origin_items[i].name
+        Origin_Ih3.style.height = '40px'
+        Origin_Idiv.id = 'DashCard'
+        Origin_IP1.id = 'DashDescription'
+        // IP1.style.display = 'none'
+        Origin_IP1.style.opacity = 0
+        // IP1.style.visibility = 'hidden'
+        Origin_IP1.style.maxHeight = '0px'   // max-height -->maxHeight
+        Origin_Imgurl.style.maxHeight = '0px'   // max-height -->maxHeight
+        Origin_IStrong.innerText = Origin_items[i].description
+        Origin_Odiv.className = "col-md-3 filter_box" + Origin_items[i].tags
+        // Odiv.className = "col-md-3 filter_box"
+        // Origin_Idiv.DataFilter = "OTP"
+        Origin_Idiv.setAttribute("DataFilter", Origin_items[i].tags);
+
+        Origin_Idiv.className = "origin-district filter-button";
+        Origin_Imgurl.src = "img/Berkeley4.jpg"
+
+        Origin_IP1.appendChild(Origin_IStrong);
+        Origin_IHyperlink.appendChild(Origin_Ih3);
+        Origin_IHyperlink.appendChild(Origin_IP1);
+        Origin_IHyperlink.appendChild(Origin_Imgurl);
+        Origin_Idiv.appendChild(Origin_IHyperlink);
+        Origin_Odiv.appendChild(Origin_Idiv);
+        // Odiv > Idiv > Ihyperlink > IH3, IP1, Imgurl > Istrong
+        // document.body.appendChild(Odiv);
+        Origin_OContainer.appendChild(Origin_Odiv);
+        //Odiv.id=”box”;
+        // Odiv.style.cssText = "width: 200px; height: 200px; background:#636363;text - align: center; line - height: 220px";    //建立div的css樣式
+        // Idiv.style.cssText = "width: 100px; height: 100px; background:#F4B400;text - align: center; line - height: 220px";    //建立div的css樣式
+        // }
+
+    }
+
+        // var Ori_Des_Separator = document.createElement("div");
+        // Ori_Des_Separator.style.height = '100px'
+        // body.appendChild(Ori_Des_Separator);
+
+
+    for (i = 0; i < items.length; i++) {
+        // window.onload = function () {
+        var Odiv = document.createElement("div");
+        var Idiv = document.createElement("div");
+        var IHyperlink = document.createElement("a");
+        var Ih3 = document.createElement("h5");
+        var IP1 = document.createElement("p");
+        var IStrong = document.createElement("strong");
+        var Imgurl = document.createElement("img");
+
+
+        src = "img/Travelers.jpg"
+
+        console.log(items.length)
+        IHyperlink.href = items[i].hyperlink
+
+        Ih3.innerText = items[i].name
+        Ih3.style.height = '40px'
+        Idiv.id = 'DashCard'
+        IP1.id = 'DashDescription'
+        // IP1.style.display = 'none'
+        IP1.style.opacity = 0
+        // IP1.style.visibility = 'hidden'
+        IP1.style.maxHeight = '0px'   // max-height -->maxHeight
+        Imgurl.style.maxHeight = '0px'   // max-height -->maxHeight
+        IStrong.innerText = items[i].description
+        Odiv.className = "col-md-3 filter_box filter " + items[i].tags
+        // Odiv.className = "col-md-3 filter_box"
+        Idiv.className = "single-district"
+        Imgurl.src = "img/Berkeley4.jpg"
+
+        IP1.appendChild(IStrong);
+        IHyperlink.appendChild(Ih3);
+        IHyperlink.appendChild(IP1);
+        IHyperlink.appendChild(Imgurl);
+        Idiv.appendChild(IHyperlink);
+        Odiv.appendChild(Idiv);
+        // Odiv > Idiv > Ihyperlink > IH3, IP1, Imgurl > Istrong
+        // document.body.appendChild(Odiv);
+        OContainer.appendChild(Odiv);
+        //Odiv.id=”box”;
+        // Odiv.style.cssText = "width: 200px; height: 200px; background:#636363;text - align: center; line - height: 220px";    //建立div的css樣式
+        // Idiv.style.cssText = "width: 100px; height: 100px; background:#F4B400;text - align: center; line - height: 220px";    //建立div的css樣式
+        // }
+
+    }
+
+
+
+
+
+</script>
+
+</html>

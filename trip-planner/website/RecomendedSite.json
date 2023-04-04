@@ -1,0 +1,8 @@
+[
+    { 'location': 'France', 'description': 'Far far away', 'Ratings': 4, 'Price': '$200', 'Days': '2 days 3 nights', 'pic': 'images/destination-3.jpg', 'Link': '', 'Region': 'Paris' },
+    { 'location': 'US', 'description': 'Far far away', 'Ratings': 5, 'Price': '$300', 'Days': '1 days 1 nights', 'pic': 'images/destination-4.jpg', 'Link': '', 'Region': 'Paris' },
+    { 'location': 'France', 'description': 'Far far away', 'Ratings': 3, 'Price': '$100', 'Days': '1 days 2 nights', 'pic': 'images/destination-5.jpg', 'Link': '', 'Region': 'Paris' },
+    { 'location': 'US', 'description': 'Far far away', 'Ratings': 5, 'Price': '$500', 'Days': '2 days 3 nights', 'pic': 'images/destination-1.jpg', 'Link': '', 'Region': 'Italy' },
+    { 'location': 'France', 'description': 'Far far away', 'Ratings': 3, 'Price': '$300', 'Days': '1 days 2 nights', 'pic': 'images/destination-2.jpg', 'Link': '', 'Region': 'Italy' },
+    { 'location': 'US', 'description': 'Far far away', 'Ratings': 4, 'Price': '$200', 'Days': '2 days 3 nights', 'pic': 'images/destination-6.jpg', 'Link': '', 'Region': 'Italy' }
+]
