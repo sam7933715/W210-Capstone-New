@@ -206,7 +206,7 @@
                       <li><a href="itinerary.html">行程彙總</a></li>
                     </ul>
                   </li> -->
-                  <li><a href="contact.html">Contact Us</a></li>
+                  <!-- <li><a href="contact.html">Contact Us</a></li> -->
                 </ul>
               </div>
             </nav>
@@ -234,7 +234,7 @@
                       <li class="breadcrumb-item active" aria-current="page">Location Recommender</li>
                     </ol> -->
                   <!-- </nav> -->
-                  <h1 class="big-title mt-60">Location Recommender</h1>
+                  <h1 class="big-title mt-10">Location Recommender</h1>
                 </div>
               </div>
             </div>
@@ -251,7 +251,7 @@
   
 
 <section class="ftco-section">
-  <div class="container col-lg-10">
+  <div class="container col-lg-12">
     <div class="row">
       <div class="col-lg-2 sidebar order-md-last ftco-animate">
         <div class="sidebar-wrap ftco-animate">
@@ -266,9 +266,9 @@
               <div class="select-wrap one-third">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 <select name="" id="OriSiteDropDown" class="form-control" placeholder="Keyword search">
-                  <option value="Origin City">Origin City</option>
+                  <option value="Origin City">Origin</option>
+                  <option value="Philadelphia">Philadelphia</option>
                   <option value="Saint Louis">Saint Louis</option>
-                  <option value="Carmel">Carmel</option>
                   <option value="Clearwater">Clearwater</option>
                   <option value="Hockessin">Hockessin</option>
                 </select>
@@ -280,9 +280,9 @@
               <div class="select-wrap one-third">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 <select name="" id="DestSiteDropDown" class="form-control" placeholder="Keyword search">
-                  <option value="Destination City">Destination City</option>
+                  <option value="Destination City">Destination</option>
+                  <option value="Philadelphia">Philadelphia</option>
                   <option value="Saint Louis">Saint Louis</option>
-                  <option value="Carmel">Carmel</option>
                   <option value="Clearwater">Clearwater</option>
                   <option value="Hockessin">Hockessin</option>
                 </select>
@@ -320,7 +320,7 @@
           <!-- </form> -->
         </div>
         <div class="sidebar-wrap ftco-animate">
-          <h3 class="heading mb-4">Star Rating</h3>
+          <!-- <h3 class="heading mb-4">Star Rating</h3>
           <form method="post" class="star-rating">
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -362,7 +362,7 @@
                       class="icon-star-o"></i></span></p>
               </label>
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
       <!-- Side Bar Session END-->
@@ -370,52 +370,113 @@
 
 
 
+
+
+<!-- Main Section of origin and destination sites -->
       <div class="col-lg-9">
-        <h3 class="heading mb-4">Origin City</h3>
-        <!-- <div class="row" id="OriLocationCol" style="background-color:#ffc107;"> -->
-        <div class="row" id="OriLocationCol">
-        </div>
-        
-        <div class="row mt-5"></div>
-        <div class="row mt-5"></div>
-        <h3 class="heading mb-4">Destination City</h3>
-        <div class="row" id="DestLocationCol">
-        </div>
-        
-        
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <!-- <li><a href="#">&lt;</a></li> -->
-                <li class="active"><span>1</span></li>
-                <!-- <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">&gt;</a></li> -->
-              </ul>
+    <!-- Function of webpage -->
+    <div class="main-block bg-gray" id="UserGuide">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center block width100 mb-30 block-title">
+              <h2>A Simple Way To Find Your Desire Locations</h2>
             </div>
           </div>
         </div>
-      </div> 
-      <!-- .col-md-8 -->
+        <div class="row">
+
+          <!-- Infography item style 2 -->
+          <div class="col-md-3">
+            <div class="infography infography-2 text-center">
+              <i class="ti-direction-alt icons"></i>
+              <div class="infography-title" style="font-size: 16px; font-weight:bold">
+                <!-- <h4>1.Origin and Destinations</h4> -->
+              </div>
+              <div class="infography-description" style="font-size: 16px; font-weight:bold">1.Select your origin and destination
+              </div>
+            </div>
+          </div>
+          <!-- / Infography item style 2 -->
+
+          <!-- Infography item style 2 -->
+          <div class="col-md-3">
+            <div class="infography infography-2 text-center">
+              <i class="ti-location-pin icon"></i>
+              <div class="infography-title" style="font-size: 16px; font-weight:bold">
+                <!-- <h4>2.Select Locations</h4> -->
+              </div>
+              <div class="infography-description" style="font-size: 16px; font-weight:bold">
+                2.Click your favorable locations in the origin
+              </div>
+            </div>
+          </div>
+          <!-- / Infography item style 2 -->
+
+          <!-- Infography item style 2 -->
+          <div class="col-md-3">
+            <div class="infography infography-2 text-center">
+              <i class="ti-layout-accordion-list icons"></i>
+              <div class="infography-title" style="font-size: 16px; font-weight:bold">
+                <!-- <h4>3.Analysis</h4> -->
+              </div>
+              <div class="infography-description" style="font-size: 16px; font-weight:bold">
+                3.We recomend locations in the destination.
+              </div>
+            </div>
+          </div>
+          <!-- / Infography item style 2 -->
+
+          <!-- Infography item style 2 -->
+          <div class="col-md-3">
+            <div class="infography infography-2 text-center">
+              <i class="ti-bookmark-alt icons"></i>
+              <div class="infography-title" style="font-size: 16px; font-weight:bold">
+                <!-- <h4>4.Visualization</h4> -->
+              </div>
+              <div class="infography-description" style="font-size: 16px; font-weight:bold">
+                4.Add prefered locations into you itinerary</div>
+            </div>
+          </div>
+          <!-- / Infography item style 2 -->
+
+        </div>
+      </div>
     </div>
-  </div>
-</section> <!-- .section -->
 
 
-
-
-
-
-
- 
-
-
-
-
-
+            <h3 id="OriginCityHeader" class="heading mb-4"></h3>
+            <!-- <div class="row" id="OriLocationCol" style="background-color:#ffc107;"> -->
+            <div class="row" id="OriLocationCol">
+            </div>
+            
+            <div class="row mt-5"></div>
+            <div class="row mt-5"></div>
+            <h3 id="DestinationCityHeader" class="heading mb-4"></h3>
+            <div class="row" id="DestLocationCol">
+            </div>
+            
+            
+            <div class="row mt-5">
+              <div class="col text-center">
+                <div class="block-27">
+                  <ul>
+                    <!-- <li><a href="#">&lt;</a></li> -->
+                    <li class="active"><span>1</span></li>
+                    <!-- <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#">&gt;</a></li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <!-- .col-md-8 -->
+        </div>
+      </div>
+    </section> <!-- .section -->
 
 
     <!-- BLOCK / news -->
@@ -472,9 +533,9 @@
                   <!-- <li><a href="tripplan.html">Route Scheduling</a></li> -->
                   <!-- <li><a href="regionselection.html">地區選擇</a></li> -->
                   <!-- <li><a href="site.html">景點排程</a></li> -->
-                  <li><a href=".\places new2.html">Site Recommender</a></li>
+                  <li><a href=".\places new2.html">Location Recommender</a></li>
                   <!-- <li><a href="Supervisor View.html">Visualization</a></li> -->
-                  <li><a href="contact.html">Contact Us</a></li>
+                  <!-- <li><a href="contact.html">Contact Us</a></li> -->
                 </ul>
                 <!-- <p class="mt-40" style="font-weight:bold;color: #FFF">TravelGo
                   志在提供一個友善的旅遊規劃平台，幫助大眾在最短的時間完成行程規劃，不再為行程而煩惱，可以充份享受他們的假期時光</p> -->
@@ -554,12 +615,12 @@
 	//<<< Origin Locations >>>
 	// Loading the location info from Json
 		var request = new XMLHttpRequest();
-			request.open("GET", "OriginLocations.json", false);
+			request.open("GET", "user_based_final.json", false);
 			request.send(null);
 
 
 		var Origin_site_data = JSON.parse(request.responseText);
-		var Origin_sites_series = Origin_site_data
+		var Origin_sites_series = Origin_site_data['data']
 		console.log(Origin_sites_series)
 
 		// Create a blank LocationCol
@@ -571,7 +632,7 @@
 				
 				// Create star icon based on the rates of each location
 				var rating_score = '';
-				for (j = 0; j < new_sites_series[i].Rec_final_score; j++) {
+				for (j = 0; j < new_sites_series[i].Rec_user_score; j++) {
 					rating_score += '<i class="icon-star"></i>'
 				}
 				// <a href="${new_sites_series[i].photo}" onclick="Ori_location_select()" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}'); ">
@@ -580,7 +641,7 @@
 				document.getElementById('OriLocationCol').insertAdjacentHTML('beforeend',
 					`
 						<div class="col-sm col-md-6 col-lg-4 ftco-animate fadeInUp ftco-animated OriginLocationSec">
-							<div class="destination" id="${new_sites_series[i].Target_business_id}" onclick="Ori_location_select(this)">
+							<div class="destination" id="${new_sites_series[i].business_id}" onclick="Ori_location_select(this)">
 								<a class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}'); margin-top: 15pt">
 									<div class="icon d-flex justify-content-center align-items-center">
 										<span class="icon-link"></span>
@@ -592,11 +653,11 @@
 											<h3><a href=${new_sites_series[i].Map}>${new_sites_series[i].name}</a></h3>
 											<p class="rate">
 												${rating_score}
-												<span>${new_sites_series[i].Rec_final_score}</span>
+												<span>${new_sites_series[i].Rec_user_score}</span>
 											</p>
 										</div>
 										<div class="two">
-											<span class="price">${new_sites_series[i].Rec_final_rank}</span>
+											<span class="price">${new_sites_series[i].Rec_user_rank}</span>
 										</div>
 									</div>
 									<p class="days"><span>${new_sites_series[i].address}</span></p>
@@ -616,7 +677,7 @@
 		}
 
 		// Call the showsites function we defined above
-		Origin_showsites(Origin_sites_series)
+		// Origin_showsites(Origin_sites_series)
 
 
 
@@ -625,10 +686,10 @@
 	//<<< Destination Locations >>>
 	// Loading the location info from Json
 		var request_dest = new XMLHttpRequest();
-			request_dest.open("GET", "SiteforPlaces.json", false);
+			request_dest.open("GET", "user_based_final.json", false);
 			request_dest.send(null);
 		var site_data = JSON.parse(request_dest.responseText);
-		var sites_series = site_data
+		var sites_series = site_data['data']
 		console.log(sites_series)
 
 		// Create a blank LocationCol
@@ -640,7 +701,7 @@
 				
 				// Create star icon based on the rates of each location
 				var rating_score = '';
-				for (j = 0; j < new_sites_series[i].Rec_final_score; j++) {
+				for (j = 0; j < new_sites_series[i].Rec_user_score; j++) {
 					rating_score += '<i class="icon-star"></i>'
 				}
 
@@ -660,11 +721,11 @@
 											<h3><a href=${new_sites_series[i].Map}>${new_sites_series[i].name}</a></h3>
 											<p class="rate">
 												${rating_score}
-												<span>${new_sites_series[i].Rec_final_score}</span>
+												<span>${new_sites_series[i].Rec_user_score}</span>
 											</p>
 										</div>
 										<div class="two">
-											<span class="price">${new_sites_series[i].Rec_final_rank}</span>
+											<span class="price">${new_sites_series[i].Rec_user_rank}</span>
 										</div>
 									</div>
 									<p class="days"><span>${new_sites_series[i].address}</span></p>
@@ -717,8 +778,12 @@
 			if (select_dest_site != 'Destination City') {			
 				dest_sites = dest_sites.filter(x => x.city == select_dest_site)
 			}
+
+      
 			Origin_showsites(ori_sites)
-			Dest_showsites(dest_sites)
+      document.getElementById('OriginCityHeader').innerHTML= 'Click on a Preferred Location in Origin'
+      document.getElementById('UserGuide'). style.display = "none"
+
 		}
 
 		// Filter the destination sites based on the origin sites selected
@@ -740,12 +805,30 @@
       }
       
       ori_sites = ori_sites.filter(x => x.business_id == ori_sites_selected_ID)
-
-      Origin_showsites(ori_sites)
+      
+      // If there are multiple sites with the same id, only show it once 
+      Origin_showsites([ori_sites[0]])
       Dest_showsites(dest_sites);
+      document.getElementById('OriginCityHeader').innerHTML = 'Selected Location in Origin'
+      document.getElementById('DestinationCityHeader').innerHTML = 'Recommended Location in Destination'
 
       // Change the backgound color of the original location panel 
       document.getElementsByClassName('OriginLocationSec')[0].style.backgroundColor ="#ffc107" 
+
+
+      // Add in Back button to back to origin location selection
+      document.getElementById('OriginCityHeader').insertAdjacentHTML('beforeend',
+					`
+          <input type="submit" value="Back" class="btn btn-primary py-2 px-3" onclick="searchfunc()">
+          `
+          // <span class="ml-auto" onclick="searchfunc()"><a>Back</a></span>
+      )
+      document.getElementById('DestinationCityHeader').insertAdjacentHTML('beforeend',
+					`
+          <input type="submit" value="Back" class="btn btn-primary py-2 px-3" onclick="searchfunc()">
+          `
+          // <span class="ml-auto" onclick="searchfunc()"><a>Back</a></span>
+      )
 
 
 		}
