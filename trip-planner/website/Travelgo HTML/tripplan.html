@@ -1,0 +1,684 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>Tripplan</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/vendor/simple-line-icons.css" rel="stylesheet">
+    <link href="css/vendor/themify-icons.css" rel="stylesheet">
+    <link href="css/vendor/owl.carousel.css" rel="stylesheet">
+    <link href="css/vendor/animate.css" rel="stylesheet">
+    <link href="css/vendor/viewbox.css" rel="stylesheet"> 
+    <link href="css/vendor/bootstrap-slider.min.css" rel="stylesheet">
+    <link href="css/vendor/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    
+
+    
+    <link href="css/scss/main.css" rel="stylesheet">
+
+ <!-- from rankcount template
+    <link rel="stylesheet" href="css/rankcount/bootstrap.min.css">
+    <link rel="stylesheet" href="css/rankcount/style.css"> -->
+    
+    <style>
+    #map {
+    height: "770";
+    width: "550";
+    }
+    #map2 {
+    height: "770";
+    width: "550";
+    }
+    #btn{
+      z-index:99;
+      top:10px;
+      left:calc(50% - 150px);
+      font-size:15px;
+      width:60%;
+      max-width: 80px;
+      border-radius: 5px;
+      padding:3px;
+      outline: none;
+      border:1px solid rgb(153, 153, 153);
+      background-color: #ffd903;
+      margin-bottom: 15px;
+      margin-right: 2px;
+      color: #FFF;
+    }
+    #btn:active{
+      box-shadow:rgba(0,0,0,.5) 0 3px 5px;
+    }
+    #br{
+      margin: 0px;
+      padding: 0px;
+    }
+    </style>
+
+    <script src="js/vendor/fontawesome-all.min.js"></script>
+
+    
+    
+    <!-- script -->    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>  
+    <script src="js/suggester/vendor/modernizr-3.5.0.min.js"></script>
+
+
+
+  </head>
+  
+  <body>
+
+
+
+    <!-- pageloader -->
+    <div id="loader">
+      <div class="loader">
+        <div class="sk-child sk-dot1"></div>
+        <div class="sk-child sk-dot2"></div>
+      </div>
+    </div>
+    <!-- / #pageloader -->
+
+    <nav id="contact-menu" class="navigation navigation-hidden navigation-portrait">
+      <div class="nav-menus-wrapper">
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Contact Us</p>
+          <ul>
+            <li><span class="ti-map-alt"></span> 610 Broadway New York, NY 10012</li>
+            <li><span class="ti-headphone-alt"></span> <a href="tel:1800-2345-5677">1800-2345-5677</a></li>
+            <li><span class="ti-mobile"></span> <a href="tel:1800-2345-5678">1800-2345-5678</a></li>
+            <li><span class="ti-email"></span> <a href="mailto:info@voyagetime.com">info@voyagetime.com</a></li>
+          </ul>
+        </div>
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Work Time</p>
+          <ul>
+            <li><span class="ti-alarm-clock"></span> Working Days  9AM - 9PM</li>
+            <li><span class="ti-alarm-clock"></span> Saturday  10AM - 8PM</li>
+            <li><span class="ti-alarm-clock"></span> Sunday  Closed</li>
+          </ul>
+        </div>
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Follow Us</p>
+          <ul class="header-social">
+            <li><a href="#"><span class="ti-facebook"></span></a></li>
+            <li><a href="#"><span class="ti-instagram"></span></a></li>
+            <li><a href="#"><span class="ti-twitter"></span></a></li>
+            <li><a href="#"><span class="ti-youtube"></span></a></li>
+            <li><a href="#"><span class="ti-pinterest"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      
+      <div class="main-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-5 col-4">
+              <div class="main-header-logo">
+                  <a><img width="350" src="img/TravelGOlogowhite.png" alt="Site logo"></a>
+              </div>
+            </div>
+            <div class="col-md-7 col-8">
+              <div class="clearfix float-right contact-head">
+                <a>登入</a>
+                <button class="btn-show navbar-toggler float-right btn-contact"><span class="ti-menu"></span></button>
+              </div>
+              <nav id="navigation" class="navigation mt-10">
+                <div class="nav-toggle"></div>
+                <div class="nav-search">
+                  <div class="nav-search-button">
+                   <span class="ti-search"></span>
+                  </div>
+                  <form>
+                    <div class="nav-search-inner">
+                      <input type="search" name="search" placeholder="Type and hit ENTER"/>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="nav-menus-wrapper">
+
+                  <ul class="nav-menu align-to-right">
+                    <li><a class="active" href="#">首頁</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="home.html">首頁</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">旅遊計畫</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="tripplan.html">旅遊計畫</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">地區選擇</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="regionselection.html">地區選擇</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">景點排程</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="site.html">景點排程</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">路線規劃</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="routeplanning.html">路線規劃</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">行程彙總</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="itinerary.html">行程彙總</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="contact.html">連絡我們</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </header>
+
+    <!-- / header -->
+    
+    <!-- page-head -->
+
+    <div class="page-head white-content">
+      <div class="height50vh parallax-container" style="background-image: url(img/homepage11.jpg);">
+        <div class="page-head-wrap">
+          <div class="display-r">
+            <div class="display-a">
+              <div class="container">
+                <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                  <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">旅遊計畫</li>
+                      </ol>
+                    </nav>
+                    <h1 class="big-title mt-60">旅遊計畫</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- / page-head -->
+
+
+    <div class="mt-20"></div>  
+    <!-- content -->
+    
+    <main class="page-content">
+	
+        <!-- About Us Area -->
+        <section class="about-us-area pt--80">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="about-content about-content-4 pb--65 pt--50">
+                  <h2>讓全世界旅遊達人為您打造專屬旅遊計畫<span class="main-block bg-gray"></span> </h2>
+                  <hr class="hr-3">
+                  <h4>旅遊基本資訊</h4>
+                  <div class="main-block bg-gray">
+
+                      <form action="#" method="post">
+                        <div class="form-group col-md-3">
+                          <label class="col-form-label">姓名:</label>
+                          <input type="search" name="username" id="keyword2" class="hotel-input-first" placeholder="您的暱稱">
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label class="col-form-label">旅遊人數:</label>
+                          <select class="form-control custom-select">
+                            <option>1</option>
+                            <option selected>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5人以上</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                          <label class="col-form-label">旅遊起始日:</label>
+                          <input type="text" class="form-control" id="date3">
+                        </div>
+                        <div class="form-group col-md-4">
+                        <label class="col-form-label">選擇您喜愛的景點特徵:</label>
+                        </div>
+                        <div class="col-md-12" style="margin: 10px">
+                          <!-- site tags -->
+                            <!-- <button id="addsite">新增</button> -->
+                            <label><input type="checkbox" id='btn' name="tags" value='傳統' style="background-color:	#FFFF77 ;color:black";margin:8px;/>傳統</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>夢幻</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>多彩</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>悠閒</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>老街</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>古城</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>公園</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>溫泉</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>花卉</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>雲海</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>田園</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>湖泊</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>海景</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>川流</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>溪谷</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>島嶼</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>瀑布</label>
+                            <label><input type="checkbox" id='btn' name="tags" value='夢幻' style="background-color:	#FFFF77 ;color:black";margin:8px;/>森林</label>
+
+
+
+
+
+
+
+                            <br>
+                            <!-- <button id="btn" value="傳統" style="background-color:	#FFFF77 ;color:black">傳統</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#FFFF77 ;color:black">夢幻</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#FFFF77 ;color:black">清新</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#FFFF77 ;color:black">多彩</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#FFFF77 ;color:black">悠閒</button>
+                            <br>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#BBFF66;color:black">世界遺產</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#BBFF66;color:black">神社寺廟</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#BBFF66;color:black">老街</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#BBFF66;color:black">古城</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#BBFF66;color:black">公園</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#BBFF66;color:black">溫泉</button>
+                            <br>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">花卉</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">雲海</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">田園</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">湖泊</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">海景</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">川流</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">溪谷</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">島嶼</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">瀑布</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">森林</button>
+                            <button id="btn" onclick="selectregion()" style="background-color:	#003C9D">山岳</button> -->
+                            <br>
+                            <br>
+                            <!-- <button id="submitbtn" style="background-color:white">送出</button> -->
+                            <!-- <input id='submitbtn' type='button' value="送出">                          -->
+                          </div>
+
+                          <script>
+                              document.addEventListener('DOMContentLoaded',function(){
+                                document.getElementById('submitbtn').addEventListener('click',function(){
+                                  var result=[];
+                                  var alltags = document.getElementsByName('tags');
+                                  // console.log(alltags.length)
+                                  var visitorname=document.getElementById('keyword2').value;
+                                  for(var i = 0,len=alltags.length;i<len;i++){
+                                    var singletages = alltags.item(i);
+                                    if (singletages.checked){
+                                      result.push(singletages.value);
+                                    }
+                                  }
+                                  console.log(result.toString());
+                                  console.log(visitorname);
+                                },false);
+                              },false);
+
+                            </script>
+
+
+                            <!-- / site tags -->
+                        <!-- <div class="form-group">
+                          <label><i class="fa fa-user"></i></label><span>旅遊人數</span>
+                          <input type="number" name="s" id="number1" class="hotel-input-first" placeholder="人數">
+                        </div> -->
+                        <!-- <div class="form-group">
+                          <label><i class="fa fa-calendar"></i></label>
+                          <input type="button" name="s" value="Date" id="datepicker2" class="hotel-input-first">
+                        </div> -->
+                        <!-- <div class="form-group searc-btn-7">
+                          <button type="submit">Search</button>
+                        </div> -->
+                        
+                      </form>
+                    </div>
+                    <!-- countup -->
+
+                    <h3>日本熱門景點排名:</h3>
+                    <div class="row">
+                      
+
+
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-5">
+                        <div class="counter text-left">
+                          <h3 id=hot11 class="counter-active"></h3>
+                          <h3 id=hot12></h3>
+                        </div>
+                      </div>
+    
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-5">
+                        <div class="counter text-left pl--45">
+                          <h3 id=hot21 class="counter-active"></h3>
+                          <h3 id=hot22></h3>
+                        </div>
+                      </div>
+    
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-5">
+                        <div class="counter text-left pl--60">
+                          <h3 id=hot31 class="counter-active"></h3>
+                          <h3 id=hot32></h3>
+                        </div>
+                      </div>
+
+
+                      <script>
+                          var hotsite = [
+                              {
+                                  "site": "淺草寺",
+                                  "times": "850",
+                              },
+                              {
+                                  "site": "東京迪士尼",
+                                  "times": "230",
+                              },
+                              {   "site": "大阪城",
+                                  "times": "167",
+                              }];
+                              
+                              document.getElementById('hot11').innerHTML=hotsite[0]['times'];
+                              document.getElementById('hot12').innerHTML="1st: "+hotsite[0]['site'];
+                              document.getElementById('hot21').innerHTML=hotsite[1]['times'];
+                              document.getElementById('hot22').innerHTML="2nd: "+hotsite[1]['site'];
+                              document.getElementById('hot31').innerHTML=hotsite[2]['times'];
+                              document.getElementById('hot32').innerHTML="3rd: "+hotsite[2]['site'];                              
+
+                          </script>
+
+
+
+
+
+                    </div>
+                  </div>
+                    <!-- /countup -->
+
+
+
+
+                  </a>
+                </div>
+                
+                
+              <div class="col-lg-5">
+                 <div class="about-left-image">
+                  <img src="img/suggester.png" alt="" />
+                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--// About Us Area -->			
+    
+
+    
+    <!-- Call to action 2 -->
+          <div class="ctoa text-center ctoa-bg" style="padding: 10px">
+            <div class="row justify-content-center">
+              <div class="col-md-12">
+                <h3 class="mb-10">輸入資訊後 進入地區選擇</h2>
+                <!-- <p class="mb-10">確定行程進入路線規劃</p> -->
+                <a class="btn btn-3" href="regionselection.html">下一步</a>
+              </div>
+            </div>
+          </div>
+    <!-- / Call to action 2 -->
+    <div class="mt-20"></div>
+
+
+
+         <!-- BLOCK popular -->
+  
+         <div class="main-block">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="text-center block width100 mb-50 block-title">
+                    <h2>熱門地區</h2>
+                    <div class="separator"><span>選擇您想要去的地區</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+      
+                <div class="col-md-6 col-lg-6">
+                  <div class="category-item effect-2">
+                    <img src="img/Homepagesite2.jpg" class="img-fluid" alt="img12">
+                    <div class="caption">
+                      <div>
+                        <p class="title">北海道</p>
+                        <p class="description">北海道是日本四個主要島嶼中第二大、最北、也開發得最少的島嶼。北海道氣候冬季嚴寒，雪量豐富，溫度在零度以下，海水結凍，而在夏季則不像日本其它地區般濕熱。</p>
+                      </div>
+                      <a href="regionselection.html">View more</a>
+                    </div>     
+                  </div>
+                </div>
+      
+                <div class="col-md-6 col-lg-6">
+                  <div class="category-item effect-2">
+                    <img src="img/Homepagesite3.jpg" class="img-fluid" alt="img12">
+                    <div class="caption">
+                      <div>
+                        <p class="title">關東</p>
+                        <p class="description">關東是日本最大平原，人口相當密集。關東地區由7個縣市組成，其中包括東京及橫濱兩大都市。</p>
+                      </div>
+                      <a href="regionselection.html">View more</a>
+                    </div>     
+                  </div>
+                </div>
+      
+                <div class="col-md-6 col-lg-6">
+                  <div class="category-item effect-2">
+                    <img src="img/Homepagesite5.jpg" class="img-fluid" alt="img12">
+                    <div class="caption">
+                      <div>
+                        <p class="title">關西</p>
+                        <p class="description">近畿地區又泛稱為關西，由7個督道縣府組成，曾是日本的政治文化中心達數世紀之久。京都、大阪、奈良和神戶等城市均位於近畿地區。</p>
+                      </div>
+                      <a href="regionselection.html">View more</a>
+                    </div>     
+                  </div>
+                </div>
+      
+                <div class="col-md-6 col-lg-6">
+                  <div class="category-item effect-2">
+                    <img src="img/Homepagesite1.jpg" class="img-fluid" alt="img12">
+                    <div class="caption">
+                      <div>
+                        <p class="title">九州</p>
+                        <p class="description">九州是日本的第三大島，位於日本主島本州的西南方。九州是日本早期文明的中心，有許多歷史寶藏，現代化城市和自然美景。</p>
+                      </div>
+                      <a href="regionselection.html">View more</a>
+                    </div>     
+                  </div>
+                </div>
+      
+                <div class="col-md-6 col-lg-6">
+                  <div class="category-item effect-2">
+                    <img src="img/Homepagesite8.jpg" class="img-fluid" alt="img12">
+                    <div class="caption">
+                      <div>
+                        <p class="title">中部</p>
+                        <p class="description">日本最大島本州島的中心地區, 由 9 個部道縣府組成, 它被統稱為 “中部地區”, 整個中部地區被劃分為:北部地帶包括福井,石川,富山, 此又稱為北陸地區; 南部地帶包括靜岡,愛知,崎阜, 此又可稱為東海地區; 另山梨,長野和新瀉等縣又被稱為甲信越地區.</p>
+                      </div>
+                      <a href="regionselection.html">View more</a>
+                    </div>     
+                  </div>
+                </div>
+      
+                <div class="col-md-6 col-lg-6">
+                  <div class="category-item effect-2">
+                    <img src="img/Homepagesite6.jpg" class="img-fluid" alt="img12">
+                    <div class="caption">
+                      <div>
+                        <p class="title">沖繩</p>
+                        <p class="description">沖繩是日本最靠南端的縣，是由南西群島南半端的幾十個小島組成。沖繩縣可以分為三個主要地區：以沖繩本島為中心的沖繩群島，宮古島周圍的宮古列島，以及石垣島周圍的八重山列島。</p>
+                      </div>
+                      <a href="regionselection.html">View more</a>
+                    </div>     
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- BLOCK / popular -->
+    
+    
+
+
+
+    <!-- / content -->
+
+    <footer class="dark-footer"  style="background-image: url(img/image-20.jpg);">
+      <div class="main-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="footer-item">
+                <img width="250" src="img/TravelGOlogowhite.png" alt="Logo">
+                <div class="mt-20 mb-20">
+                  <!-- <button type="button" class="btn btn-1 btn-sm" data-toggle="modal" data-target="#newsletterModal">
+                    Newsletter signup
+                  </button> -->
+                  <!-- Modal -->
+                  <div class="modal fade bd-example-modal-sm" id="newsletterModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="exampleModalLabel">Newsletter Signup</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form id="subscribe-form" class="form-block" novalidate="novalidate">
+                            <div class="form-group mt-20 subscribe-form">
+                              <small id="emailHelp" class="form-text text-muted">Subscribe now and recieve a 50% discount on your next tour booking</small>
+                              <label>Email address</label>
+                              <input type="email" class="form-control" name="email" placeholder="Email">
+                            </div>
+                            <div class="mt-10 mb-10 float-right">
+                              <button type="button" class="btn btn-2 btn-sm" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-1 btn-sm">Sign Up</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="footer-item">
+                <ul class="footer-menu">
+                  <li><a href="home.html">首頁</a></li>
+                  <li><a href="tripplan.html">旅遊計劃</a></li>
+                  <li><a href="regionselection.html">地區選擇</a></li>
+                  <li><a href="site.html">景點排程</a></li>
+                  <li><a href="routeplanning.html">路線規劃</a></li>
+                  <li><a href="itinerary.html">行程彙總</a></li>
+                  <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+                <p class="mt-40" style="font-weight:bold;color: #FFF">TravelGo 志在提供一個友善的旅遊規劃平台，幫助大眾在最短的時間完成行程規劃，不再為行程而煩惱，可以充份享受他們的假期時光</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="footer-item">
+                <!-- <ul class="mb-20">
+                  <li>1800-2345-5677</li>
+                  <li class="mt-10"><a href="mailto:">info@voyagetime.com</a></li>
+                  <li class="mt-10">610 Broadway New York, NY 10012</li>
+                </ul> -->
+                
+              </div>
+
+              <div class="footer-item">
+                <ul class="footer-social mt-20">
+                  <li><a target="_blank" href="#"><i class="fab fa-pinterest"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-tumblr"></i></a></li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="bottom-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+            </div>
+            <div class="col-md-6 text-r mobile-left">
+              <p><img width="200" src="img/visa-mastercard-paypal.png" alt="Visa Mastercard Paypal"></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </footer>
+
+    <!-- SCROLL UP -->
+    <a class="scrollup">
+      <i class="icon-arrow-up icons"></i>
+    </a>
+    <!-- / SCROLL UP -->
+
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/moment.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/bootstrap-slider.min.js"></script>
+    <script src="js/vendor/bootstrap-datetimepicker.min.js"></script> 
+    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/navigation.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/jqueryvalidation.js"></script>
+    <script src="js/vendor/jquery.viewbox.min.js"></script> 
+    <script src="js/vendor/masonry.min.js"></script> 
+    <script src="js/vendor/imagesloaded.js"></script>
+    <script src="js/vendor/jquery.waypoints.min.js"></script>
+    <script src="js/vendor/jquery.sticky-kit.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script src="js/suggester/vendor/jquery-3.2.1.min.js"></script>
+    <script src="js/suggester/popper.min.js"></script>
+    <script src="js/suggester/bootstrap.min.js"></script>
+    <script src="js/suggester/plugins.js"></script>
+    <script src="js/suggester/active.js"></script>
+    <script src="js/suggester/scripts.js"></script>
+
+  </body>
+</html>

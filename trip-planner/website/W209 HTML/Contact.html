@@ -1,0 +1,407 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/RoutePlanningIcon.png">
+
+  <title>Contact</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+  <link href="css/vendor/simple-line-icons.css" rel="stylesheet">
+  <link href="css/vendor/themify-icons.css" rel="stylesheet">
+  <link href="css/vendor/owl.carousel.css" rel="stylesheet">
+  <link href="css/vendor/animate.css" rel="stylesheet">
+  <link href="css/vendor/viewbox.css" rel="stylesheet">
+  <link href="css/vendor/bootstrap-slider.min.css" rel="stylesheet">
+  <link href="css/vendor/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+  <script src="js/vendor/fontawesome-all.min.js"></script>
+
+  <link href="css/scss/main.css" rel="stylesheet">
+
+
+
+  <style>
+    #map {
+      height: "770";
+      width: "550";
+    }
+
+    #map2 {
+      height: "770";
+      width: "550";
+    }
+
+    #btn {
+      z-index: 99;
+      top: 10px;
+      left: calc(50% - 150px);
+      font-size: 15px;
+      width: 60%;
+      max-width: 80px;
+      border-radius: 5px;
+      padding: 3px;
+      outline: none;
+      border: 1px solid rgb(153, 153, 153);
+      background-color: #ffd903;
+      margin-bottom: 15px;
+      margin-right: 2px
+    }
+
+    #btn:active {
+      box-shadow: rgba(0, 0, 0, .5) 0 3px 5px;
+    }
+
+    #br {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVRn7G1vFTSRtIagHFwzTgze5CFD5EhvE"></script>
+
+  <!-- script -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+  <!-- <script src="./js/Route_Planning_Google_map.js"></script> -->
+  <script src="./js/Route_Planning_After_Upload.js"></script>
+
+
+</head>
+
+<body>
+
+
+  <!-- pageloader -->
+  <div id="loader">
+    <div class="loader">
+      <div class="sk-child sk-dot1"></div>
+      <div class="sk-child sk-dot2"></div>
+    </div>
+  </div>
+  <!-- / #pageloader -->
+
+  <!-- contact bar -->
+  <nav id="contact-menu" class="navigation navigation-hidden navigation-portrait">
+    <div class="nav-menus-wrapper">
+      <div class="header-info-item clearfix">
+        <p class="header-info-title">Contact Us</p>
+        <ul>
+          <li><span class="ti-map-alt"></span>MIDS W209 Team 2</li>
+          <li><a>Team member - Sam Shih:</a></li>
+          <li><a href="https://www.linkedin.com/in/sam-shih-812616117/"><span class="ti-linkedin"></span>sam-shih-812616117</a></li>
+          <li><a>Team member - Javed Roshan:</a></li>
+          <li><a href="https://www.linkedin.com/in/jroshan/"><span class="ti-linkedin"></span>jroshan</a></li>
+          <li><a>Team member - Joanna Wang:</a></li>
+          <li><a href="https://www.linkedin.com/in/jiacheng-joanna-w-96973b90/"><span class="ti-linkedin"></span>jiacheng-joanna-w-96973b90</a></li>
+          <li><a>Lecturer - Fereshteh Amini</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /contact bar -->
+
+  <header>
+
+    <div class="main-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5 col-4">
+            <div class="main-header-logo">
+              <a><img width="350" src="img/TravelGOlogowhite.png" alt="Site logo"></a>
+            </div>
+          </div>
+          <div class="col-md-7 col-8">
+            <div class="clearfix float-right contact-head">
+              <a style="color: white;">Login</a>
+              <button class="btn-show navbar-toggler float-right btn-contact"><span class="ti-menu"></span></button>
+            </div>
+            <nav id="navigation" class="navigation mt-10">
+              <div class="nav-toggle"></div>
+              <div class="nav-search">
+                <div class="nav-search-button">
+                  <span class="ti-search"></span>
+                </div>
+                <form>
+                  <div class="nav-search-inner">
+                    <input type="search" name="search" placeholder="Type and hit ENTER" />
+                  </div>
+                </form>
+              </div>
+
+              <div class="nav-menus-wrapper">
+
+                <ul class="nav-menu align-to-right">
+                  <li><a href="#">Home</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="index.html">Home</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Route Scheduling</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="routeplanning W209.html">Route Scheduling</a></li>
+                    </ul>
+                  </li>
+                  <li><a class="active" href="#">Visualization</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="Supervisor View.html">Visualization</a></li>
+                    </ul>
+                  </li>
+                  <!--<li><a href="#">地區選擇</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="regionselection.html">地區選擇</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">景點排程</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="site.html">景點排程</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">路線規劃</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="routeplanning.html">路線規劃</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">行程彙總</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="itinerary.html">行程彙總</a></li>
+                      </ul>
+                    </li> -->
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- / header -->
+
+  <!-- page-head -->
+
+  <div class="page-head white-content">
+    <div class="height80vh parallax-container" style="background-image: url(img/California\ big1.jpg);">
+      <div class="page-head-wrap">
+        <div class="display-r">
+          <div class="display-a">
+            <div class="container">
+              <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                <div class="col-md-12">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html">W209 Team 2</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                    </ol>
+                  </nav>
+                  <h1 class="big-title mt-60">Contact</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- / page-head -->
+
+
+    <!-- content -->
+    
+    <div class="content mt-60 mb-40">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content-box mb-20">
+              <div class="row">
+
+                <!-- team-item-1 -->
+                <div class="col-md-3">
+                  <div class="team-item-1">
+                    <!-- <img src="https://www.sharecourse.net/sharecourse/upload/person/159471/5a29df129c34dfc2c9af14638627675967.png" onMouseOver="this.src='https://www.sharecourse.net/sharecourse/upload/person/159471/5a29df129c34dfc2c9af14638627675967.png'" onMouseOut="this.src='https://www.sharecourse.net/sharecourse/upload/person/159471/5a29df129c34dfc2c9af14638627675967.png'"  alt="Team 1"> -->
+                    <div class="team-info text-center mb-10">
+                      <p class="name">Sam Shih</p>
+                      <p class="position">I am passionate about connecting business challenges with solutions from data analytics and insights. What I find the most fulfilling is the process of thinking critically about different business questions, framing them as data problems, applying analytical rigor to solving them.I have managed and successfully delivered numerous analytical projects across countries</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /. team-item-1 -->
+
+                <!-- team-item-1 -->
+                <div class="col-md-3">
+                  <div class="team-item-1">
+                    <!-- <img src="https://www.linkedin.com/in/jroshan/detail/photo/" onMouseOver="this.src='https://www.linkedin.com/in/jroshan/detail/photo/'" onMouseOut="this.src='https://www.linkedin.com/in/jroshan/detail/photo/'"  alt="Team 2"> -->
+                    <div class="team-info text-center mb-10">
+                      <p class="name">Javed Roshan</p>
+                      <p class="position">As the Chief Digital & Technology Officer for Real Estate Investments (REI) business segment, Javed has digitally transformed Global Investors, an Investment Management entity with over $107B assets under management. He is also a foundational member of its corporate backed startup, Hana, a flexible space offering from CBRE.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /. team-item-1 -->
+
+                <!-- team-item-1 -->
+                <div class="col-md-3">
+                  <div class="team-item-1">
+                    <!-- <img src="https://media-exp1.licdn.com/dms/image/C4E03AQFf3w-KVMIR1A/profile-displayphoto-shrink_800_800/0/1517433635892?e=1623888000&v=beta&t=_LTBa0HNykIj_aWVsd05osPqnQaX7Q8nRlLSUwz01FA" onMouseOver="this.src='https://media-exp1.licdn.com/dms/image/C4E03AQFf3w-KVMIR1A/profile-displayphoto-shrink_800_800/0/1517433635892?e=1623888000&v=beta&t=_LTBa0HNykIj_aWVsd05osPqnQaX7Q8nRlLSUwz01FA'" onMouseOut="this.src='https://media-exp1.licdn.com/dms/image/C4E03AQFf3w-KVMIR1A/profile-displayphoto-shrink_800_800/0/1517433635892?e=1623888000&v=beta&t=_LTBa0HNykIj_aWVsd05osPqnQaX7Q8nRlLSUwz01FA'"  alt="Team 2"> -->
+                    <div class="team-info text-center mb-10">
+                      <p class="name">Joanna Wang</p>
+                      <p class="position">Software developer with three years of experience in managing and leading financial application projects for repurchase agreement trading system. Experienced with working in agile teams and delivering stable softwares. Reputation for partnering with sales, trading, and operation groups to come up with strategic and cost-efficient technology solutions for business.</p>
+                    </div>
+                  </div>
+                </div>
+
+               
+
+             
+
+
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- / content -->
+
+
+
+
+  <!-- JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/moment.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/bootstrap-slider.min.js"></script>
+  <script src="js/vendor/bootstrap-datetimepicker.min.js"></script>
+  <script src="js/vendor/owl.carousel.min.js"></script>
+  <script src="js/vendor/navigation.js"></script>
+  <script src="js/vendor/modernizr.js"></script>
+  <script src="js/vendor/jqueryvalidation.js"></script>
+  <script src="js/vendor/jquery.viewbox.min.js"></script>
+  <script src="js/vendor/masonry.min.js"></script>
+  <script src="js/vendor/imagesloaded.js"></script>
+  <script src="js/vendor/jquery.waypoints.min.js"></script>
+  <script src="js/vendor/jquery.sticky-kit.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+
+
+  <!-- / content -->
+
+  <footer class="dark-footer" style="background-image: url(img/image-20.jpg);">
+    <div class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="footer-item">
+              <img width="250" src="img/TravelGOlogowhite.png" alt="Logo">
+              <div class="mt-20 mb-20">
+                <!-- <button type="button" class="btn btn-1 btn-sm" data-toggle="modal" data-target="#newsletterModal">
+                    Newsletter signup
+                  </button> -->
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-sm" id="newsletterModal" tabindex="-1" role="dialog"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Newsletter Signup</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="subscribe-form" class="form-block" novalidate="novalidate">
+                          <div class="form-group mt-20 subscribe-form">
+                            <small id="emailHelp" class="form-text text-muted">Subscribe now and recieve a 50% discount
+                              on your next tour booking</small>
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                          </div>
+                          <div class="mt-10 mb-10 float-right">
+                            <button type="button" class="btn btn-2 btn-sm" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-1 btn-sm">Sign Up</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="footer-item">
+              <ul class="footer-menu">
+                <li><a href="index.html">Home Page</a></li>
+                <!-- <li><a href="tripplan.html">Route Scheduling</a></li> -->
+                <!-- <li><a href="regionselection.html">地區選擇</a></li> -->
+                <!-- <li><a href="site.html">景點排程</a></li> -->
+                <li><a href="routeplanning W209.html">Route Scheduling</a></li>
+                <li><a href="Supervisor View.html">Visualization</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+              <!-- <p class="mt-40" style="font-weight:bold;color: #FFF">TravelGo
+                志在提供一個友善的旅遊規劃平台，幫助大眾在最短的時間完成行程規劃，不再為行程而煩惱，可以充份享受他們的假期時光</p> -->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="footer-item">
+              <!-- <ul class="mb-20">
+                  <li>1800-2345-5677</li>
+                  <li class="mt-10"><a href="mailto:">info@voyagetime.com</a></li>
+                  <li class="mt-10">610 Broadway New York, NY 10012</li>
+                </ul> -->
+
+            </div>
+
+            <div class="footer-item">
+              <ul class="footer-social mt-20">
+                <li><a target="_blank" href="#"><i class="fab fa-pinterest"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-tumblr"></i></a></li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="bottom-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+            </div>
+            <div class="col-md-6 text-r mobile-left">
+              <p><img width="200" src="img/visa-mastercard-paypal.png" alt="Visa Mastercard Paypal"></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+  </footer>
+
+  <!-- SCROLL UP -->
+  <a class="scrollup">
+    <i class="icon-arrow-up icons"></i>
+  </a>
+  <!-- / SCROLL UP -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,680 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>regionselection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/vendor/simple-line-icons.css" rel="stylesheet">
+    <link href="css/vendor/themify-icons.css" rel="stylesheet">
+    <link href="css/vendor/owl.carousel.css" rel="stylesheet">
+    <link href="css/vendor/animate.css" rel="stylesheet">
+    <link href="css/vendor/viewbox.css" rel="stylesheet"> 
+    <link href="css/vendor/bootstrap-slider.min.css" rel="stylesheet">
+    <link href="css/vendor/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    
+    <script src="js/vendor/fontawesome-all.min.js"></script>
+    
+    <link href="css/scss/main.css" rel="stylesheet">
+
+    <!-- script -->    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>  
+
+
+
+
+    <style>
+      #btn{
+      z-index:99;
+      top:10px;
+      left:calc(50% - 150px);
+      font-size:15px;
+      width:60%;
+      max-width: 80px;
+      border-radius: 5px;
+      padding:3px;
+      outline: none;
+      border:1px solid rgb(153, 153, 153);
+      background-color: #ffd903;
+      margin: 5px 15px 5px 0px;
+      color: white;
+      font-weight: 900;
+      }
+    </style>
+  </head>
+  
+  <body>
+
+    
+    <!-- pageloader -->
+    <div id="loader">
+      <div class="loader">
+        <div class="sk-child sk-dot1"></div>
+        <div class="sk-child sk-dot2"></div>
+      </div>
+    </div>
+    <!-- / #pageloader -->
+
+    <nav id="contact-menu" class="navigation navigation-hidden navigation-portrait">
+      <div class="nav-menus-wrapper">
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Contact Us</p>
+          <ul>
+            <li><span class="ti-map-alt"></span> 610 Broadway New York, NY 10012</li>
+            <li><span class="ti-headphone-alt"></span> <a href="tel:1800-2345-5677">1800-2345-5677</a></li>
+            <li><span class="ti-mobile"></span> <a href="tel:1800-2345-5678">1800-2345-5678</a></li>
+            <li><span class="ti-email"></span> <a href="mailto:info@voyagetime.com">info@voyagetime.com</a></li>
+          </ul>
+        </div>
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Work Time</p>
+          <ul>
+            <li><span class="ti-alarm-clock"></span> Working Days  9AM - 9PM</li>
+            <li><span class="ti-alarm-clock"></span> Saturday  10AM - 8PM</li>
+            <li><span class="ti-alarm-clock"></span> Sunday  Closed</li>
+          </ul>
+        </div>
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Follow Us</p>
+          <ul class="header-social">
+            <li><a href="#"><span class="ti-facebook"></span></a></li>
+            <li><a href="#"><span class="ti-instagram"></span></a></li>
+            <li><a href="#"><span class="ti-twitter"></span></a></li>
+            <li><a href="#"><span class="ti-youtube"></span></a></li>
+            <li><a href="#"><span class="ti-pinterest"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      
+      <div class="main-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-5 col-4">
+              <div class="main-header-logo">
+                  <a><img width="350" src="img/TravelGOlogowhite.png" alt="Site logo"></a>
+              </div>
+            </div>
+            <div class="col-md-7 col-8">
+              <div class="clearfix float-right contact-head">
+                <a>登入</a>
+                <button class="btn-show navbar-toggler float-right btn-contact"><span class="ti-menu"></span></button>
+              </div>
+              <nav id="navigation" class="navigation mt-10">
+                <div class="nav-toggle"></div>
+                <div class="nav-search">
+                  <div class="nav-search-button">
+                   <span class="ti-search"></span>
+                  </div>
+                  <form>
+                    <div class="nav-search-inner">
+                      <input type="search" name="search" placeholder="Type and hit ENTER"/>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="nav-menus-wrapper">
+
+                  <ul class="nav-menu align-to-right">
+                    <li><a class="active" href="#">首頁</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="home.html">首頁</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">旅遊計畫</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="tripplan.html">旅遊計畫</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">地區選擇</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="regionselection.html">地區選擇</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">景點排程</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="site.html">景點排程</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">路線規劃</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="routeplanning.html">路線規劃</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">行程彙總</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="itinerary.html">行程彙總</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="contact.html">連絡我們</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </header>
+
+    <!-- / header -->
+    
+    <!-- page-head -->
+
+    <div class="page-head white-content">
+      <div class="height50vh parallax-container" style="background-image: url(img/heading1.jpg);">
+        <div class="page-head-wrap">
+          <div class="display-r">
+            <div class="display-a">
+              <div class="container">
+                <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                  <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">地區選擇</li>
+                      </ol>
+                    </nav>
+                    <h1 class="big-title mt-60">地區選擇</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- / page-head -->
+
+    <!-- content -->
+    
+    <!-- regiontages -->
+    <!-- <div class="content mt-60 mb-40 container"> -->
+      <!-- <div class="row"> -->
+        <!-- style="margin: 10px" -->
+          <div class="mt-20"></div>
+        <div class="col-md-12 row justify-content-center align-items-end">
+          <!-- site tags -->
+          <!-- <button id="addsite">新增</button> -->
+          <button id="btn" onclick="selectregion()" style="background-color:	#0044BB">北海道</button>
+          <button id="btn" onclick="selectregion()" style="background-color:	#00BBFF">東北</button>
+          <button id="btn" onclick="selectregion()" style="background-color:	#227700">關東</button>
+          <button id="btn" onclick="selectregion()" style="background-color:	#FFFF00 ;color:black">關西</button>
+          <button id="btn" onclick="selectregion()" style="background-color:	#FF5511">四國</button>
+          <button id="btn" onclick="selectregion()" style="background-color:  #FF3333">九州</button>
+          <button id="btn" onclick="selectregion()" style="background-color:	#990099">沖繩</button>
+          <button id="btn" onclick="selectregion()" style="background-color:	#EE7700">中國</button>
+          <button id="btn" onclick="selectregion()" style="background-color:	#BBFF00 ;color:black">中部</button>
+          <!-- / site tags -->
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+
+    
+    
+    <div class="content mt-30 mb-20 container">
+      <div class="row justify-content-start">
+        <!-- japan map -->
+        <div class="col-md-6 col-lg-6">
+          <img id="imgMap" alt="" src="img\Japanmap0.jpg"  usemap="#FPMap0" style="margin:0px;"/>
+          <map id="FPMap0" name="FPMap0">
+            <area  id="idJapanmap1" class="imgbut" coords="129,161,30"  shape="circle"/>
+            <area  id="idJapanmap2" class="imgbut" coords="0,0,30"  shape="circle"/>
+            <area  id="idJapanmap3" class="imgbut" coords="100,100,30"  shape="circle"/>
+            <area  id="idJapanmap4" class="imgbut" coords="200,200,30"  shape="circle"/>
+          </map>
+        </div>
+        <div id="mapdiv" style="float:left;width:auto;height:auto;"></div>
+        
+        <!-- world cloud -->
+        <div class="col-md-6 col-lg-6" id="tag" style="background-color:azure;"></div>
+
+
+        <!-- word cloud script -->
+        <script>
+  window.onload=function(){
+let areas=document.querySelectorAll(".imgbut");
+let areasLen=areas.length;
+for(let area of areas){
+            area.onmouseover=mouseOver;
+            area.onmouseout=mouseOut;
+            area.onclick=Click;
+        }
+
+
+        function mouseOver() {
+          // alert(this.id);
+            // document.images[0].src = "images/MapTaipei.gif";
+            // document.images[0].src = "images/Map"+this.id.substr(2)+".gif";  //ES5
+            alert(`img/${this.id.substr(2)}.jpg`)
+            document.images[1].src=`<img src='img/${this.id.substr(2)}.jpg'/>`
+            // document.getElementById(imgMap).src = "img\Japanmap1.jpg";  //ES6
+            // document.images[0].src = `img/${this.id.substr(2)}.jpg`;  //ES6
+        }
+      
+
+
+
+        function mouseOut() {
+          document.images[1].src="img/Japanmap0.jpg"
+          // document.getElementById(imgMap).src = "img/TravelGOlogowhite.png";
+        }
+      
+
+        function Click() {
+          // document.getElementById("mapdiv").innerHTML = "<img src='images/Taipei.gif'/>";
+            // document.getElementById("mapdiv").innerHTML = "<img src='images/"+this.id.substr(2)+".gif'/>";
+            // alert(this.id.substr(2))
+            document.getElementById("mapdiv").innerHTML = `<img src='img/${this.id.substr(2)}.jpg'/>`;
+        }
+}
+
+          </script>
+
+
+            <script>
+// word cloud pic
+                //取得d3顏色
+                var fill = d3.scaleOrdinal(d3.schemeCategory10);
+                //文字雲/關鍵字，字型大小（這邊只放三個）
+
+        var locations=[
+{
+            "siteid": "8640",
+            "region": "關西",
+            "area": "京都",
+            "site": "清水寺",
+            "latitude": "34.9948561",
+            "longtitude": "135.7850463",
+            "times":250
+        },
+        {
+            "siteid": "8642",
+            "region": "關西",
+            "area": "兵庫",
+            "site": "竹田城跡",
+            "latitude": "35.3006044",
+            "longtitude": "134.8291681",
+            "times":300
+        },
+        {
+            "siteid": "8458",
+            "region": "關西",
+            "area": "京都",
+            "site": "二條城",
+            "latitude": "35.0142299",
+            "longtitude": "135.748218",
+            "times":120
+        },
+        {
+            "siteid": "8459",
+            "region": "關西",
+            "area": "京都",
+            "site": "京都御所",
+            "latitude": "35.0254135",
+            "longtitude": "135.7621246",
+            "times":120
+        },
+        {
+            "siteid": "8460",
+            "region": "關西",
+            "area": "京都",
+            "site": "東福寺",
+            "latitude": "34.9767101",
+            "longtitude": "135.7749674",
+            "times":120
+        },
+        {
+            "siteid": "8461",
+            "region": "關西",
+            "area": "京都",
+            "site": "龍安寺",
+            "latitude": "35.0344943",
+            "longtitude": "135.7182634",
+            "times":120
+        },
+        {
+            "siteid": "8470",
+            "region": "關西",
+            "area": "滋賀",
+            "site": "琵琶湖疏水櫻",
+            "latitude": "35.0124719",
+            "longtitude": "135.8580618",
+            "times":120
+        },
+        {
+            "siteid": "8478",
+            "region": "關西",
+            "area": "京都",
+            "site": "石板小路",
+            "latitude": "34.9999354",
+            "longtitude": "135.7797946",
+            "times":120
+        },
+        {
+            "siteid": "8558",
+            "region": "關西",
+            "area": "奈良",
+            "site": "奈良公園",
+            "latitude": "34.685047",
+            "longtitude": "135.843012",
+            "times":250
+        },
+        {
+            "siteid": "8559",
+            "region": "關西",
+            "area": "奈良",
+            "site": "吉野山",
+            "latitude": "34.356433",
+            "longtitude": "135.870617",
+            "times":120
+        },
+        {
+            "siteid": "8560",
+            "region": "關西",
+            "area": "奈良",
+            "site": "若草山",
+            "latitude": "34.6911496",
+            "longtitude": "135.8544345",
+            "times":120
+        },
+        {
+              "siteid": "8446",
+              "region": "關西",
+              "area": "大阪",
+              "site": "道頓堀",
+              "latitude": "34.6687235",
+              "longtitude": "135.5012953",
+              "times":156,
+            },
+            {
+              "siteid": "8447",
+              "region": "關西",
+              "area": "大阪",
+              "site": "大阪城公園",
+              "latitude": "34.686669",
+              "longtitude": "135.5259966",
+              "times":167,
+          },
+          {
+              "siteid": "8547",
+              "region": "關西",
+              "area": "大阪",
+              "site": "通天閣",
+              "latitude": "34.6524992",
+              "longtitude": "135.5063058",
+              "times":198,
+          },
+          {
+              "siteid": "8655",
+              "region": "關西",
+              "area": "大阪",
+              "site": "黑門市場",
+              "latitude": "34.6646018",
+              "longtitude": "135.5069848",
+              "times":156,
+          },
+          {
+              "siteid": "8896",
+              "region": "關西",
+              "area": "大阪",
+              "site": "日本環球影城",
+              "latitude": "34.665442",
+              "longtitude": "135.4323382",
+              "times":298,
+          },
+          {
+              "siteid": "8920",
+              "region": "關西",
+              "area": "大阪",
+              "site": "海遊館",
+              "latitude": "34.6545182",
+              "longtitude": "135.4289645",
+              "times":345,
+          },
+          {
+              "siteid": "9216",
+              "region": "關西",
+              "area": "大阪",
+              "site": "難波八阪神社",
+              "latitude": "34.6614334",
+              "longtitude": "135.4967472",
+              "times":257,
+          },
+          {
+              "siteid": "9329",
+              "region": "關西",
+              "area": "大阪",
+              "site": "梅田空中庭園展望台",
+              "latitude": "34.7054519",
+              "longtitude": "135.4905084",
+              "times":156,
+          }
+        ];
+
+
+
+
+                //取得呈現處的寬、高
+                var w = parseInt(d3.select("#tag").style("width"), 10);
+                var h = parseInt(d3.select("#tag").style("height"), 10);
+            
+                d3.layout.cloud().size([w, h])
+                        .words(locations.map(function(d) {
+                          var dlog=Math.sqrt(d.times)*2;
+                          console.log(d.times);
+                          console.log(dlog);
+                          return {text: d.site, size:dlog}; }))
+                        .padding(2)
+                        .rotate(function () {
+                            return ~~(Math.random() * 2) * 90;
+                        })
+                        .rotate(function () {
+                            return 0;
+                        })
+                        .fontSize(function (d) {
+                            return d.size;
+                        })
+                        .on("end", draw)
+                        .start();
+            
+                function draw(words) {
+                    d3.select("#tag").append("svg")
+                            .attr("width", w)
+                            .attr("height", h)
+                            .append("g")
+                            .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")")
+                            .selectAll("text")
+                            .data(words)
+                            .enter().append("text")
+                            .style("font-size", function (d) {
+                                return d.size + "px";
+                            })
+                            .style("font-family", "Microsoft JhengHei")
+                            .style("cursor", 'pointer')
+                            .style("fill", function (d, i) {
+                                return fill(i);
+                            })
+                            .attr("text-anchor", "middle")
+                            .attr("transform", function (d) {
+                                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                            })
+                            .text(function (d) {
+                                return d.text;
+                            })
+                            .on("click", function (d) {
+                                window.open("https://www.google.com/search?q=" + d.text, '_blank');
+                            });
+                }
+            </script>
+      </div>
+    </div>
+
+
+
+          <!-- <div class="col-md-6 col-lg-6"> -->
+            <!-- <div class="category-item effect-1"> -->
+              <!-- <img src="img/distination-4.jpeg" alt="img12"> -->
+              <!-- <div class="caption">
+                <div>
+                  <p class="title">Czech Republic</p>
+                  <p class="description">Plan your adventures in Czech Republic with our tours</p>
+                </div>
+                <a href="#">View more</a>
+              </div>     
+            </div>
+          </div> -->
+      </div>
+    </div>
+
+
+    <!-- Call to action 2 -->
+    <div class="ctoa text-center ctoa-bg" style="padding: 10px">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <h3 class="mb-10">選定區域，進入景點排程</h2>
+            <!-- <p class="mb-10">確定行程進入路線規劃</p> -->
+            <a class="btn btn-3" href="site.html">下一步</a>
+          </div>
+        </div>
+      </div>
+    <!-- / Call to action 2 -->
+    <div class="mt-20"></div>
+
+
+    <!-- / content -->
+
+    <footer class="dark-footer"  style="background-image: url(img/image-20.jpg);">
+      <div class="main-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="footer-item">
+                <img width="250" src="img/TravelGOlogowhite.png" alt="Logo">
+                <div class="mt-20 mb-20">
+                  <!-- <button type="button" class="btn btn-1 btn-sm" data-toggle="modal" data-target="#newsletterModal">
+                    Newsletter signup
+                  </button> -->
+                  <!-- Modal -->
+                  <div class="modal fade bd-example-modal-sm" id="newsletterModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="exampleModalLabel">Newsletter Signup</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form id="subscribe-form" class="form-block" novalidate="novalidate">
+                            <div class="form-group mt-20 subscribe-form">
+                              <small id="emailHelp" class="form-text text-muted">Subscribe now and recieve a 50% discount on your next tour booking</small>
+                              <label>Email address</label>
+                              <input type="email" class="form-control" name="email" placeholder="Email">
+                            </div>
+                            <div class="mt-10 mb-10 float-right">
+                              <button type="button" class="btn btn-2 btn-sm" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-1 btn-sm">Sign Up</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="footer-item">
+                <ul class="footer-menu">
+                  <li><a href="home.html">首頁</a></li>
+                  <li><a href="tripplan.html">旅遊計劃</a></li>
+                  <li><a href="regionselection.html">地區選擇</a></li>
+                  <li><a href="site.html">景點排程</a></li>
+                  <li><a href="routeplanning.html">路線規劃</a></li>
+                  <li><a href="itinerary.html">行程彙總</a></li>
+                  <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+                <p class="mt-40" style="font-weight:bold;">TravelGo 志在提供一個友善的旅遊規劃平台，幫助大眾在最短的時間完成行程規劃，不再為行程而煩惱，可以充份享受他們的假期時光</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="footer-item">
+                <!-- <ul class="mb-20">
+                  <li>1800-2345-5677</li>
+                  <li class="mt-10"><a href="mailto:">info@voyagetime.com</a></li>
+                  <li class="mt-10">610 Broadway New York, NY 10012</li>
+                </ul> -->
+                
+              </div>
+
+              <div class="footer-item">
+                <ul class="footer-social mt-20">
+                  <li><a target="_blank" href="#"><i class="fab fa-pinterest"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-tumblr"></i></a></li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="bottom-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+            </div>
+            <div class="col-md-6 text-r mobile-left">
+              <p><img width="200" src="img/visa-mastercard-paypal.png" alt="Visa Mastercard Paypal"></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </footer>
+
+    <!-- SCROLL UP -->
+    <a class="scrollup">
+      <i class="icon-arrow-up icons"></i>
+    </a>
+    <!-- / SCROLL UP -->
+
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/moment.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/bootstrap-slider.min.js"></script>
+    <script src="js/vendor/bootstrap-datetimepicker.min.js"></script> 
+    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/navigation.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/jqueryvalidation.js"></script>
+    <script src="js/vendor/jquery.viewbox.min.js"></script> 
+    <script src="js/vendor/masonry.min.js"></script> 
+    <script src="js/vendor/imagesloaded.js"></script>
+    <script src="js/vendor/jquery.waypoints.min.js"></script>
+    <script src="js/vendor/jquery.sticky-kit.min.js"></script>
+ 
+    <script src="js/main.js"></script>
+
+
+  </body>
+</html>

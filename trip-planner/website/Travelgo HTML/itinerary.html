@@ -1,0 +1,745 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>itinerary</title>
+    <!-- CSS of infographic2 -->
+    <!-- Custom Theme files -->
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <!-- color switch -->
+    <link href="css/blast.min.css" rel="stylesheet" />
+    <!-- portfolio -->
+    <link href="css/portfolio.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <!-- //online-fonts -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/vendor/simple-line-icons.css" rel="stylesheet">
+    <link href="css/vendor/themify-icons.css" rel="stylesheet">
+    <link href="css/vendor/owl.carousel.css" rel="stylesheet">
+    <link href="css/vendor/animate.css" rel="stylesheet">
+    <link href="css/vendor/viewbox.css" rel="stylesheet"> 
+    <link href="css/vendor/bootstrap-slider.min.css" rel="stylesheet">
+    <link href="css/vendor/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    
+    <script src="js/vendor/fontawesome-all.min.js"></script>
+    
+    <link href="css/scss/main.css" rel="stylesheet">
+
+    <style>
+    #description{
+      margin: 0px;
+      padding: 0px;
+      color: #FFF
+    }
+    </style>
+
+
+  </head>
+  
+  <body>
+    <!-- script -->    
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>  
+    
+    <!-- pageloader -->
+    <div id="loader">
+      <div class="loader">
+        <div class="sk-child sk-dot1"></div>
+        <div class="sk-child sk-dot2"></div>
+      </div>
+    </div>
+    <!-- / #pageloader -->
+
+    <nav id="contact-menu" class="navigation navigation-hidden navigation-portrait">
+      <div class="nav-menus-wrapper">
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Contact Us</p>
+          <ul>
+            <li><span class="ti-map-alt"></span> 610 Broadway New York, NY 10012</li>
+            <li><span class="ti-headphone-alt"></span> <a href="tel:1800-2345-5677">1800-2345-5677</a></li>
+            <li><span class="ti-mobile"></span> <a href="tel:1800-2345-5678">1800-2345-5678</a></li>
+            <li><span class="ti-email"></span> <a href="mailto:info@voyagetime.com">info@voyagetime.com</a></li>
+          </ul>
+        </div>
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Work Time</p>
+          <ul>
+            <li><span class="ti-alarm-clock"></span> Working Days  9AM - 9PM</li>
+            <li><span class="ti-alarm-clock"></span> Saturday  10AM - 8PM</li>
+            <li><span class="ti-alarm-clock"></span> Sunday  Closed</li>
+          </ul>
+        </div>
+        <div class="header-info-item clearfix">
+          <p class="header-info-title">Follow Us</p>
+          <ul class="header-social">
+            <li><a href="#"><span class="ti-facebook"></span></a></li>
+            <li><a href="#"><span class="ti-instagram"></span></a></li>
+            <li><a href="#"><span class="ti-twitter"></span></a></li>
+            <li><a href="#"><span class="ti-youtube"></span></a></li>
+            <li><a href="#"><span class="ti-pinterest"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      
+      <div class="main-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-5 col-4">
+              <div class="main-header-logo">
+                  <a><img width="350" src="img/TravelGOlogowhite.png" alt="Site logo"></a>
+              </div>
+            </div>
+            <div class="col-md-7 col-8">
+              <div class="clearfix float-right contact-head">
+                <a>登入</a>
+                <button class="btn-show navbar-toggler float-right btn-contact"><span class="ti-menu"></span></button>
+              </div>
+              <nav id="navigation" class="navigation mt-10">
+                <div class="nav-toggle"></div>
+                <div class="nav-search">
+                  <div class="nav-search-button">
+                   <span class="ti-search"></span>
+                  </div>
+                  <form>
+                    <div class="nav-search-inner">
+                      <input type="search" name="search" placeholder="Type and hit ENTER"/>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="nav-menus-wrapper">
+
+                  <ul class="nav-menu align-to-right">
+                    <li><a class="active" href="#">首頁</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="home.html">首頁</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">旅遊計畫</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="tripplan.html">旅遊計畫</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">地區選擇</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="regionselection.html">地區選擇</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">景點排程</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="site.html">景點排程</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">路線規劃</a>
+                      <ul class="nav-dropdown">
+                        <li><a href="routeplanning.html">路線規劃</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">行程彙總</a>
+                      <ul class="nav-dropdown">
+                            <li><a href="itinerary.html">行程彙總</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="contact.html">連絡我們</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </header>
+
+    <!-- / header -->
+    
+    <!-- page-head -->
+
+    <div class="page-head white-content">
+      <div class="height50vh parallax-container" style="background-image: url(img/homepage6.jpg);">
+        <div class="page-head-wrap">
+          <div class="display-r">
+            <div class="display-a">
+              <div class="container">
+                <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                  <div class="col-md-12">
+                     <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">行程彙總</li>
+                      </ol>
+                    </nav>
+                    <h1 class="big-title mt-60">行程彙總</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- / page-head -->
+    
+      <!-- <div class="mt-20"></div> -->
+    <!-- content -->
+    <div class="mt-20"></div>
+
+    
+
+    
+    <!-- about -->
+
+    <div class="about-wthree" id="about">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-5 about-right-bg" style="background-image: url('img/itinerary2.jpg')">
+                <!-- <img src="img/Homepagesite5.jpg" alt="" class="img-fluid rounded" margin=0px/> -->
+              </div>
+              <div class="col-lg-7 about-left-wthree bg-theme" data-blast="bgColor">
+                  <div class="title-desc text-right pb-sm-3">
+                      <h3 id='siteinfo01' class="main-title-w3pvt text-white text-capitalize"></h3>
+                      <p class="text-white">
+                          <p id='siteinfo02' class="text-white"></p>
+                          <p id='siteinfo03' class="text-white"></p>
+                          <p id='siteinfo04' class="text-white"></p>
+                      </p>
+                  </div>
+                  <!-- <p class="my-3 text-right text-white child_second">Donec mi nulla, auctor nec sem a, ornare. Sed mi
+                      tortorcomm odo a felis
+                      in, fringilla tincidunt nulla. Vestibulum
+                      volutpat non eros ut vulpuuctor, ornare auctor mi.Commodo a felis
+                      lpuuctor nein.</p>
+                  <p class="my-3 text-right text-white child_second">Donec mi nulla, auctor nec sem a, ornare. Sed mi
+                      tortorcomm odo a felis
+                      in, fringilla tincidunt nulla.</p> -->
+                  <div class="ml-auto text-right">
+                      <!-- <a href="#plans" class="text-capitalize text-dark w3_pvt-link-bnr btn bg-light scroll mt-sm-4">view
+                          more</a> -->
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+  <!-- about -->
+
+  <!-- services -->
+  <section class=" services-wthreepvt position-relative" id="services">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="service-txt">
+                      <h5 id='siteinfo11' data-blast="color" class="my-3 text-left"></h5>
+                      <p class="my-3 text-left">
+                          <p id='siteinfo12'></p>
+                          <p id='siteinfo13'></p>
+                          <p id='siteinfo14'></p>
+                          <br id='br'>
+                          <br id='br'>
+                          <br id='br'>
+                      </p>
+                  </div>
+
+                  
+                  <div class="service-bottom-img">
+                      <img src="img/itinerary1.png" alt="" class="img-fluid rounded" />
+                  </div>
+              </div>
+
+
+              <div class="col-lg-6">
+                  <div class="services-bottom">
+                      <div class="service-txt">
+                          <h5 id='siteinfo21' data-blast="color" class="my-3 text-left"></h5>
+                          <p class="my-3 text-right">
+                              <p id='siteinfo22'></p>
+                              <p id='siteinfo23'></p>
+                              <p id='siteinfo24'></p>
+                              <br id='br'>
+                              <br id='br'>
+                              <br id='br'>
+                          </p>
+                      </div>
+                  </div>
+                  <div class="my-auto service-top-img">
+                      <img src="img/Homepagesite5.jpg" alt="" class="img-fluid rounded" />
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- //services -->
+
+  <!-- about bottom -->
+  <div class="about-wthree1 bg-theme" data-blast="bgColor">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-7">
+                  <div class="title-desc  pb-sm-3">
+                      <h3 id='siteinfo31'class="main-title-w3pvt text-white text-capitalize"></h3>
+                      <p class="text-white">
+                          <p id='siteinfo32' class="text-white"></p>
+                          <p id='siteinfo33' class="text-white"></p>
+                          <p id='siteinfo34' class="text-white"></p>
+                          <br id='br'>
+                          <br id='br'>
+                          <br id='br'>
+                      </p>
+                  </div>
+                  <!-- <p class="my-3 text-white child_second">Donec mi nulla, auctor nec sem a, ornare. Sed mi
+                      tortorcomm odo a felis
+                      in, fringilla tincidunt nulla. Vestibulum
+                      volutpat non eros ut vulpuuctor, ornare auctor mi.Commodo a felis
+                      lpuuctor nein.</p> -->
+                  <!-- <p class="my-3 text-white child_second">Donec mi nulla, auctor nec sem a, ornare. Sed mi
+                      tortorcomm odo a felis
+                      in, fringilla tincidunt nulla.</p> -->
+                  <!-- <div class="ml-auto">
+                      <a href="#portfolio" class="text-capitalize text-dark w3_pvt-link-bnr btn bg-light scroll mt-sm-4">view
+                          more</a>
+                  </div> -->
+              </div>
+              <div class="col-lg-5">
+                  <img src="img/itinerary3.jpg" alt="" class="img-fluid rounded" />
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- about bottom -->
+  <div class="container-fluid">
+      <div class="row">
+        <!-- <div class="mt-100"></div> -->
+        <div class="mt-20"></div>
+      </div>
+  </div>  
+
+    <!-- about -->
+
+    <div class="about-wthree" id="about">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5 about-right-bg" style="background-image: url('img/itinerary4.jpg')">
+                  <!-- <img src="img/Homepagesite5.jpg" alt="" class="img-fluid rounded" margin=0px/> -->
+                </div>
+                <div class="col-lg-7 about-left-wthree bg-theme" data-blast="bgColor">
+                    <div class="title-desc text-right pb-sm-3">
+                        <h3 id='siteinfo41' class="main-title-w3pvt text-white text-capitalize"></h3>
+                        <p class="text-white">
+                            <p id='siteinfo42' class="text-white"></p>
+                            <p id='siteinfo43' class="text-white"></p>
+                            <p id='siteinfo44' class="text-white"></p>
+                        </p>
+                    </div>
+                    <!-- <p class="my-3 text-right text-white child_second">Donec mi nulla, auctor nec sem a, ornare. Sed mi
+                        tortorcomm odo a felis
+                        in, fringilla tincidunt nulla. Vestibulum
+                        volutpat non eros ut vulpuuctor, ornare auctor mi.Commodo a felis
+                        lpuuctor nein.</p>
+                    <p class="my-3 text-right text-white child_second">Donec mi nulla, auctor nec sem a, ornare. Sed mi
+                        tortorcomm odo a felis
+                        in, fringilla tincidunt nulla.</p> -->
+                    <div class="ml-auto text-right">
+                        <!-- <a href="#plans" class="text-capitalize text-dark w3_pvt-link-bnr btn bg-light scroll mt-sm-4">view
+                            more</a> -->
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+    </div>
+    <!-- about -->
+  
+    <!-- services -->
+    <section class=" services-wthreepvt position-relative" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="service-txt">
+                        <h5 id='siteinfo51' data-blast="color" class="my-3 text-left"></h5>
+                        <p class="my-3 text-left">
+                            <p id='siteinfo52'></p>
+                            <p id='siteinfo53'></p>
+                            <p id='siteinfo54'></p>
+                            <br id='br'>
+                            <br id='br'>
+                            <br id='br'>
+                        </p>
+                    </div>
+  
+                    
+                    <div class="service-bottom-img">
+                        <img src="img/itinerary2.jpg" alt="" class="img-fluid rounded" />
+                    </div>
+                </div>
+  
+  
+                <div class="col-lg-6">
+                    <div class="services-bottom">
+                        <div class="service-txt">
+                            <h5 id='siteinfo61' data-blast="color" class="my-3 text-left"></h5>
+                            <p class="my-3 text-right">
+                                <p id='siteinfo62'></p>
+                                <p id='siteinfo63'></p>
+                                <p id='siteinfo64'></p>
+                                <br id='br'>
+                                <br id='br'>
+                                <br id='br'>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="my-auto service-top-img">
+                        <img src="img/itinerary5.jpg" alt="" class="img-fluid rounded" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //services -->
+  
+    <!-- about bottom -->
+    <div class="about-wthree1 bg-theme" data-blast="bgColor">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="title-desc  pb-sm-3">
+                        <h3 id='siteinfo71'class="main-title-w3pvt text-white text-capitalize"></h3>
+                        <p class="text-white">
+                            <p id='siteinfo72' class="text-white"></p>
+                            <p id='siteinfo73' class="text-white"></p>
+                            <p id='siteinfo74' class="text-white"></p>
+                            <br id='br'>
+                            <br id='br'>
+                            <br id='br'>
+                        </p>
+                    </div>
+                    <!-- <p class="my-3 text-white child_second">Donec mi nulla, auctor nec sem a, ornare. Sed mi
+                        tortorcomm odo a felis
+                        in, fringilla tincidunt nulla. Vestibulum
+                        volutpat non eros ut vulpuuctor, ornare auctor mi.Commodo a felis
+                        lpuuctor nein.</p> -->
+                    <!-- <p class="my-3 text-white child_second">Donec mi nulla, auctor nec sem a, ornare. Sed mi
+                        tortorcomm odo a felis
+                        in, fringilla tincidunt nulla.</p> -->
+                    <!-- <div class="ml-auto">
+                        <a href="#portfolio" class="text-capitalize text-dark w3_pvt-link-bnr btn bg-light scroll mt-sm-4">view
+                            more</a>
+                    </div> -->
+                </div>
+                <div class="col-lg-5">
+                    <img src="img/itinerary1.png" alt="" class="img-fluid rounded" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about bottom -->
+  <!-- services -->
+  <!-- <section class=" services-wthreepvt position-relative" id="services">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="service-txt">
+                      <h5 id='siteinfo81' data-blast="color" class="my-3 text-left"></h5>
+                      <p class="my-3 text-left">
+                          <p id='siteinfo82'></p>
+                          <p id='siteinfo83'></p>
+                          <p id='siteinfo84'></p>
+                          <br id='br'>
+                          <br id='br'>
+                          <br id='br'>
+                      </p>
+                  </div>
+
+                  
+                  <div class="service-bottom-img">
+                      <img src="img/itinerary1.png" alt="" class="img-fluid rounded" />
+                  </div>
+              </div>
+
+
+              <div class="col-lg-6">
+                  <div class="services-bottom">
+                      <div class="service-txt">
+                          <h5 id='siteinfo91' data-blast="color" class="my-3 text-left"></h5>
+                          <p class="my-3 text-right">
+                              <p id='siteinfo92'></p>
+                              <p id='siteinfo93'></p>
+                              <p id='siteinfo94'></p>
+                              <br id='br'>
+                              <br id='br'>
+                              <br id='br'>
+                          </p>
+                      </div>
+                  </div>
+                  <div class="my-auto service-top-img">
+                      <img src="img/itinerary3.jpg" alt="" class="img-fluid rounded" />
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section> -->
+  <!-- //services -->
+
+      <!-- Call to action 2 -->
+          <div class="ctoa text-center ctoa-bg" style="padding: 10px">
+              <div class="row justify-content-center align-middle">
+                <div class="col-md-12">
+                  <h3 class="mb-10">您的行程已完成，祝您旅遊順心~</h2>
+                </div>
+              </div>
+            </div>
+      <!-- / Call to action 2 -->
+      <div class="mt-20"></div>
+
+
+
+
+
+    <!-- / content -->
+
+    <footer class="dark-footer"  style="background-image: url(img/image-20.jpg);">
+      <div class="main-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="footer-item">
+                <img width="250" src="img/TravelGOlogowhite.png" alt="Logo">
+                <div class="mt-20 mb-20">
+                  <!-- <button type="button" class="btn btn-1 btn-sm" data-toggle="modal" data-target="#newsletterModal">
+                    Newsletter signup
+                  </button> -->
+                  <!-- Modal -->
+                  <div class="modal fade bd-example-modal-sm" id="newsletterModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="exampleModalLabel">Newsletter Signup</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form id="subscribe-form" class="form-block" novalidate="novalidate">
+                            <div class="form-group mt-20 subscribe-form">
+                              <small id="emailHelp" class="form-text text-muted">Subscribe now and recieve a 50% discount on your next tour booking</small>
+                              <label>Email address</label>
+                              <input type="email" class="form-control" name="email" placeholder="Email">
+                            </div>
+                            <div class="mt-10 mb-10 float-right">
+                              <button type="button" class="btn btn-2 btn-sm" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-1 btn-sm">Sign Up</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="footer-item">
+                <ul class="footer-menu">
+                  <li><a href="home.html">首頁</a></li>
+                  <li><a href="tripplan.html">旅遊計劃</a></li>
+                  <li><a href="regionselection.html">地區選擇</a></li>
+                  <li><a href="site.html">景點排程</a></li>
+                  <li><a href="routeplanning.html">路線規劃</a></li>
+                  <li><a href="itinerary.html">行程彙總</a></li>
+                  <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+                <p class="mt-40" style="font-weight:bold;color: #FFF">TravelGo 志在提供一個友善的旅遊規劃平台，幫助大眾在最短的時間完成行程規劃，不再為行程而煩惱，可以充份享受他們的假期時光</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="footer-item">
+                <!-- <ul class="mb-20">
+                  <li>1800-2345-5677</li>
+                  <li class="mt-10"><a href="mailto:">info@voyagetime.com</a></li>
+                  <li class="mt-10">610 Broadway New York, NY 10012</li>
+                </ul> -->
+                
+              </div>
+
+              <div class="footer-item">
+                <ul class="footer-social mt-20">
+                  <li><a target="_blank" href="#"><i class="fab fa-pinterest"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                  <li><a target="_blank" href="#"><i class="fab fa-tumblr"></i></a></li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="bottom-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+            </div>
+            <div class="col-md-6 text-r mobile-left">
+              <p><img width="200" src="img/visa-mastercard-paypal.png" alt="Visa Mastercard Paypal"></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </footer>
+
+
+
+
+    <script>
+      var locations=[
+    {
+              "siteid": "8446",
+              "region": "關西",
+              "area": "大阪",
+              "site": "道頓堀",
+              "latitude": "34.6687235",
+              "longtitude": "135.5012953",
+              "times":156,
+            },
+          {
+              "siteid": "8655",
+              "region": "關西",
+              "area": "大阪",
+              "site": "黑門市場",
+              "latitude": "34.6646018",
+              "longtitude": "135.5069848",
+              "times":156,
+          },
+          {
+              "siteid": "8547",
+              "region": "關西",
+              "area": "大阪",
+              "site": "通天閣",
+              "latitude": "34.6524992",
+              "longtitude": "135.5063058",
+              "times":156,
+          },
+          {
+              "siteid": "9216",
+              "region": "關西",
+              "area": "大阪",
+              "site": "難波八阪神社",
+              "latitude": "34.6614334",
+              "longtitude": "135.4967472",
+              "times":156,
+          },
+          {
+              "siteid": "8920",
+              "region": "關西",
+              "area": "大阪",
+              "site": "海遊館",
+              "latitude": "34.6545182",
+              "longtitude": "135.4289645",
+              "times":156,
+          },
+          {
+              "siteid": "8896",
+              "region": "關西",
+              "area": "大阪",
+              "site": "日本環球影城",
+              "latitude": "34.665442",
+              "longtitude": "135.4323382",
+              "times":156,
+          },
+          {
+              "siteid": "9329",
+              "region": "關西",
+              "area": "大阪",
+              "site": "梅田空中庭園展望台",
+              "latitude": "34.7054519",
+              "longtitude": "135.4905084",
+              "times":156,
+          },
+          {
+              "siteid": "8447",
+              "region": "關西",
+              "area": "大阪",
+              "site": "大阪城公園",
+              "latitude": "34.686669",
+              "longtitude": "135.5259966",
+              "times":156,
+          }
+    ];
+  
+  
+      for (var j = 0; j < locations.length; j++) {
+        siteorder=j+1;
+        for (var k = 1; k < 5; k++){ 
+          idid="siteinfo"+j+k;
+          console.log(idid);
+            switch (k % 4) {
+            case 1:
+              document.getElementById(idid).innerHTML="景點"+siteorder+": "+locations[j]["site"]
+            　break;
+            case 2:
+              document.getElementById(idid).innerHTML="區域: "+locations[j]["region"]
+            　break;
+            case 3:
+              document.getElementById(idid).innerHTML="地區: "+locations[j]["area"]
+            　break;
+            default:
+              document.getElementById(idid).innerHTML="熱門程度: "+locations[j]["times"]
+            }
+        };
+      };
+  
+      </script>
+  
+
+
+
+
+
+    <!-- SCROLL UP -->
+    <a class="scrollup">
+      <i class="icon-arrow-up icons"></i>
+    </a>
+    <!-- / SCROLL UP -->
+
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/moment.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/bootstrap-slider.min.js"></script>
+    <script src="js/vendor/bootstrap-datetimepicker.min.js"></script> 
+    <script src="js/vendor/owl.carousel.min.js"></script>
+    <script src="js/vendor/navigation.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/jqueryvalidation.js"></script>
+    <script src="js/vendor/jquery.viewbox.min.js"></script> 
+    <script src="js/vendor/masonry.min.js"></script> 
+    <script src="js/vendor/imagesloaded.js"></script>
+    <script src="js/vendor/jquery.waypoints.min.js"></script>
+    <script src="js/vendor/jquery.sticky-kit.min.js"></script>
+ 
+    <script src="js/main.js"></script>
+  </body>
+</html>
