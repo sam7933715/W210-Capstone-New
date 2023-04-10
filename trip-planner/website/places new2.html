@@ -662,8 +662,23 @@
   request.send(null);
 
 
+
   var Origin_site_data = JSON.parse(request.responseText);
-  var Origin_sites_series = Origin_site_data['data']
+  
+
+  
+
+
+  var Origin_sites_series_Data = Origin_site_data['data']
+
+  // Remove duplicate based on the business id field in Json
+  const Origin_sites_series = Origin_sites_series_Data.filter((item, index) => {
+    // Check if the index of the first occurrence of the object with the same name is equal to the current index
+    return index === Origin_sites_series_Data.findIndex(obj => {
+      return obj.business_id === item.business_id;
+    });
+  });
+
   console.log(Origin_sites_series)
 
   // Create a blank LocationCol
@@ -683,7 +698,7 @@
 
       document.getElementById('OriLocationCol').insertAdjacentHTML('beforeend',
         `
-						<div class="col-sm col-md-6 col-lg-4 ftco-animate fadeInUp ftco-animated OriginLocationSec">
+						<div class="col-sm col-md-6 col-lg-2 ftco-animate fadeInUp ftco-animated OriginLocationSec">
 							<div class="destination" id="${new_sites_series[i].business_id}" onclick="Ori_location_select(this)">
 								<a class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}'); margin-top: 15pt">
 									<div class="icon d-flex justify-content-center align-items-center">
@@ -745,7 +760,7 @@
 
       document.getElementById('DestLocationCol').insertAdjacentHTML('beforeend',
         `
-						<div class="col-sm col-md-6 col-lg-4 ftco-animate fadeInUp ftco-animated">
+						<div class="col-sm col-md-6 col-lg-2 ftco-animate fadeInUp ftco-animated">
 							<div class="destination">
 								<a href="${new_sites_series[i].photo}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}');">
 									<div class="icon d-flex justify-content-center align-items-center">
@@ -819,6 +834,7 @@
   // Enable the site search function for the side bar in the HTML
   function searchfunc() {
     var select_ori_site = document.getElementById('OriSiteDropDown').value
+
     var ori_sites = Origin_sites_series;
     console.log(select_ori_site)
     var select_dest_site = document.getElementById('DestSiteDropDown').value
