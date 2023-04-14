@@ -274,8 +274,8 @@
                     <option value="Origin City">Origin</option>
                     <option value="Philadelphia">Philadelphia</option>
                     <option value="New Orleans">New Orleans</option>
-                    <option value="Clearwater">Clearwater</option>
-                    <option value="Hockessin">Hockessin</option>
+                    <option value="Reno">Reno</option>
+                    <option value="Tucson">Tucson</option>
                   </select>
                 </div>
               </div>
@@ -288,8 +288,10 @@
                     <option value="Destination City">Destination</option>
                     <option value="Philadelphia">Philadelphia</option>
                     <option value="New Orleans">New Orleans</option>
-                    <option value="Clearwater">Clearwater</option>
-                    <option value="Hockessin">Hockessin</option>
+                    <option value="Reno">Reno</option>
+                    <option value="Tucson">Tucson</option>
+                    <option value="Media">Media</option>
+                    <option value="Doylestown">Doylestown</option>
                   </select>
                 </div>
               </div>
@@ -698,7 +700,7 @@
 
       document.getElementById('OriLocationCol').insertAdjacentHTML('beforeend',
         `
-						<div class="col-sm col-md-6 col-lg-2 ftco-animate fadeInUp ftco-animated OriginLocationSec">
+						<div class="col-sm col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated OriginLocationSec">
 							<div class="destination" id="${new_sites_series[i].business_id}" onclick="Ori_location_select(this)">
 								<a class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}'); margin-top: 15pt">
 									<div class="icon d-flex justify-content-center align-items-center">
@@ -711,11 +713,11 @@
 											<h3><a href=${new_sites_series[i].Map}>${new_sites_series[i].name}</a></h3>
 											<p class="rate">
 												${rating_score}
-												<span>${new_sites_series[i].Rec_user_score}</span>
+												<span>${Math.round(new_sites_series[i].Rec_user_score)}</span>
 											</p>
 										</div>
 										<div class="two">
-											<span class="price">${new_sites_series[i].Rec_user_rank}</span>
+											<span class="price"></span>
 										</div>
 									</div>
 									<p class="days"><span>${new_sites_series[i].address}</span></p>
@@ -760,7 +762,7 @@
 
       document.getElementById('DestLocationCol').insertAdjacentHTML('beforeend',
         `
-						<div class="col-sm col-md-6 col-lg-2 ftco-animate fadeInUp ftco-animated">
+						<div class="col-sm col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated">
 							<div class="destination">
 								<a href="${new_sites_series[i].photo}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}');">
 									<div class="icon d-flex justify-content-center align-items-center">
@@ -773,7 +775,7 @@
 											<h3><a href=${new_sites_series[i].Map}>${new_sites_series[i].name}</a></h3>
 											<p class="rate">
 												${rating_score}
-												<span>${new_sites_series[i].Rec_user_score}</span>
+												<span>${Math.round(new_sites_series[i].Rec_user_score)}</span>
 											</p>
 										</div>
 										<div class="two">
