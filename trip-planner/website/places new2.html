@@ -303,20 +303,20 @@
               <input type="text" id="checkout_date" class="form-control checkout_date"
                 placeholder="Date to">
             </div> -->
-              <h3 class="heading mb-4">Select Stars</h3>
+              <h3 class="heading mb-4">Select Stars In Origin</h3>
               <div class="form-group">
                 <div class="range-slider">
                   <!-- Price input bar -->
                   <span>
-                    <input type="number" value="1" min="1" max="5" id="price_input_upper" />
-                    <input type="number" value="5" min="1" max="5" id="price_input_lower" />
+                    <input type="number" value="1" min="1" max="5" id="price_input_lower" />
+                    <input type="number" value="5" min="1" max="5" id="price_input_upper" />
                   </span>
 
                   <!-- Price scroll bar -->
-                  <input value="1" min="1" max="5" step="1" type="range" onchange="scroll_bar_upper()"
-                    id="scroll_bar_upper" />
-                  <input value="5" min="1" max="5" step="1" type="range" onchange="scroll_bar_lower()"
+                  <input value="1" min="1" max="5" step="1" type="range" onchange="scroll_bar_lower()"
                     id="scroll_bar_lower" />
+                  <input value="5" min="1" max="5" step="1" type="range" onchange="scroll_bar_upper()"
+                    id="scroll_bar_upper" />
                   </svg>
                 </div>
               </div>
@@ -596,7 +596,7 @@
 
             </div>
 
-            <div class="footer-item">
+            <!-- <div class="footer-item">
               <ul class="footer-social mt-20">
                 <li><a target="_blank" href="#"><i class="fab fa-pinterest"></i></a></li>
                 <li><a target="_blank" href="#"><i class="fab fa-facebook"></i></a></li>
@@ -606,7 +606,7 @@
                 <li><a target="_blank" href="#"><i class="fab fa-tumblr"></i></a></li>
               </ul>
 
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -672,6 +672,7 @@
 
 
   var Origin_sites_series_Data = Origin_site_data['data']
+  console.log(Origin_site_data)
 
   // Remove duplicate based on the business id field in Json
   const Origin_sites_series = Origin_sites_series_Data.filter((item, index) => {
@@ -681,7 +682,6 @@
     });
   });
 
-  console.log(Origin_sites_series)
 
   // Create a blank LocationCol
   function Origin_showsites(new_sites_series) {
@@ -692,7 +692,7 @@
 
       // Create star icon based on the rates of each location
       var rating_score = '';
-      for (j = 0; j < new_sites_series[i].Rec_user_score; j++) {
+      for (j = 0; j < Math.round(new_sites_series[i].Rec_user_score); j++) {
         rating_score += '<i class="icon-star"></i>'
       }
       // <a href="${new_sites_series[i].photo}" onclick="Ori_location_select()" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}'); ">
@@ -744,7 +744,7 @@
   request_dest.send(null);
   var site_data = JSON.parse(request_dest.responseText);
   var sites_series = site_data['data']
-  console.log(sites_series)
+  // console.log(sites_series)
 
   // Create a blank LocationCol
   function Dest_showsites(new_sites_series) {
@@ -808,7 +808,7 @@
     ori_sites = ori_sites.filter(x => x.business_id == LocationAdded.value)
 
     locations.push(ori_sites[0])
-    console.log(locations)
+    // console.log(locations)
     document.getElementById('ulist').insertAdjacentHTML('beforeend',
       `
       <li style="background-color: rgb(245, 245, 245);">
@@ -827,10 +827,10 @@
   //<<< Side Bar Control Panel >>>
   // Enable the price scroll bar to sync the value with price input box
   function scroll_bar_upper() {
-    document.getElementById('price_input_upper').value = document.getElementById('scroll_bar_upper').value
+    document.getElementById('price_input_upper').value = parseInt(document.getElementById('scroll_bar_upper').value)
   }
   function scroll_bar_lower() {
-    document.getElementById('price_input_lower').value = document.getElementById('scroll_bar_lower').value
+    document.getElementById('price_input_lower').value = parseInt(document.getElementById('scroll_bar_lower').value)
   }
 
   // Enable the site search function for the side bar in the HTML
@@ -838,14 +838,19 @@
     var select_ori_site = document.getElementById('OriSiteDropDown').value
 
     var ori_sites = Origin_sites_series;
-    console.log(select_ori_site)
+    // console.log(select_ori_site)
     var select_dest_site = document.getElementById('DestSiteDropDown').value
     var dest_sites = sites_series;
     console.log(select_dest_site)
+    
+    var upper_star_val = parseInt(document.getElementById('price_input_upper').value = document.getElementById('scroll_bar_upper').value)
+    var lower_star_val = parseInt(document.getElementById('price_input_lower').value = document.getElementById('scroll_bar_lower').value)
+    // console.log(lower_star_val)
 
     // Filter sites based on Origin city
+
     if (select_ori_site != 'Origin City') {
-      ori_sites = ori_sites.filter(x => x.city == select_ori_site)
+      ori_sites = ori_sites.filter(x => x.city == select_ori_site && x.Rec_user_score <= upper_star_val && x.Rec_user_score >=lower_star_val && x.photo.slice(0, 4)=='http')
     }
 
     if (select_dest_site != 'Destination City') {
@@ -871,9 +876,11 @@
     // Validate if destination dropdown are selected
     if (select_dest_site != 'Destination City') {
       dest_sites = dest_sites.filter(x => x.city == select_dest_site && x.Target_business_id == ori_sites_selected_ID)
+      // && x.photo.slice(0, 4)=='http'
 
     } else {
       dest_sites = dest_sites.filter(x => x.Target_business_id == ori_sites_selected_ID)
+      // && x.photo.slice(0, 4)=='http'
 
     }
 
@@ -962,7 +969,7 @@
     });
   }
   // google.maps.event.addDomListener(window, "load", initialize_map);
-  initialize_map()
+  // initialize_map()
 
 </script>
 
