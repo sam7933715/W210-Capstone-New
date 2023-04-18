@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/RoutePlanningIcon.png">
+
+  <title>Location Recommender</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+  <link href="css/vendor/simple-line-icons.css" rel="stylesheet">
+  <link href="css/vendor/themify-icons.css" rel="stylesheet">
+  <link href="css/vendor/owl.carousel.css" rel="stylesheet">
+  <link href="css/vendor/animate.css" rel="stylesheet">
+  <link href="css/vendor/viewbox.css" rel="stylesheet">
+  <link href="css/vendor/bootstrap-slider.min.css" rel="stylesheet">
+  <link href="css/vendor/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+  <script src="js/vendor/fontawesome-all.min.js"></script>
+
+  <link href="css/scss/main.css" rel="stylesheet">
+
+  <!-- From new template -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/ionicons.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+
+
+
+  <!-- Count down package -->
+  <!-- <script src="js/suggester/vendor/modernizr-3.5.0.min.js"></script>
+  <script src="js/suggester/vendor/jquery-3.2.1.min.js"></script>
+  <script src="js/suggester/popper.min.js"></script>
+  <script src="js/suggester/bootstrap.min.js"></script>
+  <script src="js/suggester/plugins.js"></script>
+  <script src="js/suggester/active.js"></script>
+  <script src="js/suggester/scripts.js"></script> -->
+
+
+
+  <style>
+    #map {
+      height: "770";
+      width: "550";
+    }
+
+    #map2 {
+      height: "770";
+      width: "550";
+    }
+
+    #btn {
+      z-index: 99;
+      top: 10px;
+      left: calc(50% - 150px);
+      font-size: 15px;
+      width: 60%;
+      max-width: 80px;
+      border-radius: 5px;
+      padding: 3px;
+      outline: none;
+      border: 1px solid rgb(153, 153, 153);
+      background-color: #ffd903;
+      margin-bottom: 15px;
+      margin-right: 2px
+    }
+
+    #btn:active {
+      box-shadow: rgba(0, 0, 0, .5) 0 3px 5px;
+    }
+
+    #br {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVRn7G1vFTSRtIagHFwzTgze5CFD5EhvE"></script>
+
+  <!-- script -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+  <!-- <script src="./js/Route_Planning_Google_map.js"></script> -->
+  <script src="./js/Route_Planning_After_Upload.js"></script>
+
+
+</head>
+
+<body>
+
+  <!-- pageloader -->
+  <div id="loader">
+    <div class="loader">
+      <div class="sk-child sk-dot1"></div>
+      <div class="sk-child sk-dot2"></div>
+    </div>
+  </div>
+  <!-- / #pageloader -->
+
+  <!-- contact bar -->
+  <nav id="contact-menu" class="navigation navigation-hidden navigation-portrait">
+    <div class="nav-menus-wrapper">
+      <div class="header-info-item clearfix">
+        <p class="header-info-title">Contact Us</p>
+        <ul>
+          <li><span class="ti-map-alt"></span>MIDS PERC</li>
+          <li><a> member - Arriana Daniels:</a></li>
+          <li><a href="https://www.linkedin.com/in/arrianadaniels/"><span class="ti-linkedin"></span>arrianadaniels</a>
+          </li>
+          <li><a> member - Bruce Lam:</a></li>
+          <li><a href="https://www.linkedin.com/in/brucelam1/"><span class="ti-linkedin"></span>brucelam1a</a></li>
+          <li><a> member - Charles Carlson:</a></li>
+          <li><a href="https://www.linkedin.com/in/charles-carlson-14aa1090/"><span
+                class="ti-linkedin"></span>charles-carlson-14aa1090</a></li>
+          <li><a> member - Sam Shih:</a></li>
+          <li><a href="https://www.linkedin.com/in/sam-shih-812616117/"><span
+                class="ti-linkedin"></span>sam-shih-812616117</a></li>
+          <li><a> member - Young Hoon Kim:</a></li>
+          <li><a href="https://www.linkedin.com/in/younghoonkim29/"><span class="ti-linkedin"></span>younghoonkim29</a>
+          </li>
+          <!-- <li><a>Lecturer - Fereshteh Amini</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /contact bar -->
+
+
+
+  <header>
+
+    <div class="main-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5 col-4">
+            <div class="main-header-logo">
+              <a><img width="150" src="img/PERC1.4.png" alt="Site logo"></a>
+            </div>
+          </div>
+          <div class="col-md-7 col-8">
+            <div class="clearfix float-right contact-head">
+              <!-- <a style="color: white;">Login</a> -->
+              <button class="btn-show navbar-toggler float-right btn-contact"><span class="ti-menu"></span></button>
+            </div>
+            <nav id="navigation" class="navigation mt-10">
+              <div class="nav-toggle"></div>
+              <div class="nav-search">
+                <div class="nav-search-button">
+                  <span class="ti-search"></span>
+                </div>
+                <form>
+                  <div class="nav-search-inner">
+                    <input type="search" name="search" placeholder="Type and hit ENTER" />
+                  </div>
+                </form>
+              </div>
+
+              <div class="nav-menus-wrapper">
+
+                <ul class="nav-menu align-to-right">
+                  <li><a class="active" href="#">Home</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="index.html">Home</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Location Recommender</a>
+                    <ul class="nav-dropdown">
+                      <li><a href=".\places new2.html">Location Recommender</a></li>
+                    </ul>
+                  </li>
+                  <!-- <li><a href="#">Visualization</a>
+                    <ul class="nav-dropdown">
+                          <li><a href="Supervisor View.html">Visualization</a></li>
+                    </ul>
+                  </li> -->
+                  <!-- <li><a href="#">景點排程</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="site.html">景點排程</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">路線規劃</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="routeplanning.html">路線規劃</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">行程彙總</a>
+                    <ul class="nav-dropdown">
+                      <li><a href="itinerary.html">行程彙總</a></li>
+                    </ul>
+                  </li> -->
+                  <!-- <li><a href="contact.html">Contact Us</a></li> -->
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- / header -->
+
+  <!-- page-head -->
+
+  <div class="page-head white-content">
+    <!-- <div class="height80vh parallax-container" style="background-image: url(img/Berkeley1.jpg);"> -->
+    <div class="height70vh parallax-container" style="background-image: url(img/Berkeley1.jpg);">
+      <div class="page-head-wrap">
+        <div class="display-r">
+          <div class="display-a">
+            <h1 class="big-title mt-10">Location Recommender</h1>
+            <div class="container">
+              <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                <div class="col-md-12">
+                  <!-- <nav aria-label="breadcrumb"> -->
+                  <!-- <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="index.html">2</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Location Recommender</li>
+                    </ol> -->
+                  <!-- </nav> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- / page-head -->
+
+
+
+
+
+
+  <section class="ftco-section">
+    <div class="container col-lg-12">
+      <div class="row">
+        <div class="col-lg-2 sidebar order-md-last ftco-animate">
+          <div class="sidebar-wrap ftco-animate">
+            <h3 class="heading mb-4">Find City</h3>
+            <!-- <form action="#"> -->
+            <div class="fields">
+              <div class="form-group">
+                <!-- <input type="text" class="form-control" placeholder="Destination, City"
+                id="search_keyword"> -->
+              </div>
+              <div class="form-group">
+                <div class="select-wrap one-third">
+                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                  <select name="" id="OriSiteDropDown" class="form-control" placeholder="Keyword search">
+                    <option value="Origin City">Origin</option>
+                    <option value="Philadelphia">Philadelphia</option>
+                    <option value="New Orleans">New Orleans</option>
+                    <option value="Reno">Reno</option>
+                    <option value="Tucson">Tucson</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="select-wrap one-third">
+                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                  <select name="" id="DestSiteDropDown" class="form-control" placeholder="Keyword search">
+                    <option value="Destination City">Destination</option>
+                    <option value="Philadelphia">Philadelphia</option>
+                    <option value="New Orleans">New Orleans</option>
+                    <option value="Reno">Reno</option>
+                    <option value="Tucson">Tucson</option>
+                    <option value="Media">Media</option>
+                    <option value="Doylestown">Doylestown</option>
+                  </select>
+                </div>
+              </div>
+              <!-- <div class="form-group">
+              <input type="text" id="checkin_date" class="form-control checkin_date"
+                placeholder="Date from">
+            </div>
+            <div class="form-group">
+              <input type="text" id="checkout_date" class="form-control checkout_date"
+                placeholder="Date to">
+            </div> -->
+              <h3 class="heading mb-4">Select Star Range In Origin</h3>
+              <div class="form-group">
+                <div class="range-slider">
+                  <!-- Price input bar -->
+                  <span>
+                    <input type="number" value="1" min="1" max="5" id="price_input_lower" />
+                    <input type="number" value="5" min="1" max="5" id="price_input_upper" />
+                  </span>
+
+                  <!-- Price scroll bar -->
+                  <input value="1" min="1" max="5" step="1" type="range" onchange="scroll_bar_lower()"
+                    id="scroll_bar_lower" />
+                  <input value="5" min="1" max="5" step="1" type="range" onchange="scroll_bar_upper()"
+                    id="scroll_bar_upper" />
+                  </svg>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary py-3 px-5" onclick="searchfunc()">
+                <!-- Click on the search button to search for sites -->
+              </div>
+            </div>
+            <!-- </form> -->
+          </div>
+          <div class="sidebar-wrap ftco-animate">
+            <!-- <h3 class="heading mb-4">Star Rating</h3>
+          <form method="post" class="star-rating">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">
+                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
+                      class="icon-star"></i><i class="icon-star"></i><i
+                      class="icon-star"></i></span></p>
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">
+                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
+                      class="icon-star"></i><i class="icon-star"></i><i
+                      class="icon-star-o"></i></span></p>
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">
+                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
+                      class="icon-star"></i><i class="icon-star-o"></i><i
+                      class="icon-star-o"></i></span></p>
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">
+                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i
+                      class="icon-star-o"></i><i class="icon-star-o"></i><i
+                      class="icon-star-o"></i></span></p>
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">
+                <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i
+                      class="icon-star-o"></i><i class="icon-star-o"></i><i
+                      class="icon-star-o"></i></span></p>
+              </label>
+            </div>
+          </form> -->
+          </div>
+        </div>
+        <!-- Side Bar Session END-->
+
+
+
+
+
+
+        <!-- Main Section of origin and destination sites -->
+        <div class="col-lg-9">
+          <!-- Function of webpage -->
+          <div class="main-block bg-gray" id="UserGuide">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="text-center block width100 mb-30 block-title">
+                    <h2>A Simple Way To Find Your Desired Locations</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <!-- Infography item style 2 -->
+                <div class="col-md-3">
+                  <div class="infography infography-2 text-center">
+                    <i class="ti-direction-alt icons"></i>
+                    <div class="infography-title" style="font-size: 16px; font-weight:bold">
+                      <!-- <h4>1.Origin and Destinations</h4> -->
+                    </div>
+                    <div class="infography-description" style="font-size: 16px; font-weight:bold">1.Select your origin
+                      and destination
+                    </div>
+                  </div>
+                </div>
+                <!-- / Infography item style 2 -->
+
+                <!-- Infography item style 2 -->
+                <div class="col-md-3">
+                  <div class="infography infography-2 text-center">
+                    <i class="ti-location-pin icon"></i>
+                    <div class="infography-title" style="font-size: 16px; font-weight:bold">
+                      <!-- <h4>2.Select Locations</h4> -->
+                    </div>
+                    <div class="infography-description" style="font-size: 16px; font-weight:bold">
+                      2.Click your favorable locations in the origin
+                    </div>
+                  </div>
+                </div>
+                <!-- / Infography item style 2 -->
+
+                <!-- Infography item style 2 -->
+                <div class="col-md-3">
+                  <div class="infography infography-2 text-center">
+                    <i class="ti-layout-accordion-list icons"></i>
+                    <div class="infography-title" style="font-size: 16px; font-weight:bold">
+                      <!-- <h4>3.Analysis</h4> -->
+                    </div>
+                    <div class="infography-description" style="font-size: 16px; font-weight:bold">
+                      3.We recomend locations in the destination.
+                    </div>
+                  </div>
+                </div>
+                <!-- / Infography item style 2 -->
+
+                <!-- Infography item style 2 -->
+                <div class="col-md-3">
+                  <div class="infography infography-2 text-center">
+                    <i class="ti-bookmark-alt icons"></i>
+                    <div class="infography-title" style="font-size: 16px; font-weight:bold">
+                      <!-- <h4>4.Visualization</h4> -->
+                    </div>
+                    <div class="infography-description" style="font-size: 16px; font-weight:bold">
+                      4.Add preferred locations into your itinerary</div>
+                  </div>
+                </div>
+                <!-- / Infography item style 2 -->
+
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Main Section with origin and destination sites -->
+          <h3 id="OriginCityHeader" class="heading mb-4"></h3>
+          <!-- <div class="row" id="OriLocationCol" style="background-color:#ffc107;"> -->
+          <div class="row" id="OriLocationCol"></div>
+
+          <div class="row mt-5"></div>
+          <div class="row mt-5"></div>
+          <h3 id="DestinationCityHeader" class="heading mb-4"></h3>
+          <div class="row" id="DestLocationCol"></div>
+
+
+        </div>
+        <!-- .col-md-8 -->
+      </div>
+    </div>
+  </section> <!-- .section -->
+
+  <!-- Itinerary and route planning section -->
+  <!-- <div class="content mt-60 mb-40 container"> -->
+  <!-- <section class="ftco-section"></section> -->
+  <div class="container col-lg-12">
+    <div class="row">
+
+
+      <!-- Itinerary -->
+      <div class="col-md-2">
+        <div class="sidebar">
+
+          <!-- accordion-2 -->
+          <!-- <div class="sidebar-title" style="margin-right: 20px;font-weight: 900">Itinerary</div> -->
+          <h3 class="heading mb-4">Itinerary</h3>
+          <!-- <span class="sidebar-title" style="margin-bottom: 30px">April 26, 2018</span> -->
+          <ul id="ulist" class="accordion-element accordion-2">
+            <li>
+              <a class="toggle" style="background:#f9be37">Start</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- route planning-->
+      <div class="col-md-10">
+        <!-- <p class="sidebar-title" style="font-weight: 900">Route Planning</p> -->
+        <h3 class="heading mb-4">Route Planning</h3>
+        <div id="map" style="border: 1px solid #eee; height: 550px; width:900px;"></div>
+      </div>
+    </div>
+  </div>
+  <!-- </section> -->
+
+
+
+
+  <div class="row mt-5">
+    <div class="col text-center">
+      <div class="block-27">
+        <ul>
+          <!-- <li><a href="#">&lt;</a></li> -->
+          <li class="active"><span>1</span></li>
+          <!-- <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&gt;</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- BLOCK / news -->
+
+  <footer class="dark-footer" style="background-image: url(img/image-20.jpg);">
+    <div class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="footer-item">
+              <img width="150" src="img/PERC1.6.png" alt="Logo">
+              <div class="mt-20 mb-20">
+                <!-- <button type="button" class="btn btn-1 btn-sm" data-toggle="modal" data-target="#newsletterModal">
+                      Newsletter signup
+                    </button> -->
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-sm" id="newsletterModal" tabindex="-1" role="dialog"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Newsletter Signup</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form id="subscribe-form" class="form-block" novalidate="novalidate">
+                          <div class="form-group mt-20 subscribe-form">
+                            <small id="emailHelp" class="form-text text-muted">Subscribe now and recieve a 50%
+                              discount
+                              on your next tour booking</small>
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email">
+                          </div>
+                          <div class="mt-10 mb-10 float-right">
+                            <button type="button" class="btn btn-2 btn-sm" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-1 btn-sm">Sign Up</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="footer-item">
+              <ul class="footer-menu">
+                <li><a href="index.html">Home Page</a></li>
+                <!-- <li><a href="tripplan.html">Route Scheduling</a></li> -->
+                <!-- <li><a href="regionselection.html">地區選擇</a></li> -->
+                <!-- <li><a href="site.html">景點排程</a></li> -->
+                <li><a href=".\places new2.html">Location Recommender</a></li>
+                <!-- <li><a href="Supervisor View.html">Visualization</a></li> -->
+                <!-- <li><a href="contact.html">Contact Us</a></li> -->
+              </ul>
+              <!-- <p class="mt-40" style="font-weight:bold;color: #FFF">TravelGo
+                  志在提供一個友善的旅遊規劃平台，幫助大眾在最短的時間完成行程規劃，不再為行程而煩惱，可以充份享受他們的假期時光</p> -->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="footer-item">
+              <!-- <ul class="mb-20">
+                    <li>1800-2345-5677</li>
+                    <li class="mt-10"><a href="mailto:">info@voyagetime.com</a></li>
+                    <li class="mt-10">610 Broadway New York, NY 10012</li>
+                  </ul> -->
+
+            </div>
+
+            <!-- <div class="footer-item">
+              <ul class="footer-social mt-20">
+                <li><a target="_blank" href="#"><i class="fab fa-pinterest"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                <li><a target="_blank" href="#"><i class="fab fa-tumblr"></i></a></li>
+              </ul>
+
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="bottom-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+              </div>
+              <div class="col-md-6 text-r mobile-left">
+                <p><img width="200" src="img/visa-mastercard-paypal.png" alt="Visa Mastercard Paypal"></p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+  </footer>
+
+  <!-- SCROLL UP -->
+  <a class="scrollup">
+    <i class="icon-arrow-up icons"></i>
+  </a>
+  <!-- / SCROLL UP -->
+
+  <!-- JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/moment.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/bootstrap-slider.min.js"></script>
+  <script src="js/vendor/bootstrap-datetimepicker.min.js"></script>
+  <script src="js/vendor/owl.carousel.min.js"></script>
+  <script src="js/vendor/navigation.js"></script>
+  <script src="js/vendor/modernizr.js"></script>
+  <script src="js/vendor/jqueryvalidation.js"></script>
+  <script src="js/vendor/jquery.viewbox.min.js"></script>
+  <script src="js/vendor/masonry.min.js"></script>
+  <script src="js/vendor/imagesloaded.js"></script>
+  <script src="js/vendor/jquery.waypoints.min.js"></script>
+  <script src="js/vendor/jquery.sticky-kit.min.js"></script>
+
+  <script src="js/main.js"></script>
+</body>
+
+<script>
+
+
+
+
+  //<<< Origin Locations >>>
+  // Loading the location info from Json
+  var request = new XMLHttpRequest();
+  request.open("GET", "user_based_final.json", false);
+  request.send(null);
+
+
+
+  var Origin_site_data = JSON.parse(request.responseText);
+  
+
+  
+
+
+  var Origin_sites_series_Data = Origin_site_data['data']
+  console.log(Origin_sites_series_Data)
+
+  // Remove duplicate based on the business id field in Json
+  const Origin_sites_series = Origin_sites_series_Data.filter((item, index) => {
+    // Check if the index of the first occurrence of the object with the same name is equal to the current index
+    return index === Origin_sites_series_Data.findIndex(obj => {
+      return obj.business_id === item.business_id;
+    });
+  });
+
+
+  // Create a blank LocationCol
+  function Origin_showsites(new_sites_series) {
+    document.getElementById('OriLocationCol').innerHTML = ''
+
+    // Create HTML elements for each sites in the site_series
+    for (i = 0; i < new_sites_series.length; i++) {
+
+      // Create star icon based on the rates of each location
+      var rating_score = '';
+      for (j = 0; j < Math.floor(new_sites_series[i].Rec_final_score); j++) {
+        rating_score += '<i class="icon-star"></i>'
+      }
+      // <a href="${new_sites_series[i].photo}" onclick="Ori_location_select()" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}'); ">
+
+
+      document.getElementById('OriLocationCol').insertAdjacentHTML('beforeend',
+        `
+						<div class="col-sm col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated OriginLocationSec">
+							<div class="destination" id="${new_sites_series[i].business_id}" onclick="Ori_location_select(this)">
+								<a class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}'); margin-top: 15pt">
+									<div class="icon d-flex justify-content-center align-items-center">
+										<span class="icon-link"></span>
+									</div>
+								</a>
+								<div class="text p-3 London">
+									<div class="d-flex London">
+										<div class="one London">
+											<h3><a href=${new_sites_series[i].Map}>${new_sites_series[i].name}</a></h3>
+											<p class="rate">
+												${rating_score}
+												<span>${Math.floor(new_sites_series[i].Rec_final_score)}</span>
+											</p>
+										</div>
+										<div class="two">
+											<span class="price"></span>
+										</div>
+									</div>
+									<p class="days"><span>${new_sites_series[i].address}</span></p>
+									<hr>
+									<p class="bottom-area d-flex">
+										<span><i class="icon-map-o"></i>${new_sites_series[i].city}</span> 
+										<span class="ml-auto"><a href="${new_sites_series[i].Map}">Map</a></span>
+									</p>
+								</div>
+							</div>
+						</div>
+					`
+
+      )
+    }
+
+  }
+
+
+  //<<< Destination Locations >>>
+  // Loading the location info from Json
+  var request_dest = new XMLHttpRequest();
+  request_dest.open("GET", "user_based_final.json", false);
+  request_dest.send(null);
+  var site_data = JSON.parse(request_dest.responseText);
+  var sites_series = site_data['data']
+  // console.log(sites_series)
+
+  // Create a blank LocationCol
+  function Dest_showsites(new_sites_series) {
+    document.getElementById('DestLocationCol').innerHTML = ''
+
+    // Create HTML elements for each sites in the site_series
+    for (i = 0; i < new_sites_series.length; i++) {
+
+      // Create star icon based on the rates of each location
+      var rating_score = '';
+      for (j = 0; j < new_sites_series[i].Rec_final_score; j++) {
+        rating_score += '<i class="icon-star"></i>'
+      }
+
+
+      document.getElementById('DestLocationCol').insertAdjacentHTML('beforeend',
+        `
+						<div class="col-sm col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated">
+							<div class="destination">
+								<a href="${new_sites_series[i].photo}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}');">
+									<div class="icon d-flex justify-content-center align-items-center">
+										<span class="icon-link"></span>
+									</div>
+								</a>
+								<div class="text p-3 London">
+									<div class="d-flex London">
+										<div class="one London">
+											<h3><a href=${new_sites_series[i].Map}>${new_sites_series[i].name}</a></h3>
+											<p class="rate">
+												${rating_score}
+												<span>${Math.floor(new_sites_series[i].Rec_final_score)}</span>
+											</p>
+										</div>
+										<div class="two">
+											<span class="price">${new_sites_series[i].Rec_final_rank}</span>
+                      <button name=${new_sites_series[i].business_id} type="submit" value=${new_sites_series[i].business_id} class="btn btn-primary py-0.5 px-0.5" onclick="AddLocation(this)">Add</button>
+										</div>
+									</div>
+									<p class="days"><span>${new_sites_series[i].address}</span></p>
+									<hr>
+									<p class="bottom-area d-flex">
+										<span><i class="icon-map-o"></i>${new_sites_series[i].city}</span> 
+										<span class="ml-auto"><a href="${new_sites_series[i].Map}">Map</a></span>
+                    </p>
+                    </div>
+                    </div>
+                    </div>
+                    `
+                    
+                    )
+                  }
+                  
+                }
+                // <span class="ml-auto"><a href=https://www.google.com/search?q="${new_sites_series[i].name}">Search</a></span>
+
+  // Call the showsites function we defined above
+  // Dest_showsites(sites_series)
+  // location = []
+  function AddLocation(LocationAdded) {
+
+    ori_sites = Origin_sites_series
+    ori_sites = ori_sites.filter(x => x.business_id == LocationAdded.value)
+
+    locations.push(ori_sites[0])
+    // console.log(locations)
+    document.getElementById('ulist').insertAdjacentHTML('beforeend',
+      `
+      <li style="background-color: rgb(245, 245, 245);">
+        <a class="toggle current" data-item="item-11" id="newappendid">${ori_sites[0].name}</a>
+      </li>
+      `
+    )
+    initialize_map()
+      ;
+  }
+
+
+
+
+
+  //<<< Side Bar Control Panel >>>
+  // Enable the price scroll bar to sync the value with price input box
+  function scroll_bar_upper() {
+    document.getElementById('price_input_upper').value = parseInt(document.getElementById('scroll_bar_upper').value)
+  }
+  function scroll_bar_lower() {
+    document.getElementById('price_input_lower').value = parseInt(document.getElementById('scroll_bar_lower').value)
+  }
+
+  // Enable the site search function for the side bar in the HTML
+  function searchfunc() {
+    var select_ori_site = document.getElementById('OriSiteDropDown').value
+
+    var ori_sites = Origin_sites_series;
+    console.log('Origin site selected:',select_ori_site)
+    var select_dest_site = document.getElementById('DestSiteDropDown').value
+    var dest_sites = sites_series;
+    console.log('Destination site selected:',select_dest_site)
+    
+    var upper_star_val = parseInt(document.getElementById('price_input_upper').value = document.getElementById('scroll_bar_upper').value)
+    var lower_star_val = parseInt(document.getElementById('price_input_lower').value = document.getElementById('scroll_bar_lower').value)
+    // console.log(lower_star_val)
+
+    // Filter sites based on Origin city
+
+    if (select_ori_site != 'Origin City') {
+      // ori_sites = ori_sites.filter(x => x.city == select_ori_site && x.Rec_final_score <= upper_star_val && x.Rec_final_score >=lower_star_val && x.photo.slice(0, 4)=='http')
+      ori_sites = ori_sites.filter(x => x.city == select_ori_site && Number(x.Rec_final_score) <= upper_star_val && Number(x.Rec_final_score) >=lower_star_val && x.photo.slice(0, 4)=='http')
+    }
+
+    if (select_dest_site != 'Destination City') {
+      dest_sites = dest_sites.filter(x => x.city == select_dest_site)
+    }
+
+
+    Origin_showsites(ori_sites)
+    document.getElementById('OriginCityHeader').innerHTML = 'Click on a Preferred Location in Origin'
+    document.getElementById('UserGuide').style.display = "none"
+
+  }
+
+  // Filter the destination sites based on the origin sites selected
+  function Ori_location_select(select_element) {
+    console.log(select_element.id)
+
+    var ori_sites = Origin_sites_series
+    var select_dest_site = document.getElementById('DestSiteDropDown').value
+    var dest_sites = sites_series
+    var ori_sites_selected_ID = select_element.id
+
+    // Validate if destination dropdown are selected
+    if (select_dest_site != 'Destination City') {
+      dest_sites = dest_sites.filter(x => x.city == select_dest_site && x.Target_business_id == ori_sites_selected_ID)
+      // && x.photo.slice(0, 4)=='http'
+
+    } else {
+      dest_sites = dest_sites.filter(x => x.Target_business_id == ori_sites_selected_ID)
+      // && x.photo.slice(0, 4)=='http'
+
+    }
+
+    ori_sites = ori_sites.filter(x => x.business_id == ori_sites_selected_ID)
+
+    // If there are multiple sites with the same id, only show it once 
+    Origin_showsites([ori_sites[0]])
+    Dest_showsites(dest_sites);
+    document.getElementById('OriginCityHeader').innerHTML = 'Selected Location in Origin'
+    document.getElementById('DestinationCityHeader').innerHTML = 'Recommended Location in Destination'
+
+    // Change the backgound color of the original location panel 
+    document.getElementsByClassName('OriginLocationSec')[0].style.backgroundColor = "#ffc107"
+
+
+    // Add in Back button to back to origin location selection
+    document.getElementById('OriginCityHeader').insertAdjacentHTML('beforeend',
+      `
+          <input type="submit" value="Back" class="btn btn-primary py-2 px-3" onclick="searchfunc()">
+          `
+      // <span class="ml-auto" onclick="searchfunc()"><a>Back</a></span>
+    )
+    document.getElementById('DestinationCityHeader').insertAdjacentHTML('beforeend',
+      `
+          <input type="submit" value="Back" class="btn btn-primary py-2 px-3" onclick="searchfunc()">
+          `
+      // <span class="ml-auto" onclick="searchfunc()"><a>Back</a></span>
+    )
+
+
+  }
+
+
+  // Create maps
+  locations = []
+
+  var geocoder;
+  var map;
+  var directionsDisplay;
+  var directionsService = new google.maps.DirectionsService();
+
+  function initialize_map() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 5,
+      center: new google.maps.LatLng(locations[locations.length - 1].latitude, locations[locations.length - 1].longitude),
+      // center: new google.maps.LatLng(29.9583779, -90.0651654),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    directionsDisplay.setMap(map);
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+    var request = {
+      travelMode: google.maps.TravelMode.DRIVING
+    };
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i]["latitude"], locations[i]["longitude"]),
+      });
+
+      google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        return function () {
+          // infowindow.setContent(locations[i]["name"]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+
+      if (i == 0) request.origin = marker.getPosition();
+      else if (i == locations.length - 1) request.destination = marker.getPosition();
+      else {
+        if (!request.waypoints) request.waypoints = [];
+        request.waypoints.push({
+          location: marker.getPosition(),
+          stopover: true
+        });
+      }
+
+    }
+    directionsService.route(request, function (result, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(result);
+      }
+    });
+  }
+  // google.maps.event.addDomListener(window, "load", initialize_map);
+  // initialize_map()
+
+</script>
+
+
+</html>
