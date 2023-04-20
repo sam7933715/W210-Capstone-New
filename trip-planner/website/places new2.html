@@ -276,12 +276,15 @@
                     <option value="New Orleans">New Orleans</option>
                     <option value="Reno">Reno</option>
                     <option value="Tucson">Tucson</option>
+                    <option value="Media">Media</option>
+                    <option value="Doylestown">Doylestown</option>
                   </select>
                 </div>
               </div>
 
-
-              <div class="form-group">
+              <!-- Destination selection is being hidden for demo website -->
+              <!-- <div class="form-group" style="display:none;"> -->
+              <div class="form-group" style="display:none;">
                 <div class="select-wrap one-third">
                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                   <select name="" id="DestSiteDropDown" class="form-control" placeholder="Keyword search">
@@ -303,7 +306,7 @@
               <input type="text" id="checkout_date" class="form-control checkout_date"
                 placeholder="Date to">
             </div> -->
-              <h3 class="heading mb-4">Select Stars In Origin</h3>
+              <h3 class="heading mb-4">Select Star Range In Origin</h3>
               <div class="form-group">
                 <div class="range-slider">
                   <!-- Price input bar -->
@@ -444,7 +447,7 @@
                       <!-- <h4>4.Visualization</h4> -->
                     </div>
                     <div class="infography-description" style="font-size: 16px; font-weight:bold">
-                      4.Add preferred locations into you itinerary</div>
+                      4.Add preferred locations into your itinerary</div>
                   </div>
                 </div>
                 <!-- / Infography item style 2 -->
@@ -666,10 +669,6 @@
 
 
   var Origin_site_data = JSON.parse(request.responseText);
-  
-
-  
-
 
   var Origin_sites_series_Data = Origin_site_data['data']
   console.log(Origin_site_data)
@@ -692,7 +691,7 @@
 
       // Create star icon based on the rates of each location
       var rating_score = '';
-      for (j = 0; j < Math.round(new_sites_series[i].Rec_user_score); j++) {
+      for (j = 0; j < Math.floor(new_sites_series[i].Rec_user_score); j++) {
         rating_score += '<i class="icon-star"></i>'
       }
       // <a href="${new_sites_series[i].photo}" onclick="Ori_location_select()" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('${new_sites_series[i].photo}'); ">
@@ -713,7 +712,7 @@
 											<h3><a href=${new_sites_series[i].Map}>${new_sites_series[i].name}</a></h3>
 											<p class="rate">
 												${rating_score}
-												<span>${Math.round(new_sites_series[i].Rec_user_score)}</span>
+												<span>${Math.floor(new_sites_series[i].Rec_user_score)}</span>
 											</p>
 										</div>
 										<div class="two">
@@ -724,7 +723,7 @@
 									<hr>
 									<p class="bottom-area d-flex">
 										<span><i class="icon-map-o"></i>${new_sites_series[i].city}</span> 
-										<span class="ml-auto"><a href="${new_sites_series[i].Map}">Discover</a></span>
+										<span class="ml-auto"><a href="${new_sites_series[i].Map}">Map</a></span>
 									</p>
 								</div>
 							</div>
@@ -755,7 +754,7 @@
 
       // Create star icon based on the rates of each location
       var rating_score = '';
-      for (j = 0; j < new_sites_series[i].Rec_user_score; j++) {
+      for (j = 0; j < Math.floor(new_sites_series[i].Rec_user_score); j++) {
         rating_score += '<i class="icon-star"></i>'
       }
 
@@ -775,7 +774,7 @@
 											<h3><a href=${new_sites_series[i].Map}>${new_sites_series[i].name}</a></h3>
 											<p class="rate">
 												${rating_score}
-												<span>${Math.round(new_sites_series[i].Rec_user_score)}</span>
+												<span>${Math.floor(new_sites_series[i].Rec_user_score)}</span>
 											</p>
 										</div>
 										<div class="two">
@@ -787,17 +786,18 @@
 									<hr>
 									<p class="bottom-area d-flex">
 										<span><i class="icon-map-o"></i>${new_sites_series[i].city}</span> 
-										<span class="ml-auto"><a href="${new_sites_series[i].Map}">Discover</a></span>
-                  </p>
-                  </div>
-							</div>
-						</div>
-					`
-
-      )
-    }
-
-  }
+										<span class="ml-auto"><a href="${new_sites_series[i].Map}">Map</a></span>
+                    </p>
+                    </div>
+                    </div>
+                    </div>
+                    `
+                    
+                    )
+                  }
+                  
+                }
+                // <span class="ml-auto"><a href=https://www.google.com/search?q="${new_sites_series[i].name}">Search</a></span>
 
   // Call the showsites function we defined above
   // Dest_showsites(sites_series)
@@ -854,7 +854,7 @@
     }
 
     if (select_dest_site != 'Destination City') {
-      dest_sites = dest_sites.filter(x => x.city == select_dest_site)
+      dest_sites = dest_sites.filter(x => x.city == select_dest_site && x.photo.slice(0, 4)=='http')
     }
 
 
@@ -875,11 +875,11 @@
 
     // Validate if destination dropdown are selected
     if (select_dest_site != 'Destination City') {
-      dest_sites = dest_sites.filter(x => x.city == select_dest_site && x.Target_business_id == ori_sites_selected_ID)
+      dest_sites = dest_sites.filter(x => x.city == select_dest_site && x.Target_business_id == ori_sites_selected_ID  && x.photo.slice(0, 4)=='http')
       // && x.photo.slice(0, 4)=='http'
 
     } else {
-      dest_sites = dest_sites.filter(x => x.Target_business_id == ori_sites_selected_ID)
+      dest_sites = dest_sites.filter(x => x.Target_business_id == ori_sites_selected_ID   && x.photo.slice(0, 4)=='http')
       // && x.photo.slice(0, 4)=='http'
 
     }
